@@ -16,8 +16,10 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const SITE_URL = 'https://salesio.github.io/clapsa';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://clapsa.co.za'),
+  metadataBase: new URL(SITE_URL),
   title: 'CLAPSA Procurement | One Source Supply Solutions & Portfolio Showcase',
   description: 'Premier South African procurement partner for corporate uniforms, high-density embroidery, certified SABS industrial PPE, branded gazebos/displays, and VIP corporate gifting across SADC.',
   keywords: [
@@ -32,14 +34,30 @@ export const metadata: Metadata = {
     'SADC Procurement Logistics'
   ],
   icons: {
-    icon: '/images/logo-badge.png',
+    icon: '/clapsa/images/logo-badge.png',
   },
   openGraph: {
     title: 'CLAPSA Procurement | One Source Supply Solutions',
     description: 'Corporate apparel, certified industrial PPE, outdoor displays, and VIP corporate gifts for leading enterprises in South Africa and SADC.',
-    images: ['/images/logo.png'],
+    url: SITE_URL,
+    siteName: 'CLAPSA Procurement',
+    images: [
+      {
+        url: `${SITE_URL}/images/media/Unknown1.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'CLAPSA Procurement — Corporate Supply Solutions',
+      },
+    ],
     type: 'website',
-  }
+    locale: 'en_ZA',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CLAPSA Procurement | One Source Supply Solutions',
+    description: 'Corporate apparel, certified industrial PPE, outdoor displays, and VIP corporate gifts for leading enterprises in South Africa and SADC.',
+    images: [`${SITE_URL}/images/media/Unknown1.jpg`],
+  },
 };
 
 export default function RootLayout({

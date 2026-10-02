@@ -22,6 +22,7 @@ ghpages.publish(
     dotfiles: true,
     branch: 'gh-pages',
     message: 'Deploy modern CLAPSA showcase and catalogue to GitHub Pages',
+    force: true,
   },
   (err) => {
     if (err) {
