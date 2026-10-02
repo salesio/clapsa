@@ -13,13 +13,14 @@ import {
   Menu, 
   X, 
   ShieldCheck, 
-  ChevronRight,
+  ChevronRight, 
   MessageSquare,
   Sun,
   Moon,
   Sliders,
   Sparkles
 } from 'lucide-react';
+import { getAssetPath } from '@/utils/assetPath';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -105,7 +106,7 @@ export default function Navbar() {
           <Link href="#home" className="flex items-center gap-3 group shrink-0">
             <div className="relative w-36 h-11 flex items-center">
               <Image
-                src="/images/logo.png"
+                src={getAssetPath('/images/logo.png')}
                 alt="CLAPSA Procurement Logo"
                 fill
                 className="object-contain"

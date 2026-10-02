@@ -16,6 +16,7 @@ import {
   User,
   Phone
 } from 'lucide-react';
+import { getAssetPath } from '@/utils/assetPath';
 
 export default function QuoteDrawer() {
   const { 
@@ -145,7 +146,7 @@ export default function QuoteDrawer() {
                       {/* Image Thumbnail */}
                       <div className="relative w-16 h-16 rounded-lg bg-white dark:bg-slate-900 shrink-0 overflow-hidden border border-slate-200 dark:border-slate-800">
                         <Image
-                          src={item.product.image}
+                          src={getAssetPath(item.product.image)}
                           alt={item.product.name}
                           fill
                           className="object-contain p-1"

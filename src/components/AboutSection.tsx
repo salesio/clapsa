@@ -8,6 +8,7 @@ import {
   Award, 
   Building
 } from 'lucide-react';
+import { getAssetPath } from '@/utils/assetPath';
 
 export default function AboutSection() {
   const { data } = useContent();
@@ -24,7 +25,7 @@ export default function AboutSection() {
             <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xl p-6 space-y-6">
               <div className="relative h-64 w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900">
                 <Image
-                  src="/images/media/workwear.jpg"
+                  src={getAssetPath('/images/media/workwear.jpg')}
                   alt="CLAPSA Procurement Operations"
                   fill
                   className="object-cover"

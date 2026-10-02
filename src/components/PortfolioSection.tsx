@@ -14,6 +14,7 @@ import {
   MessageSquare,
   Sparkles
 } from 'lucide-react';
+import { getAssetPath } from '@/utils/assetPath';
 
 type CategoryFilter = 'all' | 'corporate' | 'ppe' | 'display' | 'security' | 'gifting';
 
@@ -94,7 +95,7 @@ export default function PortfolioSection() {
               {/* Image Container with Badge */}
               <div className="relative h-64 w-full bg-slate-100 dark:bg-slate-950 overflow-hidden">
                 <Image
-                  src={project.image}
+                  src={getAssetPath(project.image)}
                   alt={project.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -186,7 +187,7 @@ export default function PortfolioSection() {
             {/* Modal Image */}
             <div className="relative h-72 sm:h-80 w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
               <Image
-                src={selectedProject.image}
+                src={getAssetPath(selectedProject.image)}
                 alt={selectedProject.title}
                 fill
                 className="object-cover"

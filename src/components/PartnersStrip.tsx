@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useContent } from '@/context/ContentContext';
 import { ShieldCheck, Building2 } from 'lucide-react';
+import { getAssetPath } from '@/utils/assetPath';
 
 export default function PartnersStrip() {
   const { data } = useContent();
@@ -34,7 +35,7 @@ export default function PartnersStrip() {
             >
               <div className="relative w-24 h-12 flex items-center justify-center filter grayscale group-hover:grayscale-0 contrast-125 group-hover:scale-105 transition-all duration-300">
                 <Image
-                  src={partner.image}
+                  src={getAssetPath(partner.image)}
                   alt={`${partner.name} Trade Supplier`}
                   fill
                   className="object-contain"

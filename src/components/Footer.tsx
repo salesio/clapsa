@@ -13,6 +13,7 @@ import {
   MessageSquare,
   Sliders
 } from 'lucide-react';
+import { getAssetPath } from '@/utils/assetPath';
 
 export default function Footer() {
   const { data } = useContent();
@@ -34,7 +35,7 @@ export default function Footer() {
               <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center p-2.5 shadow-lg border-2 border-white/80 shrink-0">
                 <div className="relative w-full h-full">
                   <Image
-                    src="/images/logo.png"
+                    src={getAssetPath('/images/logo.png')}
                     alt="CLAPSA Procurement"
                     fill
                     className="object-contain"

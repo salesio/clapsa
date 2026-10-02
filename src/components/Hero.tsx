@@ -10,6 +10,7 @@ import {
   Sparkles,
   PhoneCall
 } from 'lucide-react';
+import { getAssetPath } from '@/utils/assetPath';
 
 export default function Hero() {
   const { data } = useContent();
@@ -96,7 +97,7 @@ export default function Hero() {
               {/* Showcase Image */}
               <div className="relative h-80 sm:h-96 w-full rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-950">
                 <Image
-                  src={hero.featuredProject.image}
+                  src={getAssetPath(hero.featuredProject.image)}
                   alt={hero.featuredProject.title}
                   fill
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-700"

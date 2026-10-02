@@ -15,6 +15,7 @@ import {
   MessageSquare,
   ShoppingBag
 } from 'lucide-react';
+import { getAssetPath } from '@/utils/assetPath';
 
 type ProductCategory = 'all' | 'footwear' | 'display' | 'ppe' | 'medical';
 
@@ -114,7 +115,7 @@ export default function CatalogueSection() {
                 {/* Image Frame */}
                 <div className="relative h-56 w-full rounded-xl bg-white dark:bg-slate-950 overflow-hidden mb-4 border border-slate-200 dark:border-slate-800/80">
                   <Image
-                    src={product.image}
+                    src={getAssetPath(product.image)}
                     alt={product.name}
                     fill
                     className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
