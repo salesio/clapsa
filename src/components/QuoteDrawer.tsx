@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { useQuote } from '@/context/QuoteContext';
 import { useContent } from '@/context/ContentContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { 
   X, 
   Trash2, 
@@ -30,6 +31,7 @@ export default function QuoteDrawer() {
   } = useQuote();
 
   const { data } = useContent();
+  const { t, language } = useLanguage();
   const company = data.company;
 
   const [companyName, setCompanyName] = useState('');
@@ -41,28 +43,62 @@ export default function QuoteDrawer() {
 
   // Build structured message for WhatsApp
   const generateWhatsAppMessage = () => {
-    let msg = `*CLAPSA PROCUREMENT — FORMAL RFQ REQUEST*\n`;
-    msg += `----------------------------------------\n`;
-    if (companyName) msg += `*Company:* ${companyName}\n`;
-    if (contactName) msg += `*Contact Person:* ${contactName}\n`;
-    if (contactPhone) msg += `*Phone:* ${contactPhone}\n`;
-    msg += `\n*REQUESTED ITEMS:*\n`;
+    let header = '*CLAPSA PROCUREMENT — FORMAL RFQ REQUEST*\n';
+    let lblCompany = 'Company';
+    let lblContact = 'Contact Person';
+    let lblPhone = 'Phone';
+    let lblReqItems = 'REQUESTED ITEMS:';
+    let lblQty = 'Quantity';
+    let lblCat = 'Category';
+    let lblRefPrice = 'Ref Price';
+    let lblBranding = 'BRANDING & CUSTOMIZATION NOTES:';
+    let closing = 'Please provide a formal quotation including delivery lead-time to our premises. Thank you!';
+
+    if (language === 'pt') {
+      header = '*CLAPSA APROVISIONAMENTO — PEDIDO FORMAL DE COTAÇÃO (RFQ)*\n';
+      lblCompany = 'Empresa';
+      lblContact = 'Pessoa de Contacto';
+      lblPhone = 'Telefone/WhatsApp';
+      lblReqItems = 'ITENS SOLICITADOS:';
+      lblQty = 'Quantidade';
+      lblCat = 'Categoria';
+      lblRefPrice = 'Preço Ref';
+      lblBranding = 'NOTAS DE PERSONALIZAÇÃO & BORDADOS:';
+      closing = 'Por favor enviem cotação formal incluindo prazo de entrega para as nossas instalações. Muito obrigado!';
+    } else if (language === 'af') {
+      header = '*CLAPSA VOORSIENING — FORMELE RFQ-KWOTASIEVERSOEK*\n';
+      lblCompany = 'Maatskappy';
+      lblContact = 'Kontakpersoon';
+      lblPhone = 'Telefoon/WhatsApp';
+      lblReqItems = 'VERSOEKTE ITEMS:';
+      lblQty = 'Hoeveelheid';
+      lblCat = 'Kategorie';
+      lblRefPrice = 'Verw. Prys';
+      lblBranding = 'HANDELSMERK- & PASMAAKNOTAS:';
+      closing = 'Voorsien asseblief ’n formele kwotasie insluitend afleweringstydperk na ons perseel. Baie dankie!';
+    }
+
+    let msg = `${header}----------------------------------------\n`;
+    if (companyName) msg += `*${lblCompany}:* ${companyName}\n`;
+    if (contactName) msg += `*${lblContact}:* ${contactName}\n`;
+    if (contactPhone) msg += `*${lblPhone}:* ${contactPhone}\n`;
+    msg += `\n*${lblReqItems}*\n`;
 
     items.forEach((item, idx) => {
       msg += `${idx + 1}. *${item.product.name}*\n`;
-      msg += `   - Quantity: ${item.quantity} units\n`;
-      msg += `   - Category: ${item.product.categoryLabel}\n`;
+      msg += `   - ${lblQty}: ${item.quantity} units\n`;
+      msg += `   - ${lblCat}: ${item.product.categoryLabel}\n`;
       if (item.product.indicativePrice) {
-        msg += `   - Ref Price: ${item.product.indicativePrice}\n`;
+        msg += `   - ${lblRefPrice}: ${item.product.indicativePrice}\n`;
       }
     });
 
     if (brandingRequirements) {
-      msg += `\n*BRANDING & CUSTOMIZATION NOTES:*\n${brandingRequirements}\n`;
+      msg += `\n*${lblBranding}*\n${brandingRequirements}\n`;
     }
 
     msg += `\n----------------------------------------\n`;
-    msg += `Please provide a formal quotation including delivery lead-time to our premises. Thank you!`;
+    msg += closing;
 
     return encodeURIComponent(msg);
   };
@@ -77,7 +113,8 @@ export default function QuoteDrawer() {
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (items.length === 0) return;
-    const subject = encodeURIComponent(`Formal RFQ Quote Request - ${companyName || 'Corporate Client'}`);
+    const subjectPrefix = language === 'pt' ? 'Pedido Formal de Cotação (RFQ)' : language === 'af' ? 'Formele RFQ-Kwotasieversoek' : 'Formal RFQ Quote Request';
+    const subject = encodeURIComponent(`${subjectPrefix} - ${companyName || (language === 'pt' ? 'Cliente Corporativo' : language === 'af' ? 'Korporatiewe Kliënt' : 'Corporate Client')}`);
     const body = generateWhatsAppMessage().replaceAll('%0A', '%0D%0A');
     window.location.href = `mailto:${company.salesEmail}?subject=${subject}&body=${body}`;
   };
@@ -100,9 +137,9 @@ export default function QuoteDrawer() {
                 <ShoppingBag className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">Your RFQ Quote Basket</h3>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white">{t.quoteDrawer.title}</h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  {items.length} product line{items.length === 1 ? '' : 's'} selected ({totalItemsCount} total units)
+                  {items.length} {t.quoteDrawer.linesCount} ({totalItemsCount} {t.quoteDrawer.totalUnits})
                 </p>
               </div>
             </div>
@@ -123,16 +160,16 @@ export default function QuoteDrawer() {
                   <ShoppingBag className="w-8 h-8" />
                 </div>
                 <div>
-                  <h4 className="text-base font-bold text-slate-900 dark:text-slate-200">Your Quote Basket is Empty</h4>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-slate-200">{t.quoteDrawer.emptyTitle}</h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-xs mx-auto">
-                    Browse our products or case studies and click &quot;Add to Quote&quot; to build an itemized quotation request.
+                    {t.quoteDrawer.emptyDesc}
                   </p>
                 </div>
                 <button
                   onClick={() => setIsDrawerOpen(false)}
                   className="px-5 py-2.5 rounded-xl bg-rose-600 text-white text-xs font-bold uppercase tracking-wider hover:bg-rose-500 transition-colors"
                 >
-                  Browse Catalogue
+                  {t.quoteDrawer.browseCatalogue}
                 </button>
               </div>
             ) : (
@@ -159,7 +196,7 @@ export default function QuoteDrawer() {
                           {item.product.name}
                         </h5>
                         <p className="text-[11px] text-rose-600 dark:text-rose-400 font-semibold mt-0.5">
-                          {item.product.indicativePrice || 'RFQ Pricing'}
+                          {item.product.indicativePrice || t.quoteDrawer.rfqPricing}
                         </p>
 
                         <div className="flex items-center justify-between mt-2">
@@ -204,14 +241,14 @@ export default function QuoteDrawer() {
                     onClick={clearQuote}
                     className="text-[11px] text-slate-500 dark:text-slate-400 hover:text-rose-600 underline transition-colors"
                   >
-                    Clear entire basket
+                    {t.quoteDrawer.clearBasket}
                   </button>
                 </div>
 
                 {/* Company & Customization Form inside Drawer */}
                 <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-3">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-                    Your Contact & Branding Info
+                    {t.quoteDrawer.contactTitle}
                   </h4>
 
                   <div className="space-y-2">
@@ -219,7 +256,7 @@ export default function QuoteDrawer() {
                       <Building className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                       <input
                         type="text"
-                        placeholder="Company / Organization Name"
+                        placeholder={t.quoteDrawer.companyPlaceholder}
                         value={companyName}
                         onChange={(e) => setCompanyName(e.target.value)}
                         className="w-full pl-9 pr-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-rose-500"
@@ -230,7 +267,7 @@ export default function QuoteDrawer() {
                       <User className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                       <input
                         type="text"
-                        placeholder="Contact Person Name"
+                        placeholder={t.quoteDrawer.contactPlaceholder}
                         value={contactName}
                         onChange={(e) => setContactName(e.target.value)}
                         className="w-full pl-9 pr-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-rose-500"
@@ -241,7 +278,7 @@ export default function QuoteDrawer() {
                       <Phone className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                       <input
                         type="text"
-                        placeholder="Phone / WhatsApp Number"
+                        placeholder={t.quoteDrawer.phonePlaceholder}
                         value={contactPhone}
                         onChange={(e) => setContactPhone(e.target.value)}
                         className="w-full pl-9 pr-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-rose-500"
@@ -251,7 +288,7 @@ export default function QuoteDrawer() {
                     <div className="relative">
                       <textarea
                         rows={2}
-                        placeholder="Embroidery, printing, sizing or delivery details..."
+                        placeholder={t.quoteDrawer.notesPlaceholder}
                         value={brandingRequirements}
                         onChange={(e) => setBrandingRequirements(e.target.value)}
                         className="w-full p-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-rose-500 resize-none"
@@ -271,7 +308,7 @@ export default function QuoteDrawer() {
                 className="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/20 transition-all hover:scale-[1.01]"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>Send RFQ via WhatsApp</span>
+                <span>{t.quoteDrawer.sendWhatsApp}</span>
               </button>
 
               <button
@@ -279,7 +316,7 @@ export default function QuoteDrawer() {
                 className="w-full py-3 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-rose-950/30 transition-all"
               >
                 <Mail className="w-4 h-4" />
-                <span>Send RFQ via Official Email</span>
+                <span>{t.quoteDrawer.sendEmail}</span>
               </button>
             </div>
           )}

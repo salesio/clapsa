@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useContent } from '@/context/ContentContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { 
   ShieldCheck, 
   Award, 
@@ -12,6 +13,7 @@ import { getAssetPath } from '@/utils/assetPath';
 
 export default function AboutSection() {
   const { data } = useContent();
+  const { t } = useLanguage();
   const company = data.company;
 
   return (
@@ -33,7 +35,7 @@ export default function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3">
                   <span className="text-[10px] uppercase font-bold text-rose-400 bg-slate-950/80 px-2.5 py-1 rounded-full border border-slate-800">
-                    Trusted across Southern Africa
+                    {t.about.trustedBadge}
                   </span>
                 </div>
               </div>
@@ -45,10 +47,10 @@ export default function AboutSection() {
                     98%
                   </span>
                   <span className="text-xs font-bold text-slate-900 dark:text-white block mt-0.5">
-                    Client Satisfaction
+                    {t.about.statSatisfaction}
                   </span>
                   <span className="text-[10px] text-slate-500 dark:text-slate-400 block mt-1 leading-tight">
-                    Corporate contract renewals
+                    {t.about.statSatisfactionDesc}
                   </span>
                 </div>
 
@@ -57,10 +59,10 @@ export default function AboutSection() {
                     1,500+
                   </span>
                   <span className="text-xs font-bold text-slate-900 dark:text-white block mt-0.5">
-                    Completed Deliveries
+                    {t.about.statDeliveries}
                   </span>
                   <span className="text-[10px] text-slate-500 dark:text-slate-400 block mt-1 leading-tight">
-                    Mining & corporate contracts
+                    {t.about.statDeliveriesDesc}
                   </span>
                 </div>
 
@@ -69,10 +71,10 @@ export default function AboutSection() {
                     8+ Brands
                   </span>
                   <span className="text-xs font-bold text-slate-900 dark:text-white block mt-0.5">
-                    Trade Partners
+                    {t.about.statPartners}
                   </span>
                   <span className="text-[10px] text-slate-500 dark:text-slate-400 block mt-1 leading-tight">
-                    Barron, Amrod, Altitude & more
+                    {t.about.statPartnersDesc}
                   </span>
                 </div>
 
@@ -81,10 +83,10 @@ export default function AboutSection() {
                     24 Hours
                   </span>
                   <span className="text-xs font-bold text-slate-900 dark:text-white block mt-0.5">
-                    RFQ Response
+                    {t.about.statRfq}
                   </span>
                   <span className="text-[10px] text-slate-500 dark:text-slate-400 block mt-1 leading-tight">
-                    Formal quotation delivery
+                    {t.about.statRfqDesc}
                   </span>
                 </div>
               </div>
@@ -95,19 +97,19 @@ export default function AboutSection() {
           <div className="lg:col-span-7 space-y-6 text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/80 border border-rose-300 dark:border-rose-800/60 text-rose-700 dark:text-rose-300 text-xs font-bold uppercase tracking-wider">
               <Building className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
-              <span>About {company.name}</span>
+              <span>{t.about.badge}</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-              One Partner. Complete Procurement Integrity across <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-red-500">Africa</span>.
+              {t.about.titlePrefix} <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-red-500">{t.about.titleHighlight}</span>.
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              Founded on the principle of making corporate and industrial purchasing effortless, <strong>{company.name}</strong> has evolved into a premier supply partner for corporate enterprises, civil contractors, mining groups, and government agencies.
+              {t.about.p1}
             </p>
 
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              We bridge the gap between world-class trade manufacturers (*Barron, Amrod, Altitude, Caterpillar, TOGS*) and high-demand corporate clients by providing <strong>in-house branding precision</strong>, stringent <strong>SABS safety compliance</strong>, and seamless <strong>SADC cross-border logistics</strong>.
+              {t.about.p2}
             </p>
 
             {/* Core Pillars */}
@@ -115,20 +117,20 @@ export default function AboutSection() {
               <div className="p-4 rounded-2xl bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/80 space-y-2 shadow-sm">
                 <div className="flex items-center gap-2 text-slate-900 dark:text-white font-bold text-sm">
                   <ShieldCheck className="w-5 h-5 text-rose-600 dark:text-rose-500 shrink-0" />
-                  <span>Certified Standards</span>
+                  <span>{t.about.pillarStandardsTitle}</span>
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Every conti suit, harness, and safety boot undergoes strict certification for flame, acid, impact, and chemical resistance.
+                  {t.about.pillarStandardsDesc}
                 </p>
               </div>
 
               <div className="p-4 rounded-2xl bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/80 space-y-2 shadow-sm">
                 <div className="flex items-center gap-2 text-slate-900 dark:text-white font-bold text-sm">
                   <Award className="w-5 h-5 text-rose-600 dark:text-rose-500 shrink-0" />
-                  <span>Precision In-House Branding</span>
+                  <span>{t.about.pillarBrandingTitle}</span>
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Computerized high-density embroidery, screen printing, and UV sublimated event hardware with pantone accuracy.
+                  {t.about.pillarBrandingDesc}
                 </p>
               </div>
             </div>
@@ -138,13 +140,13 @@ export default function AboutSection() {
                 href="#contact"
                 className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition-all"
               >
-                Partner with Clapsa
+                {t.about.partnerWithClapsa}
               </a>
               <a
                 href={`tel:${company.phoneDirect}`}
                 className="px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-semibold border border-slate-300 dark:border-slate-700 transition-colors shadow-sm"
               >
-                Call Headquarters: {company.phoneDisplay}
+                {t.about.callHeadquarters}: {company.phoneDisplay}
               </a>
             </div>
 

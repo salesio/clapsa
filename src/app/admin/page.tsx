@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useContent, PartnerItem } from '@/context/ContentContext';
@@ -27,12 +27,21 @@ import {
   Upload, 
   CheckCircle2, 
   Sun, 
-  Moon,
-  ExternalLink,
-  Image as ImageIcon,
-  X,
-  Check,
-  PlusCircle
+  Moon, 
+  ExternalLink, 
+  Image as ImageIcon, 
+  X, 
+  Check, 
+  PlusCircle,
+  Lock,
+  User as UserIcon,
+  Eye,
+  EyeOff,
+  ShieldCheck,
+  ShieldAlert,
+  LogOut,
+  ArrowRight,
+  Loader2
 } from 'lucide-react';
 
 type AdminTab = 'hero' | 'partners' | 'portfolio' | 'services' | 'products' | 'contact' | 'backup';
@@ -77,6 +86,66 @@ export default function AdminControlPanel() {
   const { theme, toggleTheme } = useTheme();
   const [activeTab, setActiveTab] = useState<AdminTab>('hero');
   const [savedNotice, setSavedNotice] = useState(false);
+
+  // Authentication states
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isAuthLoading, setIsAuthLoading] = useState<boolean>(true);
+  const [usernameInput, setUsernameInput] = useState<string>('');
+  const [passwordInput, setPasswordInput] = useState<string>('');
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [rememberMe, setRememberMe] = useState<boolean>(true);
+  const [loginError, setLoginError] = useState<string>('');
+  const [isSubmittingLogin, setIsSubmittingLogin] = useState<boolean>(false);
+
+  useEffect(() => {
+    try {
+      const sessionAuth = typeof window !== 'undefined' ? sessionStorage.getItem('clapsa_admin_auth') : null;
+      const localAuth = typeof window !== 'undefined' ? localStorage.getItem('clapsa_admin_auth') : null;
+      if (sessionAuth === 'true' || localAuth === 'true') {
+        setIsAuthenticated(true);
+      }
+    } catch (err) {
+      console.error('Session check error:', err);
+    } finally {
+      setIsAuthLoading(false);
+    }
+  }, []);
+
+  const handleLoginSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoginError('');
+    setIsSubmittingLogin(true);
+
+    setTimeout(() => {
+      const userClean = usernameInput.trim().toLowerCase();
+      const passClean = passwordInput.trim();
+
+      if (userClean === 'admin2' && passClean === 'Kea@2004') {
+        setIsAuthenticated(true);
+        if (rememberMe) {
+          localStorage.setItem('clapsa_admin_auth', 'true');
+        } else {
+          sessionStorage.setItem('clapsa_admin_auth', 'true');
+        }
+        setLoginError('');
+      } else {
+        setLoginError('Invalid administrator credentials. Please verify your username and password.');
+      }
+      setIsSubmittingLogin(false);
+    }, 450);
+  };
+
+  const handleLogout = () => {
+    try {
+      sessionStorage.removeItem('clapsa_admin_auth');
+      localStorage.removeItem('clapsa_admin_auth');
+    } catch (err) {
+      console.error('Logout error:', err);
+    }
+    setIsAuthenticated(false);
+    setPasswordInput('');
+    setLoginError('');
+  };
 
   // Form states
   const [heroForm, setHeroForm] = useState(data.hero);
@@ -225,6 +294,208 @@ export default function AdminControlPanel() {
     triggerSaved();
   };
 
+  if (isAuthLoading) {
+    return (
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col items-center justify-center text-slate-900 dark:text-white space-y-4 transition-colors">
+        <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center p-2.5 shadow-2xl border border-slate-200 dark:border-slate-800 animate-pulse">
+          <Image
+            src={getAssetPath('/images/logo.png')}
+            alt="CLAPSA Logo"
+            width={48}
+            height={48}
+            className="object-contain"
+          />
+        </div>
+        <div className="flex items-center gap-2 text-xs font-bold text-slate-500 dark:text-slate-400 tracking-wider uppercase">
+          <Loader2 className="w-4 h-4 animate-spin text-rose-500" />
+          <span>Verifying Security Session...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col justify-between relative overflow-hidden selection:bg-rose-600 selection:text-white font-sans transition-colors duration-200">
+        
+        {/* Ambient Background Glows */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-rose-500/10 dark:bg-rose-600/10 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-slate-200/50 dark:bg-slate-800/20 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(#94a3b8_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
+
+        {/* Top Utility Bar */}
+        <header className="relative z-20 px-6 sm:px-12 py-5 flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800/80 backdrop-blur-md bg-white/70 dark:bg-slate-950/40 transition-colors">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all shadow-sm group"
+          >
+            <ArrowLeft className="w-4 h-4 text-rose-500 group-hover:-translate-x-0.5 transition-transform" />
+            <span>Back to Live Website</span>
+          </Link>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer shadow-sm"
+              title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
+              aria-label="Toggle Theme"
+            >
+              {theme === 'light' ? <Moon className="w-4 h-4 text-slate-700" /> : <Sun className="w-4 h-4 text-amber-400" />}
+            </button>
+          </div>
+        </header>
+
+        {/* Main Center Login Card */}
+        <main className="relative z-10 flex-1 flex items-center justify-center px-4 py-12">
+          <div className="w-full max-w-md p-8 sm:p-10 rounded-3xl bg-white dark:bg-slate-900/90 backdrop-blur-2xl border border-slate-200 dark:border-slate-800 shadow-2xl shadow-slate-300/60 dark:shadow-black/80 space-y-7 relative transition-colors">
+            
+            {/* Top Accent Line */}
+            <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-rose-500 to-transparent" />
+
+            {/* Brand Logo & Title */}
+            <div className="text-center space-y-3">
+              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center p-3 shadow-xl border-2 border-slate-200 dark:border-slate-700 mx-auto transform hover:scale-105 transition-transform">
+                <Image
+                  src={getAssetPath('/images/logo.png')}
+                  alt="CLAPSA Procurement Logo"
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                  priority
+                />
+              </div>
+
+              <div>
+                <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                  CLAPSA Control Panel
+                </h1>
+                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium mt-1">
+                  Enterprise Content Management & Administration
+                </p>
+              </div>
+
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-900/50 text-rose-700 dark:text-rose-300 text-[11px] font-bold tracking-wider uppercase">
+                <ShieldCheck className="w-3.5 h-3.5 text-rose-500 dark:text-rose-400" />
+                <span>Restricted Access • 256-Bit SSL</span>
+              </div>
+            </div>
+
+            {/* Error Notification */}
+            {loginError && (
+              <div className="p-3.5 rounded-2xl bg-rose-50 dark:bg-rose-950/80 border border-rose-200 dark:border-rose-800/80 text-rose-800 dark:text-rose-200 text-xs flex items-start gap-2.5 animate-in fade-in zoom-in-95 duration-200">
+                <ShieldAlert className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
+                <span className="leading-snug">{loginError}</span>
+              </div>
+            )}
+
+            {/* Login Form */}
+            <form onSubmit={handleLoginSubmit} className="space-y-4">
+              {/* Username Input */}
+              <div className="space-y-1.5 text-left">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 block">
+                  Administrator Username
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 dark:text-slate-500">
+                    <UserIcon className="w-4 h-4" />
+                  </div>
+                  <input
+                    type="text"
+                    required
+                    autoFocus
+                    autoComplete="username"
+                    value={usernameInput}
+                    onChange={(e) => setUsernameInput(e.target.value)}
+                    placeholder="e.g. admin2"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 text-sm font-medium focus:outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 focus:bg-white dark:focus:bg-slate-950 transition-all"
+                  />
+                </div>
+              </div>
+
+              {/* Password Input */}
+              <div className="space-y-1.5 text-left">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 block">
+                  Access Password
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 dark:text-slate-500">
+                    <Lock className="w-4 h-4" />
+                  </div>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    required
+                    autoComplete="current-password"
+                    value={passwordInput}
+                    onChange={(e) => setPasswordInput(e.target.value)}
+                    placeholder="Enter security password"
+                    className="w-full pl-10 pr-11 py-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 text-sm font-medium focus:outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 focus:bg-white dark:focus:bg-slate-950 transition-all"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-pointer"
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  >
+                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+
+              {/* Remember Me & Status Row */}
+              <div className="flex items-center justify-between pt-1 text-xs">
+                <label className="flex items-center gap-2 cursor-pointer text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 select-none">
+                  <input
+                    type="checkbox"
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
+                    className="w-4 h-4 rounded bg-slate-100 dark:bg-slate-950 border-slate-300 dark:border-slate-700 text-rose-600 focus:ring-rose-500/30 accent-rose-600"
+                  />
+                  <span>Remember this device</span>
+                </label>
+
+                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>System Online</span>
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isSubmittingLogin}
+                className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 active:scale-[0.99] text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-rose-950/40 flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+              >
+                {isSubmittingLogin ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Verifying Credentials...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Authenticate & Enter</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+            </form>
+
+            {/* Disclaimer */}
+            <p className="text-[11px] text-slate-500 text-center leading-relaxed pt-2 border-t border-slate-200 dark:border-slate-800/80">
+              Authorized access only for CLAPSA Procurement administrators. All connection requests are monitored and encrypted.
+            </p>
+
+          </div>
+        </main>
+
+        {/* Footer */}
+        <footer className="relative z-20 py-4 px-6 text-center text-xs text-slate-500 dark:text-slate-600 border-t border-slate-200 dark:border-slate-900 bg-white/60 dark:bg-slate-950/40 transition-colors">
+          <span>&copy; {new Date().getFullYear()} CLAPSA Procurement (Pty) Ltd. All rights reserved.</span>
+        </footer>
+
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col">
       
@@ -276,6 +547,15 @@ export default function AdminControlPanel() {
             <span>Preview Site</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </Link>
+
+          <button
+            onClick={handleLogout}
+            className="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-rose-50 dark:hover:bg-rose-950/50 text-slate-700 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 border border-slate-200 dark:border-slate-800 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+            title="Sign Out of Admin Control Panel"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Sign Out</span>
+          </button>
         </div>
       </header>
 

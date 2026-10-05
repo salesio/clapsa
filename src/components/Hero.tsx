@@ -3,17 +3,19 @@
 import React from 'react';
 import Image from 'next/image';
 import { useContent } from '@/context/ContentContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { 
   ArrowRight, 
   Award, 
   CheckCircle2, 
-  Sparkles,
-  PhoneCall
+  Sparkles, 
+  PhoneCall 
 } from 'lucide-react';
 import { getAssetPath } from '@/utils/assetPath';
 
 export default function Hero() {
   const { data } = useContent();
+  const { t } = useLanguage();
   const hero = data.hero;
   const company = data.company;
 
@@ -32,25 +34,25 @@ export default function Hero() {
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100/80 dark:bg-rose-950/60 border border-rose-300 dark:border-rose-800/50 text-rose-700 dark:text-rose-300 text-xs font-bold tracking-wide shadow-sm">
               <Sparkles className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 animate-pulse" />
-              <span>{hero.badge}</span>
+              <span>{t.hero.badge}</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1]">
-              {hero.headlinePrefix}{' '}
+              {t.hero.headlinePrefix}{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-red-500 to-rose-500">
-                {hero.headlineHighlight}
+                {t.hero.headlineHighlight}
               </span>.
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
-              {hero.subtitle}
+              {t.hero.subtitle}
             </p>
 
             {/* Value Checkpoints */}
             <div className="grid sm:grid-cols-2 gap-3 pt-2 text-sm font-medium text-slate-700 dark:text-slate-300">
-              {hero.checkpoints.map((cp, idx) => (
+              {t.hero.checkpoints.map((cp, idx) => (
                 <div key={idx} className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-rose-600 dark:text-rose-500 shrink-0" />
                   <span>{cp}</span>
@@ -64,7 +66,7 @@ export default function Hero() {
                 href="#portfolio"
                 className="px-7 py-4 rounded-xl bg-gradient-to-r from-rose-600 to-red-700 hover:from-rose-500 hover:to-red-600 text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-rose-900/20 hover:shadow-rose-900/40 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2.5"
               >
-                View Our Past & Recent Work
+                {t.hero.viewPastWork}
                 <ArrowRight className="w-4 h-4" />
               </a>
 
@@ -72,7 +74,7 @@ export default function Hero() {
                 href="#catalogues"
                 className="px-6 py-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-xs uppercase tracking-wider border border-slate-300 dark:border-slate-700/80 transition-all shadow-sm flex items-center gap-2"
               >
-                Browse Catalogues & RFQ
+                {t.hero.browseCatalogues}
               </a>
 
               <a
@@ -80,7 +82,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition-colors py-2 px-3"
               >
                 <PhoneCall className="w-4 h-4 text-rose-600 dark:text-rose-500" />
-                <span>Speak to a Consultant: {company.phoneDisplay}</span>
+                <span>{t.hero.speakToConsultant}: {company.phoneDisplay}</span>
               </a>
             </div>
           </div>
@@ -91,7 +93,7 @@ export default function Hero() {
               {/* Highlight Badge */}
               <div className="absolute -top-3 -right-3 bg-gradient-to-r from-rose-600 to-red-600 text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-lg border border-rose-400/30 flex items-center gap-1.5 z-10">
                 <Award className="w-3.5 h-3.5" />
-                Featured Project
+                {t.hero.featuredProject}
               </div>
 
               {/* Showcase Image */}
@@ -108,13 +110,13 @@ export default function Hero() {
                 {/* Bottom Overlay Info */}
                 <div className="absolute bottom-4 left-4 right-4 text-left">
                   <span className="inline-block px-2.5 py-1 rounded bg-rose-600 text-white text-[10px] font-bold uppercase tracking-wider mb-2">
-                    {hero.featuredProject.tag}
+                    {t.hero.projectTag}
                   </span>
                   <h3 className="text-lg font-bold text-white leading-tight">
-                    {hero.featuredProject.title}
+                    {t.hero.projectTitle}
                   </h3>
                   <p className="text-xs text-slate-200 mt-1">
-                    {hero.featuredProject.description}
+                    {t.hero.projectDesc}
                   </p>
                 </div>
               </div>
@@ -126,7 +128,7 @@ export default function Hero() {
                     {hero.featuredProject.stat1.value}
                   </span>
                   <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                    {hero.featuredProject.stat1.label}
+                    {t.hero.statSatisfaction}
                   </span>
                 </div>
                 <div className="border-x border-slate-200 dark:border-slate-800">
@@ -134,7 +136,7 @@ export default function Hero() {
                     {hero.featuredProject.stat2.value}
                   </span>
                   <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                    {hero.featuredProject.stat2.label}
+                    {t.hero.statDeployments}
                   </span>
                 </div>
                 <div>
@@ -142,7 +144,7 @@ export default function Hero() {
                     {hero.featuredProject.stat3.value}
                   </span>
                   <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                    {hero.featuredProject.stat3.label}
+                    {t.hero.statLogistics}
                   </span>
                 </div>
               </div>

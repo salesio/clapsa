@@ -4,6 +4,8 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useContent } from '@/context/ContentContext';
+import { useLanguage } from '@/context/LanguageContext';
+import LanguageSelector from '@/components/LanguageSelector';
 import { 
   Phone, 
   Mail, 
@@ -17,6 +19,7 @@ import { getAssetPath } from '@/utils/assetPath';
 
 export default function Footer() {
   const { data } = useContent();
+  const { t } = useLanguage();
   const company = data.company;
 
   const scrollToTop = () => {
@@ -53,10 +56,10 @@ export default function Footer() {
             </div>
 
             <p className="text-slate-300 leading-relaxed max-w-sm">
-              <strong>{company.legalName}</strong> — Premier one-source corporate procurement partner delivering certified PPE, high-density embroidered workwear, outdoor event display hardware, and VIP corporate gifts across South Africa and the SADC.
+              <strong>{company.legalName}</strong> — {t.footer.summary}
             </p>
 
-            <div className="flex items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
                 href={COMPANY_FACEBOOK}
                 target="_blank"
@@ -80,34 +83,39 @@ export default function Footer() {
                 className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-rose-400 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors"
               >
                 <Sliders className="w-3.5 h-3.5" />
-                <span>Admin Panel</span>
+                <span>{t.footer.adminPanel}</span>
               </Link>
+            </div>
+
+            {/* Language Selector in Footer Brand Column */}
+            <div className="pt-2">
+              <LanguageSelector variant="footer" />
             </div>
           </div>
 
           {/* Col 3: Quick Navigation */}
           <div className="space-y-3 text-left">
             <h4 className="text-sm font-bold text-white uppercase tracking-wider">
-              Quick Links
+              {t.footer.quickLinks}
             </h4>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="hover:text-rose-400 transition-colors">Home</a>
+                <a href="#home" className="hover:text-rose-400 transition-colors">{t.nav.home}</a>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">Our Work (Portfolio)</a>
+                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.nav.ourWork}</a>
               </li>
               <li>
-                <a href="#services" className="hover:text-rose-400 transition-colors">Capabilities & Services</a>
+                <a href="#services" className="hover:text-rose-400 transition-colors">{t.nav.capabilities}</a>
               </li>
               <li>
-                <a href="#catalogues" className="hover:text-rose-400 transition-colors">Products & Catalogues</a>
+                <a href="#catalogues" className="hover:text-rose-400 transition-colors">{t.nav.catalogues}</a>
               </li>
               <li>
-                <a href="#about" className="hover:text-rose-400 transition-colors">About CLAPSA</a>
+                <a href="#about" className="hover:text-rose-400 transition-colors">{t.nav.aboutUs}</a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-rose-400 transition-colors">Request a Quote (RFQ)</a>
+                <a href="#contact" className="hover:text-rose-400 transition-colors">{t.nav.requestQuote}</a>
               </li>
             </ul>
           </div>
@@ -115,26 +123,26 @@ export default function Footer() {
           {/* Col 4: Supply Solutions */}
           <div className="space-y-3 text-left">
             <h4 className="text-sm font-bold text-white uppercase tracking-wider">
-              Supply Solutions
+              {t.footer.supplySolutions}
             </h4>
             <ul className="space-y-2">
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">Corporate Apparel & Uniforms</a>
+                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.corporate}</a>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">Flame/Acid D59 Conti Suits</a>
+                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.ppe}</a>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">S3 Heavy Industrial Safety Boots</a>
+                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.catalogue.tabs.footwear}</a>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">Branded Gazebos & Flags</a>
+                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.display}</a>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">Tactical & Security Uniforms</a>
+                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.security}</a>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">VIP Corporate Gifting</a>
+                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.gifting}</a>
               </li>
             </ul>
           </div>
@@ -142,7 +150,7 @@ export default function Footer() {
           {/* Col 5: Contact & Head Office */}
           <div className="space-y-3 text-left">
             <h4 className="text-sm font-bold text-white uppercase tracking-wider">
-              Johannesburg Office
+              {t.footer.office}
             </h4>
             <div className="space-y-2.5 text-slate-300">
               <div className="flex items-start gap-2">
@@ -172,19 +180,19 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>&copy; {new Date().getFullYear()} {company.legalName}. All Rights Reserved.</span>
+            <span>&copy; {new Date().getFullYear()} {company.legalName}. {t.footer.allRights}</span>
           </div>
 
-          <div className="flex items-center gap-6">
-            <span>SABS Certified Compliance</span>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <span>{t.footer.sabsCompliance}</span>
             <span>•</span>
-            <span>B-BBEE Ready Procurement</span>
+            <span>{t.footer.bbbeeProcurement}</span>
             <span>•</span>
             <button
               onClick={scrollToTop}
               className="flex items-center gap-1 text-slate-400 hover:text-white transition-colors"
             >
-              <span>Back to Top</span>
+              <span>{t.footer.backToTop}</span>
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -195,3 +203,4 @@ export default function Footer() {
 }
 
 const COMPANY_FACEBOOK = 'https://facebook.com/www.clapsa.co.za';
+

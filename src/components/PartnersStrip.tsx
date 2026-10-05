@@ -3,11 +3,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { useContent } from '@/context/ContentContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { ShieldCheck, Building2 } from 'lucide-react';
 import { getAssetPath } from '@/utils/assetPath';
 
 export default function PartnersStrip() {
   const { data } = useContent();
+  const { t } = useLanguage();
   const partners = data.partners;
 
   return (
@@ -18,10 +20,10 @@ export default function PartnersStrip() {
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-400 mb-1">
             <Building2 className="w-4 h-4 text-rose-600 dark:text-rose-500" />
-            <span>Authorized Corporate Supply & Manufacturing Network</span>
+            <span>{t.partners.title}</span>
           </div>
           <p className="text-xs text-slate-500 dark:text-slate-500">
-            Direct tier-1 access to Southern Africa&apos;s foremost apparel, PPE, and promotional catalogues
+            {t.partners.subtitle}
           </p>
         </div>
 
@@ -52,19 +54,19 @@ export default function PartnersStrip() {
         <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800/60 flex flex-wrap justify-center items-center gap-6 sm:gap-12 text-xs font-semibold text-slate-600 dark:text-slate-400">
           <span className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-rose-600 dark:text-rose-500" />
-            SABS & ISO Approved Garments
+            {t.partners.sabsBadge}
           </span>
           <span className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-rose-600 dark:text-rose-500" />
-            Authentic Manufacturer Warranties
+            {t.partners.warrantiesBadge}
           </span>
           <span className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-rose-600 dark:text-rose-500" />
-            B-BBEE Procurement Ready
+            {t.partners.bbbeeBadge}
           </span>
           <span className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-rose-600 dark:text-rose-500" />
-            Cross-Border SADC Freight
+            {t.partners.sadcBadge}
           </span>
         </div>
 

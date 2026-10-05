@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
+import { LanguageProvider } from '@/context/LanguageContext';
 import { ContentProvider } from '@/context/ContentContext';
 import { QuoteProvider } from '@/context/QuoteContext';
 import ClientShell from '@/components/ClientShell';
@@ -72,13 +73,15 @@ export default function RootLayout({
     >
       <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans min-h-screen flex flex-col selection:bg-rose-500 selection:text-white transition-colors duration-200">
         <ThemeProvider>
-          <ContentProvider>
-            <QuoteProvider>
-              <ClientShell>
-                {children}
-              </ClientShell>
-            </QuoteProvider>
-          </ContentProvider>
+          <LanguageProvider>
+            <ContentProvider>
+              <QuoteProvider>
+                <ClientShell>
+                  {children}
+                </ClientShell>
+              </QuoteProvider>
+            </ContentProvider>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
