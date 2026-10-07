@@ -14,148 +14,148 @@ export interface PortfolioItem {
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
-    id: 'clapsa-corporate-apparel-collection',
-    title: 'Custom Branded Winter Jackets & Corporate Apparel',
-    client: 'National Enterprise Fleet & Logistics',
+    id: 'clapsa-activewear-collection',
+    title: 'Custom Sublimated Zip Hoodies & Athletic Tracksuits',
+    client: 'CLAPSA Activewear & Performance Line',
     category: 'corporate',
-    categoryLabel: 'Corporate Apparel',
-    image: '/images/media/Unknown1.jpg',
-    description: 'Designed, customized and manufactured complete high-density embroidered corporate jackets, winter coats, and brand merchandise for corporate and regional branch staff.',
+    categoryLabel: 'Sublimation & Sportswear',
+    image: '/images/portfolio/portfolio-lifestyle-apparel.jpg',
+    description: 'Designed, printed, and manufactured high-performance custom sublimated zip hoodies and activewear featuring precision color saturation and bespoke sleeve branding.',
     deliverables: [
-      'Weatherproof Padded Winter Jackets with Custom Red Accent Linings',
-      'High-Density Computerized Chest & Sleeve Logo Embroidery',
-      'Individualized Employee Sizing Kits & Custom Packaging',
-      'Full SADC Distribution across South Africa & Regional Hubs'
+      'Dye-Sublimated Performance Zip Hoodies with Vivid Contrast Graphics',
+      'Matching High-Flex Moisture-Wicking 3/4 Activewear Leggings',
+      'Custom Typography Sleeve Print (www.clapsashop.co.za)',
+      'Complete Athlete Sizing Kits & Custom Retail Packaging'
     ],
     year: '2025',
     location: 'Johannesburg, South Africa',
-    tag: 'Corporate Wardrobe'
+    tag: 'Sublimated Apparel'
+  },
+  {
+    id: 'trace-vip-event-merchandising',
+    title: 'TRACE+ VIP Event Lanyards & Sublimated Wristbands',
+    client: 'TRACE+ Music & Entertainment Tour',
+    category: 'gifting',
+    categoryLabel: 'Event Merchandising',
+    image: '/images/portfolio/portfolio-event-branding.jpg',
+    description: 'Manufactured premium black satin dye-sublimated VIP event lanyards and wristbands featuring scannable QR campaign activations and vibrant orange branding.',
+    deliverables: [
+      'Double-Sided High-Density Silk Satin Sublimated Lanyards',
+      'High-Precision Scannable QR Codes for Contactless Digital Activations',
+      'Heavy-Duty Lobster Claw Clasps & Safety Breakaway Buckles',
+      '50,000+ Units Rapid SADC Pan-African Event Distribution'
+    ],
+    year: '2025',
+    location: 'Pan-African Tour & Festivals',
+    tag: 'Event Merchandising'
+  },
+  {
+    id: 'claps-gin-corporate-gifting',
+    title: 'CLAPS Premium Gin & Laser-Engraved Wooden Coasters',
+    client: 'Exclusive Brand Launch & VIP Executive Gifting',
+    category: 'gifting',
+    categoryLabel: 'Bespoke Corporate Gifting',
+    image: '/images/portfolio/portfolio-corporate-gifting.jpg',
+    description: 'Curated luxury artisan gifting suites featuring custom-labelled CLAPS Premium Gin spirit bottles with natural cork stoppers and bespoke laser-cut geometric wooden coasters.',
+    deliverables: [
+      'Custom Foil-Laminated Spirit Bottle Labels with Natural Cork Seals',
+      'Precision Laser-Cut Geometric Hardwood Coaster Sets',
+      'Debossed Presentation Gift Boxes with Silk Ribbon Liners',
+      'Turnkey VIP Executive Gift Hamper Assembly & Distribution'
+    ],
+    year: '2025',
+    location: 'Sandton, Johannesburg',
+    tag: 'Executive Gifting'
   },
   {
     id: 'industrial-ppe-safety-shoot',
-    title: 'Certified Safety PPE, Eye Protection & Gloves Deployment',
-    client: 'Heavy Engineering & Industrial Fabrication Group',
+    title: 'Certified Safety Eyewear & Heavy-Duty Nitrile Grip Gloves',
+    client: 'Manufacturing & Heavy Industrial Engineering Group',
     category: 'ppe',
     categoryLabel: 'Industrial PPE & Safety',
-    image: '/images/media/Unknown2.jpg',
-    description: 'Supplied comprehensive eye protection goggles, heavy cut-resistant handling gloves, respiratory protection, and safety footwear for manufacturing plant workers.',
+    image: '/images/portfolio/portfolio-ppe-safety.jpg',
+    description: 'Supplied comprehensive SABS & CE approved eye protection goggles, anti-abrasion nitrile safety gloves, and industrial head protection for engineering workforces.',
     deliverables: [
-      'Anti-Scratch & Anti-Fog UV Protective Safety Goggles',
-      'Cut-Level 5 Nitrile & Leather Reinforced Industrial Gloves',
-      'Heavy-Duty Dual-Density Safety Footwear with Steel Midsole',
+      'Anti-Scratch & Anti-Fog UV Protective Safety Glasses',
+      'Heavy-Duty High-Grip Nitrile Coated Handling Gloves',
+      'Industrial Head & Hearing Protection Kits',
       'SABS & ISO 9001 Compliance Certification Documentation'
     ],
     year: '2025',
     location: 'Gauteng & Mpumalanga',
-    tag: 'Industrial PPE'
+    tag: 'Certified Safety PPE'
   },
   {
-    id: 'security-tactical-uniforms',
-    title: 'Armed Response & Private Security Tactical Outfitting',
-    client: 'Premier Security & VIP Escort Services',
-    category: 'security',
-    categoryLabel: 'Tactical & Security',
-    image: '/images/media/303452-main.png',
-    description: 'Equipped 400+ security officers and patrol guards with high-durability tactical security uniforms, combat duty shirts, epaulettes, and heavy patrol boots.',
+    id: 'clapsa-graphic-tees',
+    title: 'Africa Map Typography Graphic T-Shirt Collection',
+    client: 'Pan-African Apparel & Cultural Brand',
+    category: 'corporate',
+    categoryLabel: 'Graphic & Corporate Apparel',
+    image: '/images/portfolio/portfolio-graphic-tees.jpg',
+    description: 'Produced premium 180gsm combed cotton graphic t-shirts featuring high-density typographical Africa map screen printing with razor-sharp micro-text clarity.',
     deliverables: [
-      'Rip-stop Combat Duty Trousers & Security Epaulette Shirts',
-      'Tactical Combat High-Ankle S3 Protective Footwear',
-      'Reinforced Duty Belts, Baton Holsters & Radio Pouches',
-      'High-Visibility Night-Patrol Reflective Rain Jackets'
-    ],
-    year: '2024',
-    location: 'Johannesburg & Pretoria',
-    tag: 'Tactical Gear'
-  },
-  {
-    id: 'outdoor-gazebo-displays',
-    title: 'High-Impact Branded Gazebos & Outdoor Activation Suite',
-    client: 'Pan-African Retail Brand & Sports Championship',
-    category: 'display',
-    categoryLabel: 'Branded Displays & Signage',
-    image: '/images/media/display.jpg',
-    description: 'Manufactured complete outdoor brand activation setups including heavy-duty hex-aluminum pop-up gazebos, double-sided teardrop flags, and promotional kiosks.',
-    deliverables: [
-      'Heavy-Duty 3x3m Waterproof Gazebos with Full-Wall Sublimation Prints',
-      'Double-Sided 4m Teardrop & Sharkfin Flying Banners',
-      'Perimeter Perforated PVC Fence & Barrier Wraps',
-      'Portable Branded Sampling Kiosks for Roadshows'
+      '180gsm 100% Combed Cotton Heavyweight Crewneck Tees',
+      'High-Density Screen & DTF Typographical Map Printing',
+      'Pre-Shrunk Ring-Spun Fabric with Reinforced Double Stitching',
+      'Custom Neck Labeling and Eco-Friendly Retail Bagging'
     ],
     year: '2025',
-    location: 'National (SA & SADC)',
-    tag: 'Event Displays'
+    location: 'Johannesburg, South Africa',
+    tag: 'Graphic Apparel'
   },
   {
-    id: 'mining-protective-gear',
-    title: 'Mining Site PPE & Certified Respiratory Protection',
-    client: 'Civil Infrastructure & Underground Mining Operations',
-    category: 'ppe',
-    categoryLabel: 'Industrial PPE & Safety',
-    image: '/images/media/302350-main.png',
-    description: 'Bulk supply of certified vented hard hats, respiratory dust masks, high-visibility conti suits, and S3 heavy mining footwear for civil infrastructure contractors.',
-    deliverables: [
-      'SABS Approved Vented Hard Hats with Company Decals',
-      'FFP2 / FFP3 Particulate Respiratory Half-Masks',
-      'D59 Flame & Acid Retardant Heavy-Duty Conti Suits',
-      'Caterpillar & Excavator S3 Heavy Safety Boots'
-    ],
-    year: '2024',
-    location: 'Rustenburg & Witbank',
-    tag: 'Mining Safety'
-  },
-  {
-    id: 'lifestyle-brand-apparel',
-    title: 'Branded Activewear, Caps & Headwear Collection',
-    client: 'Corporate Wellness & Athletics Association',
+    id: 'clapsa-corporate-uniforms',
+    title: 'Corporate Emerald Cotton T-Shirts with Custom Back Branding',
+    client: 'CLAPSA Official Corporate Uniforms',
     category: 'corporate',
-    categoryLabel: 'Corporate Apparel',
-    image: '/images/media/Unknown3.jpg',
-    description: 'Supplied and customized lightweight technical activewear, branded 6-panel brushed cotton caps, and sport jackets for regional corporate games.',
+    categoryLabel: 'Corporate Uniforms',
+    image: '/images/portfolio/portfolio-corporate-uniforms.jpg',
+    description: 'Manufactured custom vibrant emerald-green corporate crewnecks featuring crisp white official logo placement across the upper back for internal and client-facing teams.',
     deliverables: [
-      'Moisture-Management Technical Breathable T-Shirts & Golfers',
-      '6-Panel Structured Brushed Cotton Caps with 3D Embroidery',
-      'Customized Sports Duffel Bags & Thermal Water Bottles',
-      'On-Site Fitting & Distribution Logistics'
+      '100% Premium Cotton Crewneck Corporate T-Shirts',
+      'Precision Screen-Printed Upper Back CLAPSA Branding',
+      'Comfort Fit with Anti-Fade Color Fastness Technology',
+      'Full Sizing Range (XS to 4XL) for Multi-Branch Outfitting'
     ],
-    year: '2024',
-    location: 'Cape Town & Johannesburg',
-    tag: 'Activewear & Caps'
+    year: '2025',
+    location: 'South Africa & Regional Branches',
+    tag: 'Corporate Wardrobe'
   },
   {
-    id: 'executive-corporate-gifting',
-    title: 'VIP Client Executive Gifting & Metal Accessories',
-    client: 'Financial Advisory & Wealth Management Firm',
-    category: 'gifting',
-    categoryLabel: 'Corporate Gifting',
-    image: '/images/media/gifting.jpg',
-    description: 'Curated 800 luxury VIP gift sets featuring laser-engraved metal torches, executive power essentials, thermal drinkware, and debossed presentation notebooks.',
-    deliverables: [
-      'Custom Matt-Black Metal Accessories with Precision Laser Etch',
-      'Debossed Leatherette Executive Organizers & Metal Pens',
-      'Double-Wall Vacuum Insulated Stainless Steel Drinkware',
-      'Custom Luxury Presentation Packaging with Thank-You Cards'
-    ],
-    year: '2024',
-    location: 'Johannesburg CBD',
-    tag: 'VIP Gifting'
-  },
-  {
-    id: 'flag-banners-outdoor',
-    title: 'Stadium Perimeter Teardrop & Telescoping Flag Banners',
-    client: 'Regional Athletics & Event Management',
+    id: 'trade-exhibition-showcase',
+    title: 'Commercial Exhibition Stand & Product Showcase',
+    client: 'SADC Trade & Brand Exhibition',
     category: 'display',
-    categoryLabel: 'Branded Displays & Signage',
-    image: '/images/media/303869-main.png',
-    description: 'Fabricated high-durability telescoping outdoor flag banners and wind-resistant event bunting with photographic dye-sublimation printing.',
+    categoryLabel: 'Exhibition Displays & Signage',
+    image: '/images/portfolio/portfolio-trade-exhibition.jpg',
+    description: 'Designed and built complete commercial retail display counters, promotional backdrops, and product shelf arrangements for high-traffic trade exhibitions.',
     deliverables: [
-      '50x 4m Double-Sided Heavyweight Telescoping Flags',
-      'High-Traction Cast Iron Base Plates for Wind Resistance',
-      '1,000m Customized Triangular PVC Digital Bunting',
-      'Rapid 48-hour turn-around and delivery to stadium grounds'
+      'Vibrant Dye-Sublimation Fabric Wall & Pop-Up Backdrop Banners',
+      'Custom Tiered Merchandising Display Stand with Product Shelving',
+      'Illuminated Product Showcases for Glass Bottled Merchandise',
+      'Turnkey Event Setup, Dismantling & Logistics Support'
     ],
-    year: '2024',
-    location: 'Gauteng',
-    tag: 'Stadium Signage'
+    year: '2025',
+    location: 'Johannesburg & Regional SADC Hubs',
+    tag: 'Trade Displays'
+  },
+  {
+    id: 'custom-sportswear-activewear',
+    title: 'All-Over Sublimation Activewear & Fitness Leggings',
+    client: 'Athletic Club & Teamwear Division',
+    category: 'corporate',
+    categoryLabel: 'Sportswear & Activewear',
+    image: '/images/portfolio/portfolio-custom-sportswear.jpg',
+    description: 'Custom designed technical performance sportswear with 4-way stretch compression leggings and breathable athletic fabrics for fitness and team sports.',
+    deliverables: [
+      '4-Way Stretch High-Compression Spandex/Polyester Leggings',
+      'Sweat-Wicking Anti-Odor Performance Technical Fabrics',
+      'Reinforced Flatlock Seams for Maximum Athlete Comfort',
+      'High-Resolution Gradient Printing with Fade-Proof Inks'
+    ],
+    year: '2025',
+    location: 'Cape Town & Johannesburg',
+    tag: 'Athletic Apparel'
   }
 ];
 

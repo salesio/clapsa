@@ -26,7 +26,7 @@ New-Item -Path ".nojekyll" -ItemType File -Force | Out-Null
 
 # Commit and push
 git add -A
-git commit -m "Deploy: update OG metadata for WhatsApp link previews"
+git commit -m "Deploy: multi-language support (EN/PT/AF), IP geolocation, refined navbar, and upgraded admin portal"
 git push origin gh-pages --force
 
 Pop-Location

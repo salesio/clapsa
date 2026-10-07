@@ -44,6 +44,7 @@ export default function Navbar() {
   const navLinks = [
     { label: t.nav.home, href: '#home' },
     { label: t.nav.ourWork, href: '#portfolio' },
+    { label: t.nav.lookbook, href: '#showcase' },
     { label: t.nav.capabilities, href: '#services' },
     { label: t.nav.catalogues, href: '#catalogues' },
     { label: t.nav.aboutUs, href: '#about' },

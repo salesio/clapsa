@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "deploy": "next build && node scripts/deploy.mjs",
+    "deploy": "next build && powershell -ExecutionPolicy Bypass -File scripts/manual-deploy.ps1",
     "start": "next start",
     "lint": "eslint"
   },
