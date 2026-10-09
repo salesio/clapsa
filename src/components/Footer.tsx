@@ -13,7 +13,8 @@ import {
   ShieldCheck, 
   ArrowUp,
   MessageSquare,
-  Sliders
+  Sliders,
+  ExternalLink
 } from 'lucide-react';
 import { getAssetPath } from '@/utils/assetPath';
 
@@ -34,8 +35,8 @@ export default function Footer() {
           
           {/* Col 1 & 2: Brand Info */}
           <div className="lg:col-span-2 space-y-4 text-left">
-            <div className="flex items-center gap-3.5">
-              <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center p-2.5 shadow-lg border-2 border-white/80 shrink-0">
+            <Link href="/" className="flex items-center gap-3.5 group">
+              <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center p-2.5 shadow-lg border border-white/80 shrink-0">
                 <div className="relative w-full h-full">
                   <Image
                     src={getAssetPath('/images/logo.png')}
@@ -53,7 +54,7 @@ export default function Footer() {
                   Procurement Solutions
                 </span>
               </div>
-            </div>
+            </Link>
 
             <p className="text-slate-300 leading-relaxed max-w-sm">
               <strong>{company.legalName}</strong> — {t.footer.summary}
@@ -82,7 +83,7 @@ export default function Footer() {
                 href="/admin"
                 className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-rose-400 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors"
               >
-                <Sliders className="w-3.5 h-3.5" />
+                <Sliders className="w-3.5 h-3.5 text-rose-400" />
                 <span>{t.footer.adminPanel}</span>
               </Link>
             </div>
@@ -100,22 +101,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="hover:text-rose-400 transition-colors">{t.nav.home}</a>
+                <Link href="/" className="hover:text-rose-400 transition-colors">{t.nav.home}</Link>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.nav.ourWork}</a>
+                <Link href="/about" className="hover:text-rose-400 transition-colors">{t.nav.aboutUs}</Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-rose-400 transition-colors">{t.nav.capabilities}</a>
+                <Link href="/services" className="hover:text-rose-400 transition-colors">{t.nav.capabilities}</Link>
               </li>
               <li>
-                <a href="#catalogues" className="hover:text-rose-400 transition-colors">{t.nav.catalogues}</a>
+                <Link href="/gallery" className="hover:text-rose-400 transition-colors">{t.nav.lookbook || 'Showcase Gallery'}</Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-rose-400 transition-colors">{t.nav.aboutUs}</a>
+                <Link href="/catalogues" className="hover:text-rose-400 transition-colors">{t.nav.catalogues}</Link>
               </li>
               <li>
-                <a href="#contact" className="hover:text-rose-400 transition-colors">{t.nav.requestQuote}</a>
+                <Link href="/contact" className="hover:text-rose-400 transition-colors">{t.nav.contact}</Link>
               </li>
             </ul>
           </div>
@@ -127,22 +128,19 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.corporate}</a>
+                <Link href="/services" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.corporate}</Link>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.ppe}</a>
+                <Link href="/services" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.ppe}</Link>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.catalogue.tabs.footwear}</a>
+                <Link href="/catalogues" className="hover:text-rose-400 transition-colors">{t.catalogue.tabs.footwear}</Link>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.display}</a>
+                <Link href="/services" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.display}</Link>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.security}</a>
-              </li>
-              <li>
-                <a href="#portfolio" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.gifting}</a>
+                <Link href="/gallery" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.gifting}</Link>
               </li>
             </ul>
           </div>
@@ -203,4 +201,3 @@ export default function Footer() {
 }
 
 const COMPANY_FACEBOOK = 'https://facebook.com/www.clapsa.co.za';
-

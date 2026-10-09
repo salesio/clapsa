@@ -305,6 +305,37 @@ export interface TranslationSchema {
     ariaLabel: string;
     title: string;
   };
+  galleryPage: {
+    badge: string;
+    titlePrefix: string;
+    titleHighlight: string;
+    subtitle: string;
+    viewByJob: string;
+    viewAllMedia: string;
+    searchPlaceholder: string;
+    mediaTypes: {
+      all: string;
+      photo: string;
+      video: string;
+    };
+    jobFilterAll: string;
+    statsJobs: string;
+    statsPhotos: string;
+    statsVideos: string;
+    statsCountries: string;
+    jobCode: string;
+    deliverablesTitle: string;
+    specsTitle: string;
+    inquireJobWhatsApp: string;
+    requestJobQuote: string;
+    videoBadge: string;
+    photoBadge: string;
+    noResultsTitle: string;
+    noResultsDesc: string;
+    clearFilters: string;
+    loadMore: string;
+    allLoaded: string;
+  };
   footer: {
     summary: string;
     adminPanel: string;
@@ -1007,6 +1038,37 @@ export const translations: Record<Language, TranslationSchema> = {
       ariaLabel: 'Chat directly on WhatsApp with CLAPSA Consultant',
       title: 'Chat directly on WhatsApp',
     },
+        galleryPage: {
+      badge: 'CLAPSA Real Media & Job Showcase',
+      titlePrefix: 'Production Gallery &',
+      titleHighlight: 'Client Job Showcase',
+      subtitle: 'Explore high-resolution photographs, video reels, and behind-the-scenes documentation of recent manufacturing, sublimation, PPE, and gifting deployments across Southern Africa.',
+      viewByJob: 'Group by Specific Job / Project',
+      viewAllMedia: 'View All Media Stream',
+      searchPlaceholder: 'Search by client, product, material, or keyword...',
+      mediaTypes: {
+        all: 'All Media',
+        photo: 'High-Res Photos',
+        video: 'Videos & Motion Clips',
+      },
+      jobFilterAll: 'All Client Jobs',
+      statsJobs: 'Client Deployments',
+      statsPhotos: 'High-Res Photos',
+      statsVideos: 'Video Clips & Reels',
+      statsCountries: 'SADC Export Markets',
+      jobCode: 'Job Reference',
+      deliverablesTitle: 'Scope of Supply & Deliverables',
+      specsTitle: 'Production & Technical Specs',
+      inquireJobWhatsApp: 'Inquire About This Job on WhatsApp',
+      requestJobQuote: 'Request Custom Quote for Similar Job',
+      videoBadge: 'Motion Video',
+      photoBadge: 'High-Res Photo',
+      noResultsTitle: 'No Media Matching Your Search',
+      noResultsDesc: 'Try adjusting your search terms or category filter to discover more production jobs.',
+      clearFilters: 'Clear All Filters',
+      loadMore: 'Load More Media',
+      allLoaded: 'All Production Media Displayed',
+    },
     footer: {
       summary: 'Premier one-source corporate procurement partner delivering certified PPE, high-density embroidered workwear, outdoor event display hardware, and VIP corporate gifts across South Africa and the SADC.',
       adminPanel: 'Admin Panel',
@@ -1708,6 +1770,37 @@ export const translations: Record<Language, TranslationSchema> = {
       ariaLabel: 'Falar diretamente no WhatsApp com um consultor CLAPSA',
       title: 'Falar diretamente no WhatsApp',
     },
+        galleryPage: {
+      badge: 'Galeria Real de Mídia & Projetos CLAPSA',
+      titlePrefix: 'Galeria de Produção &',
+      titleHighlight: 'Trabalhos Recentes',
+      subtitle: 'Explore fotografias de alta resolução, vídeos e documentação de bastidores de produções recentes de vestuário, sublimação, EPI e brindes em toda a África Austral.',
+      viewByJob: 'Agrupar por Projeto / Trabalho',
+      viewAllMedia: 'Ver Todo o Fluxo de Mídia',
+      searchPlaceholder: 'Pesquisar por cliente, produto, material ou palavra-chave...',
+      mediaTypes: {
+        all: 'Toda a Mídia',
+        photo: 'Fotos em Alta Resolução',
+        video: 'Vídeos & Clipes de Movimento',
+      },
+      jobFilterAll: 'Todos os Projetos',
+      statsJobs: 'Projetos Concluídos',
+      statsPhotos: 'Fotos em Alta Resolução',
+      statsVideos: 'Vídeos & Reels',
+      statsCountries: 'Países da SADC Atendidos',
+      jobCode: 'Referência do Projeto',
+      deliverablesTitle: 'Âmbito de Fornecimento & Entregáveis',
+      specsTitle: 'Especificações Técnicas de Fabrico',
+      inquireJobWhatsApp: 'Consultar Sobre Este Projeto no WhatsApp',
+      requestJobQuote: 'Pedir Cotação Para Projeto Semelhante',
+      videoBadge: 'Vídeo em Movimento',
+      photoBadge: 'Foto em Alta Resolução',
+      noResultsTitle: 'Nenhuma Mídia Encontrada',
+      noResultsDesc: 'Tente ajustar os termos de pesquisa ou o filtro de categoria para ver mais trabalhos de produção.',
+      clearFilters: 'Limpar Todos os Filtros',
+      loadMore: 'Carregar Mais Mídia',
+      allLoaded: 'Toda a Mídia de Produção Exibida',
+    },
     footer: {
       summary: 'Parceiro corporativo integrado de aprovisionamento, fornecendo EPI certificado, vestuário de trabalho com bordados de alta precisão, estruturas para eventos e brindes VIP em toda a África do Sul e SADC.',
       adminPanel: 'Painel Administrativo',
@@ -2408,6 +2501,37 @@ export const translations: Record<Language, TranslationSchema> = {
       chatLabel: 'Gesels met Konsultant',
       ariaLabel: 'Gesels direk op WhatsApp met ’n CLAPSA-konsultant',
       title: 'Gesels direk op WhatsApp',
+    },
+        galleryPage: {
+      badge: 'CLAPSA Werklike Media & Projekvertoonvenster',
+      titlePrefix: 'Produksiegalery &',
+      titleHighlight: 'Kliëntewerk-Vertoonvenster',
+      subtitle: 'Verken hoë-resolusie foto\'s, videogrepe en agter-die-skerms dokumentasie van onlangse vervaardiging, sublimasie, WBT en geskenkprojekte regoor Suider-Afrika.',
+      viewByJob: 'Groepeer volgens Spesifieke Projek',
+      viewAllMedia: 'Wys Alle Media-Stroom',
+      searchPlaceholder: 'Soek volgens kliënt, produk, materiaal of sleutelwoord...',
+      mediaTypes: {
+        all: 'Alle Media',
+        photo: 'Hoë-Resolusie Foto\'s',
+        video: 'Video\'s & Bewegingsgrepe',
+      },
+      jobFilterAll: 'Alle Kliënteprojekte',
+      statsJobs: 'Kliënte-Uitrolle',
+      statsPhotos: 'Hoë-Resolusie Foto\'s',
+      statsVideos: 'Videogrepe & Reels',
+      statsCountries: 'SAOG-Uitvoermarkte',
+      jobCode: 'Projekverwysing',
+      deliverablesTitle: 'Omvang van Lewering & Uitsette',
+      specsTitle: 'Produksie- & Tegniese Spesifikasies',
+      inquireJobWhatsApp: 'Doen Navraag oor Hierdie Projek op WhatsApp',
+      requestJobQuote: 'Vra Kwotasie vir Soortgelyke Projek',
+      videoBadge: 'Bewegingsvideo',
+      photoBadge: 'Hoë-Resolusie Foto',
+      noResultsTitle: 'Geen Media Pas Jou Soektog Nie',
+      noResultsDesc: 'Probeer jou soekterme of kategorie-filter aanpas om meer produksiewerke te ontdek.',
+      clearFilters: 'Maak Alle Filters Skoon',
+      loadMore: 'Laai Meer Media',
+      allLoaded: 'Alle Produksiemedia Vertoon',
     },
     footer: {
       summary: 'Premier enkelbron korporatiewe voorsieningsvennoot wat gesertifiseerde WBT, hoëdigtheid-geborduurde werkdrag, buitelug-uitstallings en BBP-korporatiewe geskenke regoor Suid-Afrika en die SAOG lewer.',

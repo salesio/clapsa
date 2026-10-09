@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useContent } from '@/context/ContentContext';
 import { useLanguage } from '@/context/LanguageContext';
 import { 
@@ -62,20 +63,20 @@ export default function Hero() {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-4">
-              <a
-                href="#portfolio"
+              <Link
+                href="/gallery"
                 className="px-7 py-4 rounded-xl bg-gradient-to-r from-rose-600 to-red-700 hover:from-rose-500 hover:to-red-600 text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-rose-900/20 hover:shadow-rose-900/40 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2.5"
               >
                 {t.hero.viewPastWork}
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
 
-              <a
-                href="#catalogues"
+              <Link
+                href="/catalogues"
                 className="px-6 py-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-xs uppercase tracking-wider border border-slate-300 dark:border-slate-700/80 transition-all shadow-sm flex items-center gap-2"
               >
                 {t.hero.browseCatalogues}
-              </a>
+              </Link>
 
               <a
                 href={`tel:${company.phoneDirect}`}

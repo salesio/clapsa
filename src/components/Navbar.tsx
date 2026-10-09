@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useQuote } from '@/context/QuoteContext';
 import { useContent } from '@/context/ContentContext';
 import { useTheme } from '@/context/ThemeContext';
@@ -20,12 +21,14 @@ import {
   Sun,
   Moon,
   Sliders,
+  Sparkles
 } from 'lucide-react';
 import { getAssetPath } from '@/utils/assetPath';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
   const { totalItemsCount, setIsDrawerOpen } = useQuote();
   const { data } = useContent();
   const { theme, toggleTheme } = useTheme();
@@ -41,15 +44,26 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
   const navLinks = [
-    { label: t.nav.home, href: '#home' },
-    { label: t.nav.ourWork, href: '#portfolio' },
-    { label: t.nav.lookbook, href: '#showcase' },
-    { label: t.nav.capabilities, href: '#services' },
-    { label: t.nav.catalogues, href: '#catalogues' },
-    { label: t.nav.aboutUs, href: '#about' },
-    { label: t.nav.contact, href: '#contact' },
+    { label: t.nav.home, href: '/' },
+    { label: t.nav.aboutUs, href: '/about' },
+    { label: t.nav.capabilities, href: '/services' },
+    { label: t.nav.lookbook || 'Showcase Gallery', href: '/gallery' },
+    { label: t.nav.catalogues, href: '/catalogues' },
+    { label: t.nav.contact, href: '/contact' },
   ];
+
+  const isActiveRoute = (href: string) => {
+    if (href === '/') {
+      return pathname === '/' || pathname === '';
+    }
+    return pathname.startsWith(href);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
@@ -111,7 +125,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-4">
           
           {/* Left: Brand Logo & Tagline */}
-          <Link href="#home" className="flex items-center gap-3 group shrink-0">
+          <Link href="/" className="flex items-center gap-3 group shrink-0">
             <div className="relative w-32 h-10 sm:w-36 sm:h-11 flex items-center">
               <Image
                 src={getAssetPath('/images/logo.png')}
@@ -133,15 +147,22 @@ export default function Navbar() {
 
           {/* Center: Desktop Navigation Links Pill Dock */}
           <div className="hidden lg:flex items-center gap-1 bg-slate-100/70 dark:bg-slate-900/60 p-1 rounded-2xl border border-slate-200/70 dark:border-slate-800/80 shadow-2xs">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="px-3 xl:px-3.5 py-1.5 rounded-xl text-xs xl:text-[13px] font-semibold text-slate-700 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-white dark:hover:bg-slate-800 hover:shadow-xs transition-all duration-150 whitespace-nowrap"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const active = isActiveRoute(link.href);
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`px-3 xl:px-3.5 py-1.5 rounded-xl text-xs xl:text-[13px] font-semibold transition-all duration-150 whitespace-nowrap ${
+                    active
+                      ? 'bg-white dark:bg-slate-800 text-rose-600 dark:text-rose-400 shadow-xs font-bold'
+                      : 'text-slate-700 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-white/60 dark:hover:bg-slate-800/60'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Right: Actions Cluster (Language + Theme + Quote Basket + CTA) */}
@@ -182,13 +203,13 @@ export default function Navbar() {
             </button>
 
             {/* Primary Request a Quote CTA */}
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="h-9 px-3.5 sm:px-4 rounded-xl bg-gradient-to-r from-rose-600 via-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-xs uppercase tracking-wider shadow-xs hover:shadow-md hover:shadow-rose-600/25 transition-all flex items-center gap-1.5 whitespace-nowrap active:scale-[0.98]"
             >
               <span>{t.nav.requestQuote}</span>
               <ChevronRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
 
             {/* Mobile Menu Toggle Button */}
             <button
@@ -212,16 +233,23 @@ export default function Navbar() {
             </div>
 
             <div className="space-y-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block py-2.5 px-3.5 text-sm font-bold text-slate-800 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-xl transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const active = isActiveRoute(link.href);
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block py-2.5 px-3.5 text-sm font-bold rounded-xl transition-colors ${
+                      active
+                        ? 'bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400'
+                        : 'text-slate-800 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-slate-100 dark:hover:bg-slate-900'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
 
             <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-2">
@@ -242,13 +270,13 @@ export default function Navbar() {
                 <MessageSquare className="w-4 h-4" />
                 {t.nav.whatsappDirect}
               </a>
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white rounded-xl font-bold text-xs uppercase tracking-wider transition-colors shadow-xs"
               >
                 {t.nav.requestCorporateQuote}
-              </a>
+              </Link>
             </div>
           </div>
         )}
@@ -256,4 +284,3 @@ export default function Navbar() {
     </header>
   );
 }
-
