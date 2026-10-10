@@ -19,7 +19,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     client: 'Malawi Energy Regulatory Authority (MERA)',
     category: 'corporate',
     categoryLabel: 'Diplomatic & Corporate Apparel',
-    image: '/images/gallery/thumbs/mera-malawi-energy-regulatory-uniforms.webp',
+    image: '/images/gallery/mera-malawi-energy-regulatory-uniforms.webp',
     description: 'High-spec corporate workwear featuring intricate 50,000-stitch multicolor institutional crest embroidery executed on multi-head Tajima embroidery carousels.',
     deliverables: [
       '50,000-Stitch High-Density Multicolor Institutional Crests',
@@ -37,7 +37,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     client: 'Gauteng Provincial Government',
     category: 'ppe',
     categoryLabel: 'Industrial PPE & Safety',
-    image: '/images/gallery/thumbs/gauteng-province-flame-retardant-conti-suits.webp',
+    image: '/images/gallery/gauteng-province-flame-retardant-conti-suits.webp',
     description: 'SABS 434 and SABS 1519 compliant protective workwear programs for hazardous environments, including flame & acid retardant D59 Conti suits with official government crests.',
     deliverables: [
       '100% Cotton D59 Flame & Acid Retardant Two-Piece Conti Suits',
@@ -55,7 +55,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     client: 'Trans-SADC Highway & Civil Engineering',
     category: 'display',
     categoryLabel: 'Industrial Signage & Road Safety',
-    image: '/images/gallery/thumbs/desvio-reflective-chevron-road-signs.webp',
+    image: '/images/gallery/desvio-reflective-chevron-road-signs.webp',
     description: 'Class 2 high-intensity prismatic chevron road signage and galvanized steel support frames engineered for extreme outdoor weathering and nighttime illumination.',
     deliverables: [
       'Class 2 High-Intensity Prismatic Detour Chevron Signs ("Desvio")',
@@ -73,7 +73,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     client: 'Albany Bakeries South Africa',
     category: 'corporate',
     categoryLabel: 'Screen Printing & Apparel',
-    image: '/images/gallery/thumbs/albany-bakeries-promo-tshirts.webp',
+    image: '/images/gallery/albany-bakeries-promo-tshirts.webp',
     description: 'Bulk production run of red promotional t-shirts printed with Albany Bakeries diamond logo on high-speed textile carousel presses with heat-tunnel curing.',
     deliverables: [
       '100% Carded Cotton 160gsm Crewneck Promo T-Shirts',
@@ -91,7 +91,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     client: 'ELAXO & Owara Corporate Group',
     category: 'display',
     categoryLabel: 'Brand Activation & Gazebos',
-    image: '/images/gallery/thumbs/elaxo-sublimated-gazebo-and-tablecloth.webp',
+    image: '/images/gallery/elaxo-sublimated-gazebo-and-tablecloth.webp',
     description: 'Complete commercial outdoor activation suite including 3x3m heavy-duty sublimated pop-up canopy, matching fitted stretch tablecloth, and branded caps.',
     deliverables: [
       '600D Waterproof PU-Coated Polyester Canopy & Walls',
@@ -109,7 +109,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     client: 'Tropigalia Moçambique',
     category: 'gifting',
     categoryLabel: 'Corporate Gifting & Merchandise',
-    image: '/images/gallery/thumbs/tropigalia-branded-pens-bulk.webp',
+    image: '/images/gallery/tropigalia-branded-pens-bulk.webp',
     description: 'High-volume batch pad printing of dual-tone red and silver retractable corporate ballpoint pens for nationwide commercial distribution in Mozambique.',
     deliverables: [
       'Dual-Tone Metallic Silver & Red Retractable Pen Barrels',
@@ -127,7 +127,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     client: 'CLAPSA Activewear & Performance Line',
     category: 'corporate',
     categoryLabel: 'Sublimation & Sportswear',
-    image: '/images/portfolio/portfolio-lifestyle-apparel.jpg',
+    image: '/images/gallery/gauteng-province-sports-arts-tracksuits.webp',
     description: 'Designed, printed, and manufactured high-performance custom sublimated zip hoodies and activewear featuring precision color saturation and bespoke sleeve branding.',
     deliverables: [
       'Dye-Sublimated Performance Zip Hoodies with Vivid Contrast Graphics',
@@ -145,7 +145,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     client: 'SADC Regional Cross-Border Operations',
     category: 'display',
     categoryLabel: 'Freight & Cross-Border Logistics',
-    image: '/images/gallery/thumbs/shipping-container-clapsa-export-freight.webp',
+    image: '/images/gallery/shipping-container-clapsa-export-freight.webp',
     description: 'Full maritime container stuffing and cross-border logistics dispatch of palletized apparel, safety workwear, and promotional merchandise to SADC member states.',
     deliverables: [
       'Heavy-Duty Multi-Wall Export Cartons with Moisture Barrier',
@@ -160,12 +160,12 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
 ];
 
 export const PARTNERS = [
-  { name: 'Barron', image: '/images/partners/barron.jpg', description: 'Africa’s largest brandable apparel and promotional gifting distributor.' },
-  { name: 'Amrod', image: '/images/partners/amrod.jpg', description: 'Premier total-solution promotional products & corporate gifting trade supplier.' },
-  { name: 'Altitude by Wizard', image: '/images/partners/altitude.jpg', description: 'High-quality promotional apparel, outerwear, and sport collections.' },
-  { name: 'Abelanani', image: '/images/partners/abelanani.jpg', description: 'Specialist in custom manufactured promotional merchandise and event novelties.' },
-  { name: 'Bic Graphic', image: '/images/partners/bic.jpg', description: 'World-renowned writing instruments, lighters, and branded stationery.' },
-  { name: 'KMQ', image: '/images/partners/kmq.jpg', description: 'Top tier trade suppliers of headwear, caps, and outdoor accessories.' },
-  { name: 'Macma', image: '/images/partners/macma.jpg', description: 'Innovative corporate gifts, electronic gadgets, and premium drinkware.' },
-  { name: 'TOGS', image: '/images/partners/togs.jpg', description: 'Specialized industrial workwear, safety footwear, and team apparel.' },
+  { name: 'Barron', image: '/images/partners/barron.jpg', description: 'Africa’s largest brandable apparel and promotional gifting distributor.', bgColor: '#0c2a32', textColor: '#ffffff' },
+  { name: 'Amrod', image: '/images/partners/amrod.jpg', description: 'Premier total-solution promotional products & corporate gifting trade supplier.', bgColor: '#25a8e0', textColor: '#ffffff' },
+  { name: 'Altitude by Wizard', image: '/images/partners/altitude.jpg', description: 'High-quality promotional apparel, outerwear, and sport collections.', bgColor: '#414143', textColor: '#ffffff' },
+  { name: 'Abelanani', image: '/images/partners/abelanani.jpg', description: 'Specialist in custom manufactured promotional merchandise and event novelties.', bgColor: '#1e1e1e', textColor: '#ffffff' },
+  { name: 'Bic Graphic', image: '/images/partners/bic.jpg', description: 'World-renowned writing instruments, lighters, and branded stationery.', bgColor: '#262825', textColor: '#ffffff' },
+  { name: 'KMQ', image: '/images/partners/kmq.jpg', description: 'Top tier trade suppliers of headwear, caps, and outdoor accessories.', bgColor: '#15467e', textColor: '#ffffff' },
+  { name: 'Macma', image: '/images/partners/macma.jpg', description: 'Innovative corporate gifts, electronic gadgets, and premium drinkware.', bgColor: '#bbbbbd', textColor: '#0f172a' },
+  { name: 'TOGS', image: '/images/partners/togs.jpg', description: 'Specialized industrial workwear, safety footwear, and team apparel.', bgColor: '#378cc2', textColor: '#ffffff' },
 ];

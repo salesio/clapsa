@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { useContent } from '@/context/ContentContext';
 import { useLanguage } from '@/context/LanguageContext';
+import { getAssetPath } from '@/utils/assetPath';
 import { 
   Phone, 
   Mail, 
@@ -13,7 +15,8 @@ import {
   Building, 
   User, 
   CheckCircle2,
-  Sparkles
+  Sparkles,
+  Truck
 } from 'lucide-react';
 
 export default function ContactSection() {
@@ -150,6 +153,27 @@ export default function ContactSection() {
                   <MessageSquare className="w-4 h-4" />
                   <span>{t.contact.chatWhatsApp}</span>
                 </a>
+              </div>
+            </div>
+
+            {/* Sandton Operations & Freight Dispatch Visual Card */}
+            <div className="relative rounded-2xl overflow-hidden bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-md">
+              <div className="relative h-44 w-full bg-slate-950 overflow-hidden">
+                <Image
+                  src={getAssetPath('/images/gallery/shipping-container-clapsa-export-freight.webp')}
+                  alt="CLAPSA Sandton Logistics Facility"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
+                <div className="absolute bottom-3 left-4 right-4">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-950/80 text-rose-400 border border-slate-800">
+                    Bonded Operations Hub
+                  </span>
+                  <p className="text-xs font-bold text-white mt-1">
+                    Sandton Logistics & SADC Export Transit
+                  </p>
+                </div>
               </div>
             </div>
 

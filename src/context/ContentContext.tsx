@@ -26,6 +26,8 @@ export interface PartnerItem {
   name: string;
   image: string;
   description: string;
+  bgColor?: string;
+  textColor?: string;
 }
 
 export interface ServiceItem {
@@ -74,10 +76,10 @@ export const DEFAULT_HERO_DATA: HeroData = {
     'Cross-Border SADC Rapid Freight'
   ],
   featuredProject: {
-    title: 'Custom Branded Winter Jackets & Technical Workwear',
-    description: 'Turnkey employee uniform programs with high-density precision embroidery.',
+    title: 'Executive Corporate Apparel & High-Density Embroidery',
+    description: 'Turnkey enterprise uniform programs with precision crest embroidery and SABS compliance.',
     tag: 'Custom Corporate Apparel',
-    image: '/images/media/Unknown1.jpg',
+    image: '/images/gallery/executive-pique-golf-shirts-embroidery.webp',
     stat1: { value: '98%', label: 'Satisfaction' },
     stat2: { value: '1,500+', label: 'Deployments' },
     stat3: { value: 'SADC', label: 'Logistics' },

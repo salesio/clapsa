@@ -302,6 +302,51 @@ export default function CataloguesPage() {
 
       </section>
 
+      {/* Factory Direct & SADC Logistics Banner */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="relative rounded-3xl overflow-hidden bg-slate-950 border border-slate-800 p-8 sm:p-12 text-white shadow-2xl">
+          <div className="absolute inset-0 opacity-25">
+            <Image
+              src={getAssetPath('/images/gallery/shipping-container-clapsa-export-freight.webp')}
+              alt="CLAPSA Sandton Warehouse & SADC Logistics"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/40" />
+          </div>
+
+          <div className="relative max-w-2xl space-y-4">
+            <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-rose-600/90 text-white inline-block">
+              Factory Direct Procurement & Cross-Border Logistics
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+              Looking for Unlisted SABS PPE, High-Vis Workwear, or Custom Formats?
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              We hold bonded wholesale distribution agreements with South Africa&apos;s leading manufacturers. If you need custom Pantone fabric dyes, specialized mining footwear, or bulk container shipments, our Sandton procurement desk delivers within 24–48 hours.
+            </p>
+            <div className="pt-2 flex flex-wrap gap-3">
+              <a
+                href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Hi CLAPSA, I need a custom wholesale quotation for items not listed in your standard catalogue.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg transition-all"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Speak to Procurement Desk</span>
+              </a>
+              <Link
+                href="/gallery"
+                className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-sm border border-white/20 transition-all flex items-center gap-2"
+              >
+                <span>View Real Production Gallery</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Downloadable Trade PDF Catalogues Section */}
       <section className="py-20 bg-white dark:bg-slate-900/60 border-t border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">

@@ -17,11 +17,12 @@ import {
   Sparkles,
   Layers,
   ArrowUpRight,
-  Maximize2
+  Maximize2,
+  Play
 } from 'lucide-react';
 
 export default function ShowcaseSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { data } = useContent();
   const company = data.company;
 
@@ -33,11 +34,12 @@ export default function ShowcaseSection() {
     : SHOWCASE_ITEMS.filter((item) => item.category === activeCategory);
 
   const filterTabs: { id: ShowcaseCategory; label: string; count: number }[] = [
-    { id: 'all', label: t.showcase.tabs.all, count: SHOWCASE_ITEMS.length },
-    { id: 'sportswear', label: t.showcase.tabs.sportswear, count: SHOWCASE_ITEMS.filter(i => i.category === 'sportswear').length },
-    { id: 'apparel', label: t.showcase.tabs.apparel, count: SHOWCASE_ITEMS.filter(i => i.category === 'apparel').length },
-    { id: 'gifting', label: t.showcase.tabs.gifting, count: SHOWCASE_ITEMS.filter(i => i.category === 'gifting').length },
-    { id: 'ppe', label: t.showcase.tabs.ppe, count: SHOWCASE_ITEMS.filter(i => i.category === 'ppe').length },
+    { id: 'all', label: language === 'pt' ? 'Toda a Produção' : 'All Production', count: SHOWCASE_ITEMS.length },
+    { id: 'apparel', label: language === 'pt' ? 'Uniformes & Têxteis' : 'Corporate Apparel', count: SHOWCASE_ITEMS.filter(i => i.category === 'apparel').length },
+    { id: 'ppe', label: language === 'pt' ? 'EPI & Segurança SABS' : 'Certified PPE & Safety', count: SHOWCASE_ITEMS.filter(i => i.category === 'ppe').length },
+    { id: 'display', label: language === 'pt' ? 'Gazebos & Sinalização' : 'Displays & Signage', count: SHOWCASE_ITEMS.filter(i => i.category === 'display').length },
+    { id: 'gifting', label: language === 'pt' ? 'Brindes VIP & Embalagens' : 'VIP Gifting & Packaging', count: SHOWCASE_ITEMS.filter(i => i.category === 'gifting').length },
+    { id: 'sportswear', label: language === 'pt' ? 'Desporto & Sublimação' : 'Sportswear & Sublimation', count: SHOWCASE_ITEMS.filter(i => i.category === 'sportswear').length },
   ];
 
   // Localization helper
@@ -155,10 +157,16 @@ export default function ShowcaseSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/15 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
                   
                   {/* Badge Pill */}
-                  <div className="absolute top-3 left-3">
+                  <div className="absolute top-3 left-3 flex items-center gap-1.5">
                     <span className="px-2.5 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-[10px] font-bold tracking-wide uppercase text-rose-400 border border-slate-800">
                       {item.badge}
                     </span>
+                    {rawItem.videoSrc && (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-rose-600 text-white text-[10px] font-extrabold uppercase tracking-wide shadow-md animate-pulse">
+                        <Play className="w-2.5 h-2.5 fill-white" />
+                        <span>Reel</span>
+                      </span>
+                    )}
                   </div>
 
                   {/* Hover Quick View Button */}
@@ -252,15 +260,26 @@ export default function ShowcaseSection() {
               <X className="w-5 h-5" />
             </button>
 
-            {/* Left: High-Res Image with Next/Prev Arrows */}
-            <div className="relative lg:w-3/5 min-h-[360px] sm:min-h-[460px] lg:min-h-[560px] bg-slate-950 flex items-center justify-center">
-              <Image
-                src={getAssetPath(currentItem.image)}
-                alt={currentItem.title}
-                fill
-                priority
-                className="object-contain p-2"
-              />
+            {/* Left: High-Res Image or Video with Next/Prev Arrows */}
+            <div className="relative lg:w-3/5 min-h-[360px] sm:min-h-[460px] lg:min-h-[560px] bg-slate-950 flex items-center justify-center p-2 sm:p-4">
+              {currentItem.videoSrc ? (
+                <video
+                  src={getAssetPath(currentItem.videoSrc)}
+                  poster={getAssetPath(currentItem.image)}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="max-h-[520px] max-w-full rounded-2xl shadow-2xl"
+                />
+              ) : (
+                <Image
+                  src={getAssetPath(currentItem.image)}
+                  alt={currentItem.title}
+                  fill
+                  priority
+                  className="object-contain p-2"
+                />
+              )}
 
               {/* Prev Button */}
               <button

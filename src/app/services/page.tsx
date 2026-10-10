@@ -21,7 +21,10 @@ import {
   Truck,
   Check,
   Award,
-  ChevronRight
+  ChevronRight,
+  Play,
+  Video,
+  X
 } from 'lucide-react';
 
 export default function ServicesPage() {
@@ -29,12 +32,54 @@ export default function ServicesPage() {
   const { data } = useContent();
   const company = data.company;
 
+  const [activeMachineryVideo, setActiveMachineryVideo] = useState<{
+    id: string;
+    title: string;
+    subtitle: string;
+    videoSrc: string;
+  } | null>(null);
+
+  const machineryVideos = [
+    {
+      id: 'carousel-printing',
+      title: 'Automated 8-Color Carousel Screen Printing',
+      subtitle: 'High-speed automated squeegees with micro-registration and conveyor flash curing units.',
+      videoSrc: '/videos/gallery/clapsa-carousel-screen-printing-reel.mp4',
+      poster: '/videos/gallery/posters/clapsa-carousel-screen-printing-reel.webp',
+      badge: 'Textile Printing'
+    },
+    {
+      id: 'squeegee-precision',
+      title: 'Precision Textile Squeegee Ink Application',
+      subtitle: 'Uniform ink deposit stroke delivering vibrant, durable prints without cracking.',
+      videoSrc: '/videos/gallery/precision-textile-squeegee-printing-stroke.mp4',
+      poster: '/videos/gallery/posters/precision-textile-squeegee-printing-stroke.webp',
+      badge: 'Ink Transfer'
+    },
+    {
+      id: 'pallet-wrapping',
+      title: 'Automated Pallet Stretch Wrapping Machine',
+      subtitle: 'Turntable industrial wrapping ensuring weatherproof containment for freight.',
+      videoSrc: '/videos/gallery/automated-pallet-stretch-wrapping-dispatch.mp4',
+      poster: '/videos/gallery/posters/automated-pallet-stretch-wrapping-dispatch.webp',
+      badge: 'Protective Packaging'
+    },
+    {
+      id: 'forklift-loading',
+      title: 'Toyota Forklift Heavy Dispatch & Freight Loading',
+      subtitle: 'Rapid staging and loading of cross-border articulated trucks for SADC dispatch.',
+      videoSrc: '/videos/gallery/toyota-forklift-loading-freight-trucks.mp4',
+      poster: '/videos/gallery/posters/toyota-forklift-loading-freight-trucks.webp',
+      badge: 'Freight Dispatch'
+    }
+  ];
+
   const capabilities = [
     {
       id: 'corporate-wardrobe',
       title: 'Corporate Wardrobe & Executive Uniforms',
       tag: 'Corporate & Hospitality',
-      image: '/images/portfolio/portfolio-corporate-uniforms.jpg',
+      image: '/images/gallery/executive-pique-golf-shirts-embroidery.webp',
       icon: Briefcase,
       description: 'Turnkey executive clothing programs from tailored suits and corporate blazers to moisture-wicking golfers, oxford shirts, and knitted pullovers with computerized high-density embroidery.',
       features: [
@@ -51,7 +96,7 @@ export default function ServicesPage() {
       id: 'industrial-ppe',
       title: 'Industrial PPE & Certified Workplace Safety',
       tag: 'SABS Approved Safety',
-      image: '/images/portfolio/portfolio-ppe-safety.jpg',
+      image: '/images/gallery/gauteng-province-flame-retardant-conti-suits.webp',
       icon: ShieldCheck,
       description: 'Complete occupational health & safety outfitting compliant with SABS, CE, and ISO standards. Covering heavy manufacturing, underground mining, civil construction, and logistics.',
       features: [
@@ -68,7 +113,7 @@ export default function ServicesPage() {
       id: 'sublimated-sportswear',
       title: 'Custom Sportswear & All-Over Dye Sublimation',
       tag: 'Performance & Athletics',
-      image: '/images/portfolio/portfolio-lifestyle-apparel.jpg',
+      image: '/images/gallery/gauteng-province-sports-arts-tracksuits.webp',
       icon: Layers,
       description: 'Bespoke athletic apparel engineered for professional sports clubs, corporate wellness, school athletics, and gym activewear using vibrant thermal calender dye-sublimation.',
       features: [
@@ -85,7 +130,7 @@ export default function ServicesPage() {
       id: 'displays-signage',
       title: 'Large-Format Displays, Gazebos & Outdoor Signage',
       tag: 'Event & Brand Signage',
-      image: '/images/showcase/claps-gin-exhibition-showcase.jpg',
+      image: '/images/gallery/elaxo-sublimated-gazebo-and-tablecloth.webp',
       icon: Flag,
       description: 'Heavy-duty promotional event hardware and photographic sublimation display fabrics for brand activations, sports championships, roadshows, and retail point-of-sale.',
       features: [
@@ -102,7 +147,7 @@ export default function ServicesPage() {
       id: 'corporate-gifting',
       title: 'VIP Corporate Gifting & Artisan Merchandising',
       tag: 'Executive Gifting',
-      image: '/images/portfolio/portfolio-corporate-gifting.jpg',
+      image: '/images/gallery/mantra-kraft-luxury-gift-bags.webp',
       icon: Gift,
       description: 'Custom curated luxury gift hampers, precision laser-etched metal accessories, bespoke bottled beverages, and high-perceived-value merchandise for executive clientele.',
       features: [
@@ -119,7 +164,7 @@ export default function ServicesPage() {
       id: 'event-merchandise',
       title: 'Event Merchandising, Lanyards & QR Wristbands',
       tag: 'Festivals & Conferences',
-      image: '/images/portfolio/portfolio-event-branding.jpg',
+      image: '/images/gallery/siemens-matla-satin-sublimated-lanyards.webp',
       icon: Sparkles,
       description: 'Mass-volume event accreditations, double-sided silk satin lanyards, RFID and scannable QR wristbands, and promotional giveaways for large-scale pan-African gatherings.',
       features: [
@@ -308,6 +353,73 @@ export default function ServicesPage() {
 
       </section>
 
+      {/* Live Machinery & Production in Motion Reel Showcase */}
+      <section className="py-20 bg-slate-900 text-white border-y border-slate-800 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#e11d48_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative">
+          
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-950/80 border border-rose-800/60 text-rose-300 text-xs font-bold uppercase tracking-wider">
+              <Video className="w-3.5 h-3.5 text-rose-400" />
+              <span>Machinery In Motion</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
+              Industrial Plant Machinery & Operations Live
+            </h2>
+            <p className="text-slate-300 text-sm sm:text-base">
+              Experience the precision engineering behind every order — automated textile printing presses, continuous squeegees, industrial packaging wrappers, and heavy logistics dispatch.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {machineryVideos.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => setActiveMachineryVideo(item)}
+                className="group relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 hover:border-rose-500/60 shadow-xl cursor-pointer transition-all duration-300 flex flex-col justify-between"
+              >
+                {/* Poster / Video Thumbnail Container */}
+                <div className="relative h-60 w-full overflow-hidden bg-slate-950">
+                  <Image
+                    src={getAssetPath(item.poster)}
+                    alt={item.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
+                  
+                  {/* Category Pill */}
+                  <div className="absolute top-3 left-3">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-950/80 text-rose-400 border border-slate-800 backdrop-blur-xs">
+                      {item.badge}
+                    </span>
+                  </div>
+
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-rose-600/90 group-hover:bg-rose-500 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300">
+                      <Play className="w-5 h-5 fill-white ml-0.5" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Meta */}
+                <div className="p-5 space-y-2">
+                  <h3 className="text-sm font-bold text-white group-hover:text-rose-400 transition-colors line-clamp-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+                    {item.subtitle}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
       {/* 5-Step Workflow Process */}
       <section className="py-20 bg-white dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
@@ -368,6 +480,50 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Machinery Video Modal */}
+      {activeMachineryVideo && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+          onClick={() => setActiveMachineryVideo(null)}
+        >
+          <div 
+            className="relative w-full max-w-4xl bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl space-y-4 p-4 sm:p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+              <div>
+                <span className="text-[10px] uppercase font-bold text-rose-400 tracking-wider">
+                  Live Machinery Reel
+                </span>
+                <h3 className="text-base sm:text-lg font-bold text-white">
+                  {activeMachineryVideo.title}
+                </h3>
+              </div>
+              <button
+                onClick={() => setActiveMachineryVideo(null)}
+                className="p-2 rounded-xl bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                aria-label="Close video"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black">
+              <video
+                src={getAssetPath(activeMachineryVideo.videoSrc)}
+                controls
+                autoPlay
+                className="w-full h-full object-contain"
+              />
+            </div>
+
+            <p className="text-xs text-slate-400">
+              {activeMachineryVideo.subtitle}
+            </p>
+          </div>
+        </div>
+      )}
 
     </div>
   );

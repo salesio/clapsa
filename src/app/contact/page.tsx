@@ -187,6 +187,30 @@ export default function ContactPage() {
               </div>
             </div>
 
+            {/* Sandton Operations & Freight Dispatch Visual Card */}
+            <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <div className="relative h-48 w-full bg-slate-950 overflow-hidden">
+                <Image
+                  src={getAssetPath('/images/gallery/shipping-container-clapsa-export-freight.webp')}
+                  alt="CLAPSA Sandton Logistics Facility"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+                <div className="absolute bottom-3 left-4 right-4">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-950/80 text-rose-400 border border-slate-800">
+                    Bonded Operations Hub
+                  </span>
+                  <p className="text-xs font-bold text-white mt-1">
+                    Sandton Logistics & SADC Export Transit
+                  </p>
+                </div>
+              </div>
+              <div className="p-4 bg-slate-50 dark:bg-slate-950/50 text-[11px] text-slate-500 dark:text-slate-400">
+                Direct export consolidation facility for road freight to Maputo Corridor, Gaborone, Harare, and Lusaka.
+              </div>
+            </div>
+
             {/* SADC Logistics Guarantee Banner */}
             <div className="p-6 rounded-3xl bg-slate-900 dark:bg-slate-950 text-white border border-slate-800 space-y-3">
               <div className="flex items-center gap-2 text-rose-400 text-xs font-bold uppercase tracking-wider">

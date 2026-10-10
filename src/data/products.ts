@@ -15,15 +15,50 @@ export const PRODUCTS: ProductItem[] = [
   // Footwear & PPE
   {
     id: 'excavator-s3-boot',
-    name: 'Excavator S3 Heavy Industrial Safety Boot',
+    name: 'Caterpillar Excavator S3 Heavy Industrial Safety Boot',
     category: 'footwear',
     categoryLabel: 'Safety Footwear',
-    image: '/images/products/excavator_s3_boot.jpeg',
+    image: '/images/gallery/caterpillar-sabs-steel-toe-safety-boots.webp',
     indicativePrice: 'R 2,418.00',
     moq: '10 Pairs',
     features: ['S3 Certified', 'Composite Toe Cap', 'Waterproof Full-Grain Leather', 'Slip & Heat Resistant Outsole'],
     description: 'Ultimate rugged protection engineered for heavy mining, engineering, and harsh terrain construction.',
     isPopular: true
+  },
+  {
+    id: 'gauteng-d59-conti-suit',
+    name: 'SABS D59 Flame-Retardant & Acid-Resistant Conti Suit',
+    category: 'ppe',
+    categoryLabel: 'Industrial PPE',
+    image: '/images/gallery/gauteng-province-flame-retardant-conti-suits.webp',
+    indicativePrice: 'R 890.00',
+    moq: '25 Sets',
+    features: ['SABS 434 Certified', '100% Cotton D59 Treated', 'Concealed Heavy-Duty YKK Brass Zip', '50mm High-Vis Reflective Strips'],
+    description: 'Government and mining certified protective two-piece workwear engineered for hazardous industrial flash environments.',
+    isPopular: true
+  },
+  {
+    id: '3m-industrial-respirator',
+    name: '3M Dual-Cartridge Industrial Half-Face Respirator Kit',
+    category: 'ppe',
+    categoryLabel: 'Respiratory Protection',
+    image: '/images/gallery/3m-dual-cartridge-industrial-respirators.webp',
+    indicativePrice: 'R 645.00',
+    moq: '10 Units',
+    features: ['Bayonet Cartridge Connection', 'Silicone Face Seal', 'P95 Particulate & Vapor Filtration', 'Adjustable 4-Point Cradle'],
+    description: 'Premium half-mask respiratory protection for paint spraying, chemical manufacturing, and heavy dust environments.',
+    isPopular: true
+  },
+  {
+    id: 'g4s-ballistic-vest',
+    name: 'Tactical Ballistic Armor Carrier Vest & Molle Pouches',
+    category: 'ppe',
+    categoryLabel: 'Tactical Workwear',
+    image: '/images/gallery/g4s-security-tactical-ballistic-vest.webp',
+    indicativePrice: 'R 2,850.00',
+    moq: '10 Units',
+    features: ['1000D Cordura Ripstop', 'MOLLE Modular Webbing', 'Internal Plate Pockets (NIJ Level III/IV)', 'Reinforced Rescue Drag Handle'],
+    description: 'Heavy-duty tactical vest system deployed across African cash-in-transit, private security, and tactical patrol teams.'
   },
   {
     id: 'holton-s3-boot',
@@ -111,11 +146,23 @@ export const PRODUCTS: ProductItem[] = [
     name: 'Heavy-Duty 3x3m Branded Aluminum Gazebo Toolkit',
     category: 'display',
     categoryLabel: 'Branded Displays',
-    image: '/images/products/gazebo_toolkit.png',
+    image: '/images/gallery/elaxo-sublimated-gazebo-and-tablecloth.webp',
     indicativePrice: 'R 3,450.00',
     moq: '1 Unit',
     features: ['40mm Hex Aluminum Frame', 'Full-Colour Dye-Sublimation Canopy', 'Waterproof & UV Coated', 'Wheeled Carry Bag & Pegs'],
     description: 'Commercial grade pop-up marquee gazebo engineered to withstand outdoor winds and sun exposure.',
+    isPopular: true
+  },
+  {
+    id: 'desvio-road-sign',
+    name: 'Desvio Class 2 Retro-Reflective Highway Detour Sign',
+    category: 'display',
+    categoryLabel: 'Civil & Road Signage',
+    image: '/images/gallery/desvio-reflective-chevron-road-signs.webp',
+    indicativePrice: 'R 1,480.00',
+    moq: '2 Units',
+    features: ['Class 2 Prismatic Reflective Vinyl', 'Chromadek Steel Substrate', 'Hot-Dip Galvanized Support Frame', 'SABS 1519 Compliant'],
+    description: 'Heavy-duty high-visibility traffic detour chevron signs manufactured for SADC highway works and civil contractors.',
     isPopular: true
   },
   {
@@ -163,6 +210,18 @@ export const PRODUCTS: ProductItem[] = [
     moq: '50 Units',
     features: ['Type 5/6 Certified Particle Barrier', 'Elasticated Hood, Cuffs & Ankles', 'Breathable Microporous Fabric', 'Lint Free'],
     description: 'Essential barrier protection for spray painting, abatement, chemical handling, and cleanrooms.'
+  },
+  {
+    id: 'touchless-pedal-sanitizer',
+    name: 'Heavy-Duty Mechanical Touchless Sanitizer Pedal Station',
+    category: 'medical',
+    categoryLabel: 'Facility Hygiene',
+    image: '/images/gallery/touchless-sanitizer-pedal-stations.webp',
+    indicativePrice: 'R 1,150.00',
+    moq: '5 Units',
+    features: ['100% Mechanical Foot Pedal Operation', 'Heavy Steel Base Plate (Anti-Topple)', 'Universal 1L / 5L Bottle Holder', 'Zero Electrical Maintenance'],
+    description: 'Durable powder-coated steel hands-free sanitizer dispenser designed for factory entrances, mine access gates, and retail plazas.',
+    isPopular: true
   },
   {
     id: 'auto-dispenser-700ml',
