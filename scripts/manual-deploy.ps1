@@ -26,7 +26,7 @@ New-Item -Path ".nojekyll" -ItemType File -Force | Out-Null
 
 # Commit and push
 git add -A
-git commit -m "Deploy: multi-language support (EN/PT/AF), IP geolocation, refined navbar, and upgraded admin portal"
+git commit -m "Deploy: multi-page architecture, advanced showcase media gallery with motion reels & subpages"
 git push origin gh-pages --force
 
 Pop-Location

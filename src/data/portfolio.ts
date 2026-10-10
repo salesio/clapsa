@@ -14,6 +14,114 @@ export interface PortfolioItem {
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
+    id: 'mera-diplomatic-uniforms',
+    title: 'MERA Malawi Energy Authority Corporate Uniforms',
+    client: 'Malawi Energy Regulatory Authority (MERA)',
+    category: 'corporate',
+    categoryLabel: 'Diplomatic & Corporate Apparel',
+    image: '/images/gallery/thumbs/mera-malawi-energy-regulatory-uniforms.webp',
+    description: 'High-spec corporate workwear featuring intricate 50,000-stitch multicolor institutional crest embroidery executed on multi-head Tajima embroidery carousels.',
+    deliverables: [
+      '50,000-Stitch High-Density Multicolor Institutional Crests',
+      'Heavyweight 65/35 Poly-Cotton Twill Corporate Work Shirts',
+      'Reinforced Triple-Needle Seams for Extended Field Durability',
+      'Executive Pique Cotton 220gsm Conference Golf Shirts'
+    ],
+    year: '2025',
+    location: 'Lilongwe, Malawi & Sandton, South Africa',
+    tag: 'Institutional Uniforms'
+  },
+  {
+    id: 'gauteng-province-ppe',
+    title: 'Gauteng Province Flame & Acid Retardant Conti Suits',
+    client: 'Gauteng Provincial Government',
+    category: 'ppe',
+    categoryLabel: 'Industrial PPE & Safety',
+    image: '/images/gallery/thumbs/gauteng-province-flame-retardant-conti-suits.webp',
+    description: 'SABS 434 and SABS 1519 compliant protective workwear programs for hazardous environments, including flame & acid retardant D59 Conti suits with official government crests.',
+    deliverables: [
+      '100% Cotton D59 Flame & Acid Retardant Two-Piece Conti Suits',
+      'High-Density Provincial Government Embroidered Emblems',
+      'Heavy-Duty YKK Concealed Brass Zippers',
+      '50mm Silver SABS Approved Retro-Reflective Cross-Straps'
+    ],
+    year: '2025',
+    location: 'Gauteng & Witbank Mining Belt',
+    tag: 'SABS D59 Workwear'
+  },
+  {
+    id: 'sadc-highway-signs',
+    title: 'Desvio Class 2 Retro-Reflective Highway Detour Signs',
+    client: 'Trans-SADC Highway & Civil Engineering',
+    category: 'display',
+    categoryLabel: 'Industrial Signage & Road Safety',
+    image: '/images/gallery/thumbs/desvio-reflective-chevron-road-signs.webp',
+    description: 'Class 2 high-intensity prismatic chevron road signage and galvanized steel support frames engineered for extreme outdoor weathering and nighttime illumination.',
+    deliverables: [
+      'Class 2 High-Intensity Prismatic Detour Chevron Signs ("Desvio")',
+      'Hot-Dip Galvanized Angle-Iron Foldable Sign Support A-Frames',
+      '750mm UV-Stabilized Flexible PVC Traffic Cones with Weighted Bases',
+      'SABS 1519 Retro-Reflective Compliance Certification'
+    ],
+    year: '2025',
+    location: 'Maputo Corridor & SADC Highways',
+    tag: 'Class 2 Road Signage'
+  },
+  {
+    id: 'albany-bakeries-promo-run',
+    title: 'Albany Bakeries High-Volume Screen-Printed Tees',
+    client: 'Albany Bakeries South Africa',
+    category: 'corporate',
+    categoryLabel: 'Screen Printing & Apparel',
+    image: '/images/gallery/thumbs/albany-bakeries-promo-tshirts.webp',
+    description: 'Bulk production run of red promotional t-shirts printed with Albany Bakeries diamond logo on high-speed textile carousel presses with heat-tunnel curing.',
+    deliverables: [
+      '100% Carded Cotton 160gsm Crewneck Promo T-Shirts',
+      'Multi-Color Plastisol Screen Print with Zero Washout',
+      'High-Volume Automated Conveyor Curing (5,000+ Units)',
+      'Custom Sizing Bundling and Nationwide Logistics Dispatch'
+    ],
+    year: '2025',
+    location: 'Johannesburg, South Africa',
+    tag: 'Automated Screen Printing'
+  },
+  {
+    id: 'elaxo-gazebo-activation',
+    title: 'ELAXO Sublimated Waterproof Event Gazebo & Tablecloth',
+    client: 'ELAXO & Owara Corporate Group',
+    category: 'display',
+    categoryLabel: 'Brand Activation & Gazebos',
+    image: '/images/gallery/thumbs/elaxo-sublimated-gazebo-and-tablecloth.webp',
+    description: 'Complete commercial outdoor activation suite including 3x3m heavy-duty sublimated pop-up canopy, matching fitted stretch tablecloth, and branded caps.',
+    deliverables: [
+      '600D Waterproof PU-Coated Polyester Canopy & Walls',
+      'Hexagonal 40mm Commercial Aluminum Frame Hardware',
+      'All-Over Dye-Sublimation Full-Penetration Printing',
+      'Matching Stretch Contour Tablecloth and Branded Merchandise'
+    ],
+    year: '2025',
+    location: 'Johannesburg & Regional Events',
+    tag: 'Event Gazebos'
+  },
+  {
+    id: 'tropigalia-stationery-gifting',
+    title: 'Tropigalia Branded Ballpoint Pens & Executive Swag',
+    client: 'Tropigalia Moçambique',
+    category: 'gifting',
+    categoryLabel: 'Corporate Gifting & Merchandise',
+    image: '/images/gallery/thumbs/tropigalia-branded-pens-bulk.webp',
+    description: 'High-volume batch pad printing of dual-tone red and silver retractable corporate ballpoint pens for nationwide commercial distribution in Mozambique.',
+    deliverables: [
+      'Dual-Tone Metallic Silver & Red Retractable Pen Barrels',
+      'High-Precision 2-Color Tampo Pad Printing of Corporate Identity',
+      'German Black Ink Refills with 1,200m Writing Capacity',
+      'Palletized Bulk Packaging for Cross-Border Transport'
+    ],
+    year: '2025',
+    location: 'Maputo, Mozambique',
+    tag: 'Corporate Stationery'
+  },
+  {
     id: 'clapsa-activewear-collection',
     title: 'Custom Sublimated Zip Hoodies & Athletic Tracksuits',
     client: 'CLAPSA Activewear & Performance Line',
@@ -32,130 +140,22 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     tag: 'Sublimated Apparel'
   },
   {
-    id: 'trace-vip-event-merchandising',
-    title: 'TRACE+ VIP Event Lanyards & Sublimated Wristbands',
-    client: 'TRACE+ Music & Entertainment Tour',
-    category: 'gifting',
-    categoryLabel: 'Event Merchandising',
-    image: '/images/portfolio/portfolio-event-branding.jpg',
-    description: 'Manufactured premium black satin dye-sublimated VIP event lanyards and wristbands featuring scannable QR campaign activations and vibrant orange branding.',
-    deliverables: [
-      'Double-Sided High-Density Silk Satin Sublimated Lanyards',
-      'High-Precision Scannable QR Codes for Contactless Digital Activations',
-      'Heavy-Duty Lobster Claw Clasps & Safety Breakaway Buckles',
-      '50,000+ Units Rapid SADC Pan-African Event Distribution'
-    ],
-    year: '2025',
-    location: 'Pan-African Tour & Festivals',
-    tag: 'Event Merchandising'
-  },
-  {
-    id: 'claps-gin-corporate-gifting',
-    title: 'CLAPS Premium Gin & Laser-Engraved Wooden Coasters',
-    client: 'Exclusive Brand Launch & VIP Executive Gifting',
-    category: 'gifting',
-    categoryLabel: 'Bespoke Corporate Gifting',
-    image: '/images/portfolio/portfolio-corporate-gifting.jpg',
-    description: 'Curated luxury artisan gifting suites featuring custom-labelled CLAPS Premium Gin spirit bottles with natural cork stoppers and bespoke laser-cut geometric wooden coasters.',
-    deliverables: [
-      'Custom Foil-Laminated Spirit Bottle Labels with Natural Cork Seals',
-      'Precision Laser-Cut Geometric Hardwood Coaster Sets',
-      'Debossed Presentation Gift Boxes with Silk Ribbon Liners',
-      'Turnkey VIP Executive Gift Hamper Assembly & Distribution'
-    ],
-    year: '2025',
-    location: 'Sandton, Johannesburg',
-    tag: 'Executive Gifting'
-  },
-  {
-    id: 'industrial-ppe-safety-shoot',
-    title: 'Certified Safety Eyewear & Heavy-Duty Nitrile Grip Gloves',
-    client: 'Manufacturing & Heavy Industrial Engineering Group',
-    category: 'ppe',
-    categoryLabel: 'Industrial PPE & Safety',
-    image: '/images/portfolio/portfolio-ppe-safety.jpg',
-    description: 'Supplied comprehensive SABS & CE approved eye protection goggles, anti-abrasion nitrile safety gloves, and industrial head protection for engineering workforces.',
-    deliverables: [
-      'Anti-Scratch & Anti-Fog UV Protective Safety Glasses',
-      'Heavy-Duty High-Grip Nitrile Coated Handling Gloves',
-      'Industrial Head & Hearing Protection Kits',
-      'SABS & ISO 9001 Compliance Certification Documentation'
-    ],
-    year: '2025',
-    location: 'Gauteng & Mpumalanga',
-    tag: 'Certified Safety PPE'
-  },
-  {
-    id: 'clapsa-graphic-tees',
-    title: 'Africa Map Typography Graphic T-Shirt Collection',
-    client: 'Pan-African Apparel & Cultural Brand',
-    category: 'corporate',
-    categoryLabel: 'Graphic & Corporate Apparel',
-    image: '/images/portfolio/portfolio-graphic-tees.jpg',
-    description: 'Produced premium 180gsm combed cotton graphic t-shirts featuring high-density typographical Africa map screen printing with razor-sharp micro-text clarity.',
-    deliverables: [
-      '180gsm 100% Combed Cotton Heavyweight Crewneck Tees',
-      'High-Density Screen & DTF Typographical Map Printing',
-      'Pre-Shrunk Ring-Spun Fabric with Reinforced Double Stitching',
-      'Custom Neck Labeling and Eco-Friendly Retail Bagging'
-    ],
-    year: '2025',
-    location: 'Johannesburg, South Africa',
-    tag: 'Graphic Apparel'
-  },
-  {
-    id: 'clapsa-corporate-uniforms',
-    title: 'Corporate Emerald Cotton T-Shirts with Custom Back Branding',
-    client: 'CLAPSA Official Corporate Uniforms',
-    category: 'corporate',
-    categoryLabel: 'Corporate Uniforms',
-    image: '/images/portfolio/portfolio-corporate-uniforms.jpg',
-    description: 'Manufactured custom vibrant emerald-green corporate crewnecks featuring crisp white official logo placement across the upper back for internal and client-facing teams.',
-    deliverables: [
-      '100% Premium Cotton Crewneck Corporate T-Shirts',
-      'Precision Screen-Printed Upper Back CLAPSA Branding',
-      'Comfort Fit with Anti-Fade Color Fastness Technology',
-      'Full Sizing Range (XS to 4XL) for Multi-Branch Outfitting'
-    ],
-    year: '2025',
-    location: 'South Africa & Regional Branches',
-    tag: 'Corporate Wardrobe'
-  },
-  {
-    id: 'trade-exhibition-showcase',
-    title: 'Commercial Exhibition Stand & Product Showcase',
-    client: 'SADC Trade & Brand Exhibition',
+    id: 'sadc-export-freight-container',
+    title: '40ft Shipping Container Loaded with CLAPSA Export Freight',
+    client: 'SADC Regional Cross-Border Operations',
     category: 'display',
-    categoryLabel: 'Exhibition Displays & Signage',
-    image: '/images/portfolio/portfolio-trade-exhibition.jpg',
-    description: 'Designed and built complete commercial retail display counters, promotional backdrops, and product shelf arrangements for high-traffic trade exhibitions.',
+    categoryLabel: 'Freight & Cross-Border Logistics',
+    image: '/images/gallery/thumbs/shipping-container-clapsa-export-freight.webp',
+    description: 'Full maritime container stuffing and cross-border logistics dispatch of palletized apparel, safety workwear, and promotional merchandise to SADC member states.',
     deliverables: [
-      'Vibrant Dye-Sublimation Fabric Wall & Pop-Up Backdrop Banners',
-      'Custom Tiered Merchandising Display Stand with Product Shelving',
-      'Illuminated Product Showcases for Glass Bottled Merchandise',
-      'Turnkey Event Setup, Dismantling & Logistics Support'
+      'Heavy-Duty Multi-Wall Export Cartons with Moisture Barrier',
+      'Cross-Border SADC Trade Protocol Documentation & Phytosanitary Checks',
+      'Palletized Strapped Secure Cargo with Automated Film Wrapping',
+      'Dedicated Freight Forwarding to Mozambique, Botswana & Zimbabwe'
     ],
     year: '2025',
-    location: 'Johannesburg & Regional SADC Hubs',
-    tag: 'Trade Displays'
-  },
-  {
-    id: 'custom-sportswear-activewear',
-    title: 'All-Over Sublimation Activewear & Fitness Leggings',
-    client: 'Athletic Club & Teamwear Division',
-    category: 'corporate',
-    categoryLabel: 'Sportswear & Activewear',
-    image: '/images/portfolio/portfolio-custom-sportswear.jpg',
-    description: 'Custom designed technical performance sportswear with 4-way stretch compression leggings and breathable athletic fabrics for fitness and team sports.',
-    deliverables: [
-      '4-Way Stretch High-Compression Spandex/Polyester Leggings',
-      'Sweat-Wicking Anti-Odor Performance Technical Fabrics',
-      'Reinforced Flatlock Seams for Maximum Athlete Comfort',
-      'High-Resolution Gradient Printing with Fade-Proof Inks'
-    ],
-    year: '2025',
-    location: 'Cape Town & Johannesburg',
-    tag: 'Athletic Apparel'
+    location: 'Regional SADC Transit Corridors',
+    tag: 'Cross-Border Freight'
   }
 ];
 
