@@ -26,7 +26,7 @@ New-Item -Path ".nojekyll" -ItemType File -Force | Out-Null
 
 # Commit and push
 git add -A
-git commit -m "Deploy: multi-page architecture, advanced showcase media gallery with motion reels & subpages"
+git commit -m "Deploy: enhance website imagery, video reels, dynamic logo loop slider, and hero fading carousel"
 git push origin gh-pages --force
 
 Pop-Location
