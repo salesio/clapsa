@@ -130,16 +130,16 @@ export const SHOWCASE_ITEMS: ShowcaseItem[] = [
     description: 'Turnkey commercial outdoor activation setup featuring all-weather waterproof canopy, matching fitted table cover, and heavy wind hardware.'
   },
   {
-    id: 'cad-rollup-pullup-banners',
-    title: 'Deluxe Heavy-Base Aluminum Roll-Up Pull-Up Banners',
+    id: 'construcoes-karina-teardrop-flags',
+    title: 'Commercial Teardrop Flying Banners & Outdoor Event Flags',
     category: 'display',
     categoryLabel: 'Displays & Signage',
-    badge: 'Roll-Up Banners',
-    image: '/images/gallery/cad-venancio-mondlane-rollup-banner.webp',
+    badge: 'Teardrop Flags',
+    image: '/images/gallery/construcoes-karina-teardrop-event-flags.webp',
     aspectRatio: 'portrait',
-    clientOrContext: 'CAD & Venâncio Mondlane (dby: www.clapsa.co.za)',
-    highlights: ['Anti-Curl Matte Polypropylene Substrate', 'Heavy Aluminum Base with Chrome Endcaps', 'Official CLAPSA Production Pedigree Imprint', 'Padded Canvas Travel Carry Case'],
-    description: 'Large-format high-resolution pull-up banner displays engineered with tension spring rollers and anti-glare graphic media for press summits.'
+    clientOrContext: 'Construções Karina Civil Engineering',
+    highlights: ['3.5m Heavy-Duty Flexible Fiberglass Poles', 'UV-Resistant All-Weather Sublimation Polyester', 'High-Traction Ground Spike & Cross-Base Options', 'Double-Sided Vibrant Mirror Print Visibility'],
+    description: 'High-visibility branded promotional teardrop flags engineered for civil sites, construction head offices, and outdoor event brand activations.'
   },
   {
     id: 'desvio-retroreflective-road-signs',
