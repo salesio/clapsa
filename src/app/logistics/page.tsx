@@ -192,27 +192,32 @@ Please issue an official quotation with customs clearance instructions.`;
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 transition-colors pt-24 pb-20">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 transition-colors pb-20">
       
-      {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden py-16 lg:py-24 border-b border-slate-200 dark:border-slate-800 bg-gradient-to-b from-slate-100/80 via-white to-slate-50 dark:from-slate-900/60 dark:via-slate-950 dark:to-slate-950">
+      {/* 1. SADC LOGISTICS VISUAL BANNER */}
+      <section className="relative overflow-hidden pt-32 pb-20 border-b border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 text-white">
+        {/* Ambient Glows */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-900/30 via-slate-950/80 to-slate-950 pointer-events-none" />
+        <div className="absolute -top-24 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 -left-20 w-80 h-80 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8 text-center">
           
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider shadow-2xs">
-            <Truck className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+            <Truck className="w-3.5 h-3.5 text-amber-400" />
             <span>{lp.badge}</span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight max-w-4xl mx-auto leading-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight">
             {lp.titlePrefix}{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-rose-600 to-red-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-400 to-red-400">
               {lp.titleHighlight}
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
             {lp.subtitle}
           </p>
 
@@ -228,24 +233,24 @@ Please issue an official quotation with customs clearance instructions.`;
 
             <a
               href="#warehouse"
-              className="px-6 py-3.5 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800 font-bold text-xs uppercase tracking-wider shadow-xs transition-all flex items-center gap-2"
+              className="px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/15 font-bold text-xs uppercase tracking-wider backdrop-blur-xs transition-all flex items-center gap-2"
             >
-              <Building2 className="w-4 h-4 text-amber-600" />
+              <Building2 className="w-4 h-4 text-amber-400" />
               <span>{lp.warehouseBadge}</span>
             </a>
           </div>
 
           {/* 4 Feature Badges */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto pt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto pt-6">
             {lp.features.map((feat, idx) => (
               <div 
                 key={idx}
-                className="p-4 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800 shadow-2xs flex items-center gap-3 text-left"
+                className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs shadow-xs flex items-center gap-3 text-left"
               >
-                <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
-                <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 leading-snug">
+                <span className="text-xs font-semibold text-slate-200 leading-snug">
                   {feat}
                 </span>
               </div>

@@ -59,42 +59,103 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-200">
       
-      {/* Hero Header */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-slate-100 via-white to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 border-b border-slate-200 dark:border-slate-800 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 dark:opacity-10 bg-[radial-gradient(#e11d48_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/80 border border-rose-300 dark:border-rose-800/60 text-rose-700 dark:text-rose-300 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <MessageSquare className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
-            <span>{t.contact.badge}</span>
-          </div>
+      {/* Executive Procurement & Sandton Depot Visual Banner */}
+      <section className="relative pt-32 pb-20 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 text-white border-b border-slate-800 overflow-hidden">
+        {/* Ambient Glows */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-rose-900/30 via-slate-950/80 to-slate-950 pointer-events-none" />
+        <div className="absolute -top-24 right-0 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 -left-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight max-w-4xl mx-auto leading-tight">
-            {t.contact.titlePrefix}{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-red-500 to-amber-600">
-              {t.contact.titleHighlight}
-            </span>
-          </h1>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            
+            {/* Left Banner Column */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+                <MessageSquare className="w-3.5 h-3.5 text-rose-400" />
+                <span>{t.contact.badge}</span>
+              </div>
 
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            {t.contact.subtitle}
-          </p>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                {t.contact.titlePrefix}{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-red-400 to-amber-400">
+                  {t.contact.titleHighlight}
+                </span>
+              </h1>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500 dark:text-slate-400 font-semibold pt-2">
-            <span className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-rose-500" />
-              Fast 2-Hour Corporate RFQ Response
-            </span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5">
-              <Truck className="w-4 h-4 text-emerald-500" />
-              SADC Express Cross-Border Dispatch
-            </span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-blue-500" />
-              SABS Certified Supply
-            </span>
+              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+                {t.contact.subtitle}
+              </p>
+
+              {/* Response Commitments */}
+              <div className="flex flex-wrap items-center gap-2.5 pt-2 text-xs font-semibold">
+                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-rose-300">
+                  <Clock className="w-4 h-4 text-rose-400" />
+                  Fast 2-Hour Corporate RFQ Response
+                </span>
+                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-emerald-300">
+                  <Truck className="w-4 h-4 text-emerald-400" />
+                  SADC Express Cross-Border Dispatch
+                </span>
+                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-blue-300">
+                  <ShieldCheck className="w-4 h-4 text-blue-400" />
+                  SABS Certified Direct Supply
+                </span>
+              </div>
+            </div>
+
+            {/* Right Banner Column: Direct Hotline Card */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-2xl bg-gradient-to-br from-slate-900/90 to-slate-950/90 border border-slate-800 p-6 shadow-2xl backdrop-blur-md space-y-4">
+                
+                {/* Status Indicator */}
+                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-200">
+                      Procurement Desk Online
+                    </span>
+                  </div>
+                  <span className="text-[11px] text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
+                    Avg Response &lt; 15m
+                  </span>
+                </div>
+
+                <div className="space-y-3 pt-1">
+                  <div>
+                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                      Sandton Central Headquarters & Depot
+                    </span>
+                    <a href={`tel:${company.phoneDirect}`} className="text-lg font-bold text-white hover:text-rose-400 transition-colors flex items-center gap-2 mt-0.5">
+                      <Phone className="w-4 h-4 text-rose-400" />
+                      <span>{company.phoneDisplay}</span>
+                    </a>
+                  </div>
+
+                  <div>
+                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                      Direct WhatsApp Procurement Desk
+                    </span>
+                    <a
+                      href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent('Hi CLAPSA, I have an urgent procurement / logistics inquiry.')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-950/40"
+                    >
+                      <MessageSquare className="w-4 h-4" />
+                      <span>Chat on WhatsApp Now</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                  <span>Johannesburg • Sandton • Maputo</span>
+                  <span className="text-slate-300 font-medium">Mon - Fri: 08:00 - 17:00</span>
+                </div>
+
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

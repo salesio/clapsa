@@ -270,40 +270,116 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-200">
       
-      {/* Hero Header */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-slate-100 via-white to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 border-b border-slate-200 dark:border-slate-800 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 dark:opacity-10 bg-[radial-gradient(#e11d48_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/80 border border-rose-300 dark:border-rose-800/60 text-rose-700 dark:text-rose-300 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <Cpu className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
-            <span>{t.services.badge}</span>
-          </div>
+      {/* Capabilities & Manufacturing Visual Banner */}
+      <section className="relative pt-32 pb-20 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 text-white border-b border-slate-800 overflow-hidden">
+        {/* Ambient Glows */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-rose-900/30 via-slate-950/80 to-slate-950 pointer-events-none" />
+        <div className="absolute -top-24 right-0 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 -left-20 w-80 h-80 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight max-w-4xl mx-auto leading-tight">
-            {t.services.titlePrefix}{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-red-500 to-amber-600">
-              {t.services.titleHighlight}
-            </span>
-          </h1>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            
+            {/* Left Banner Column */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+                <Cpu className="w-3.5 h-3.5 text-rose-400" />
+                <span>{t.services.badge}</span>
+              </div>
 
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            {t.services.subtitle}
-          </p>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                {t.services.titlePrefix}{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-red-400 to-amber-400">
+                  {t.services.titleHighlight}
+                </span>
+              </h1>
 
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/contact"
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg transition-all"
-            >
-              Request Custom RFQ
-            </Link>
-            <Link
-              href="/gallery"
-              className="px-6 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-rose-500/60 text-slate-800 dark:text-slate-200 text-xs font-bold uppercase tracking-wider shadow-xs transition-all"
-            >
-              View Production Gallery
-            </Link>
+              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+                {t.services.subtitle}
+              </p>
+
+              {/* Capability Visual Badges in Banner */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs">
+                  <span className="block text-rose-400 font-extrabold text-xs uppercase tracking-wider">Screen Print</span>
+                  <span className="text-[11px] text-slate-300">Automated 8-Color</span>
+                </div>
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs">
+                  <span className="block text-amber-400 font-extrabold text-xs uppercase tracking-wider">Embroidery</span>
+                  <span className="text-[11px] text-slate-300">Tajima 15-Needle</span>
+                </div>
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs">
+                  <span className="block text-emerald-400 font-extrabold text-xs uppercase tracking-wider">Road Signs</span>
+                  <span className="text-[11px] text-slate-300">SABS Retroreflective</span>
+                </div>
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs">
+                  <span className="block text-blue-400 font-extrabold text-xs uppercase tracking-wider">SADC Freight</span>
+                  <span className="text-[11px] text-slate-300">Sandton Hub Line-Haul</span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/contact"
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-rose-950/40 transition-all flex items-center gap-2"
+                >
+                  <span>Request Custom RFQ</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/gallery"
+                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/15 text-xs font-bold uppercase tracking-wider backdrop-blur-xs transition-all flex items-center gap-2"
+                >
+                  <span>View Production Gallery</span>
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Banner Column: Plant Machinery Reel Card */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-2xl bg-gradient-to-br from-slate-900/90 to-slate-950/90 border border-slate-800 p-4 shadow-2xl backdrop-blur-md overflow-hidden group">
+                <div className="relative h-64 sm:h-72 w-full rounded-xl overflow-hidden bg-slate-950">
+                  <Image
+                    src={getAssetPath('/videos/gallery/posters/clapsa-carousel-screen-printing-reel.webp')}
+                    alt="CLAPSA Screen Printing Machinery Plant"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+                  
+                  {/* Status Indicator */}
+                  <div className="absolute top-3 left-3 flex items-center gap-2 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-200">Industrial Facility Tour</span>
+                  </div>
+
+                  {/* Play Button Trigger */}
+                  <button
+                    onClick={() => setActiveMachineryVideo(machineryVideos[0])}
+                    className="absolute inset-0 m-auto w-14 h-14 rounded-full bg-rose-600/90 hover:bg-rose-500 text-white flex items-center justify-center shadow-xl transition-all hover:scale-110 border border-rose-300/40"
+                    aria-label="Play Plant Video"
+                  >
+                    <Play className="w-6 h-6 ml-0.5 fill-current" />
+                  </button>
+
+                  <div className="absolute bottom-3 left-3 right-3 text-left">
+                    <span className="text-[10px] font-bold text-rose-400 uppercase tracking-wider block">Watch In Action</span>
+                    <h3 className="text-sm font-bold text-white">8-Color Automated Carousel Printing & Conveyor Curing</h3>
+                    <p className="text-[11px] text-slate-300 mt-0.5">High-speed squeegee stroke for 5,000+ units per day shift.</p>
+                  </div>
+                </div>
+
+                <div className="mt-3 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                  <span>4 Interactive Video Reels Below</span>
+                  <a href="#machinery-videos" className="text-rose-400 font-bold hover:text-rose-300">
+                    Watch All Reels ↓
+                  </a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
