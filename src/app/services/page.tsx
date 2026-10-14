@@ -90,7 +90,8 @@ export default function ServicesPage() {
         'Individual Employee Size Profiling & Custom Boxed Kits'
       ],
       leadTime: '7 - 14 Business Days',
-      moq: '50 Units'
+      moq: '50 Units',
+      lookbookLink: '/gallery?category=corporate'
     },
     {
       id: 'industrial-ppe',
@@ -107,7 +108,8 @@ export default function ServicesPage() {
         'Vented Safety Hard Hats, Visors & Hearing Protection Ear Muffs'
       ],
       leadTime: '3 - 7 Business Days',
-      moq: '25 Units'
+      moq: '25 Units',
+      lookbookLink: '/gallery?category=ppe'
     },
     {
       id: 'sublimated-sportswear',
@@ -124,7 +126,8 @@ export default function ServicesPage() {
         'Reinforced Anti-Chafe Flatlock Seams for High Mobility'
       ],
       leadTime: '10 - 15 Business Days',
-      moq: '30 Sets'
+      moq: '30 Sets',
+      lookbookLink: '/gallery?category=sportswear'
     },
     {
       id: 'displays-signage',
@@ -141,7 +144,44 @@ export default function ServicesPage() {
         'All-Terrain Weighted Water/Cast-Iron Base Anchoring Hardware'
       ],
       leadTime: '5 - 10 Business Days',
-      moq: '1 Unit'
+      moq: '1 Unit',
+      lookbookLink: '/gallery?category=display'
+    },
+    {
+      id: 'fleet-branding',
+      title: 'Commercial Vehicle & Fleet Branding',
+      tag: 'Fleet Graphics & Vinyl Wraps',
+      image: '/images/gallery/pyb-commercial-vehicle-vinyl-branding.webp',
+      icon: Truck,
+      description: 'High-visibility cast vinyl vehicle wraps, contour-cut door logos, and reflective chevrons designed for delivery vans, corporate fleet bakkies, and cross-border logistics trucks.',
+      features: [
+        'Cast Automotive Grade Vinyl with Air-Release Bubble Channels',
+        'High-Gloss UV Protective Laminate Against Harsh African Sunlight',
+        'Class 2 SABS Retro-Reflective Tailgate Chevron Markings',
+        'Contour Kiss-Cut Side Door Logos & Regulatory Identification',
+        '3-5 Year Outdoor Resilience with Residue-Free Clean Removal'
+      ],
+      leadTime: '3 - 7 Business Days',
+      moq: '1 Vehicle',
+      lookbookLink: '/gallery?category=signage&q=fleet'
+    },
+    {
+      id: 'road-signage',
+      title: 'Civil Road Works & Detour Reflective Signboards',
+      tag: 'Highway & Traffic Safety',
+      image: '/images/gallery/desvio-reflective-chevron-road-signs.webp',
+      icon: ShieldCheck,
+      description: 'Engineering-grade road safety signage, retro-reflective chevron detour signs, chromadek plates, and heavy-duty folding A-frames compliant with SADC 1519 and SABS safety standards.',
+      features: [
+        'Class 2 High-Intensity Honeycomb Prismatic Reflective Sheeting',
+        '1.4mm Heavy Galvanized Chromadek Steel Signboards',
+        'Hot-Dip Galvanized Anti-Wind Foldable Angle Iron A-Frames',
+        'Standard 900mm Triangular Road Works Ahead Warning Markings',
+        '750mm Flexible Heavy Weighted Rubber Base Highway Traffic Cones'
+      ],
+      leadTime: '3 - 7 Business Days',
+      moq: '5 Units',
+      lookbookLink: '/gallery?category=signage&q=road'
     },
     {
       id: 'corporate-gifting',
@@ -158,7 +198,8 @@ export default function ServicesPage() {
         'Custom Presentation Packaging with Satin Liners & Wax Seals'
       ],
       leadTime: '7 - 12 Business Days',
-      moq: '50 Units'
+      moq: '50 Units',
+      lookbookLink: '/gallery?category=gifting'
     },
     {
       id: 'event-merchandise',
@@ -175,7 +216,26 @@ export default function ServicesPage() {
         'Capacity for 100,000+ Units with Fast-Track SADC Air/Road Freight'
       ],
       leadTime: '3 - 8 Business Days',
-      moq: '250 Units'
+      moq: '250 Units',
+      lookbookLink: '/gallery?category=gifting'
+    },
+    {
+      id: 'cross-border-logistics',
+      title: 'Cross-Border Freight, Consolidation & Warehouse Hub',
+      tag: 'SADC Logistics Forwarding',
+      image: '/images/gallery/shipping-container-clapsa-export-freight.webp',
+      icon: Truck,
+      description: 'Ship with CLAPSA: Use our Sandton/Johannesburg warehouse as your delivery address. We collect from SA suppliers, consolidate orders, handle SADC customs clearances, and deliver safely into Mozambique and Southern Africa.',
+      features: [
+        'Central Sandton/Johannesburg Receiving & Inspection Depot',
+        'Automated Turntable Pallet Stretch-Wrapping & Weatherproofing',
+        'Complete SADC Customs Documentation & Phytosanitary Clearances',
+        'Consolidated 24-72h Line-Haul to Maputo, Matola, Beira, Nampula',
+        'Online Freight Rate Estimator & Door-to-Door Delivery Available'
+      ],
+      leadTime: '24 - 72 Hours',
+      moq: '1 Parcel',
+      lookbookLink: '/logistics'
     }
   ];
 
@@ -326,23 +386,30 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Card Action */}
-                <div className="p-6 sm:p-8 pt-0 flex items-center gap-3">
+                <div className="p-6 sm:p-8 pt-0 flex flex-wrap items-center gap-2.5">
+                  <Link
+                    href={cap.lookbookLink}
+                    className="py-2.5 px-3.5 rounded-xl bg-rose-50 dark:bg-rose-950/60 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800 text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5"
+                  >
+                    <span>{cap.lookbookLink === '/logistics' ? 'Logistics Hub' : 'View Real Works'}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+
                   <a
                     href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Hi CLAPSA, I am inquiring about your "${cap.title}" capability and would like to request technical specifications and pricing.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 py-3 px-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-600 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all text-center flex items-center justify-center gap-2"
+                    className="flex-1 py-2.5 px-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-600 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5"
                   >
-                    <MessageSquare className="w-4 h-4" />
-                    <span>Inquire WhatsApp</span>
+                    <MessageSquare className="w-3.5 h-3.5" />
+                    <span>WhatsApp</span>
                   </a>
 
                   <Link
                     href="/contact"
-                    className="py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5 shadow-md"
+                    className="py-2.5 px-3.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold transition-all text-center flex items-center justify-center gap-1 shadow-xs"
                   >
-                    <span>Request Quote</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>Quote</span>
                   </Link>
                 </div>
 

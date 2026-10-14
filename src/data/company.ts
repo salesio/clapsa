@@ -35,7 +35,8 @@ export const SERVICES = [
       'Screen printing, heat-press, and dye-sublimation',
       'Male and female tailored cuts across all sizing',
       'Employee-by-employee individualized packouts'
-    ]
+    ],
+    deepLink: '/gallery?category=corporate'
   },
   {
     id: 'ppe-safety',
@@ -48,7 +49,8 @@ export const SERVICES = [
       'S3, S1P, and non-metallic composite safety boots',
       'Fall arrest harnesses, respiratory and eye protection',
       'Reflective high-visibility EN471 compliant garments'
-    ]
+    ],
+    deepLink: '/gallery?category=ppe'
   },
   {
     id: 'display-branding',
@@ -61,7 +63,8 @@ export const SERVICES = [
       'Teardrop, sharkfin, and telescoping flag banners',
       'Perimeter perforated mesh and PVC fence wraps',
       'Pop-up media backdrops and sampling counters'
-    ]
+    ],
+    deepLink: '/gallery?category=display'
   },
   {
     id: 'tactical-security',
@@ -74,7 +77,8 @@ export const SERVICES = [
       'Level IIIA ballistic vests and plate carriers',
       'Heavy-duty duty belts, baton holders and pouches',
       'Waterproof high-traction tactical response boots'
-    ]
+    ],
+    deepLink: '/gallery?category=ppe'
   },
   {
     id: 'corporate-gifting',
@@ -87,7 +91,8 @@ export const SERVICES = [
       'Debossed leatherette notebooks and metal executive pens',
       'Customized executive laptop backpacks and travel duffels',
       'Bespoke luxury gift boxes with custom unboxing ribbons'
-    ]
+    ],
+    deepLink: '/gallery?category=gifting'
   },
   {
     id: 'procurement-logistics',
@@ -100,7 +105,8 @@ export const SERVICES = [
       'Cross-border customs documentation assistance',
       'Warehousing and staged delivery schedules',
       'Dedicated account manager for corporate contracts'
-    ]
+    ],
+    deepLink: '/logistics'
   }
 ];
 

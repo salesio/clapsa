@@ -21,7 +21,8 @@ import {
   Sun,
   Moon,
   Sliders,
-  Sparkles
+  Sparkles,
+  ArrowUpRight
 } from 'lucide-react';
 import { getAssetPath } from '@/utils/assetPath';
 
@@ -53,6 +54,7 @@ export default function Navbar() {
     { label: t.nav.home, href: '/' },
     { label: t.nav.aboutUs, href: '/about' },
     { label: t.nav.capabilities, href: '/services' },
+    { label: t.nav.logistics, href: '/logistics' },
     { label: t.nav.lookbook || 'Showcase Gallery', href: '/gallery' },
     { label: t.nav.catalogues, href: '/catalogues' },
     { label: t.nav.contact, href: '/contact' },
@@ -202,6 +204,18 @@ export default function Navbar() {
               )}
             </button>
 
+            {/* Shop Online External Link Button */}
+            <a
+              href="https://shop.clapsa.co.za"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1.5 h-9 px-3 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/30 hover:border-amber-500/50 font-bold text-xs transition-all shadow-2xs whitespace-nowrap group"
+              title="Browse our live online e-commerce shop"
+            >
+              <span>{t.nav.shopOnline}</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+
             {/* Primary Request a Quote CTA */}
             <Link
               href="/contact"
@@ -253,6 +267,15 @@ export default function Navbar() {
             </div>
 
             <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-2">
+              <a
+                href="https://shop.clapsa.co.za"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 py-2.5 bg-amber-500/15 hover:bg-amber-500/25 text-amber-700 dark:text-amber-400 rounded-xl font-bold text-xs uppercase border border-amber-500/30 shadow-2xs transition-colors"
+              >
+                <span>{t.nav.shopOnline} (shop.clapsa.co.za)</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
               <Link
                 href="/admin"
                 onClick={() => setMobileMenuOpen(false)}

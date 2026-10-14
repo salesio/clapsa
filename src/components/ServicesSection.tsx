@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useContent } from '@/context/ContentContext';
 import { useLanguage } from '@/context/LanguageContext';
 import { 
@@ -12,7 +13,8 @@ import {
   Truck, 
   CheckCircle2, 
   ArrowRight,
-  Layers
+  Layers,
+  ArrowUpRight
 } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -26,7 +28,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export default function ServicesSection() {
   const { data } = useContent();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const services = data.services;
 
   return (
@@ -98,14 +100,22 @@ export default function ServicesSection() {
                   </div>
                 </div>
 
-                {/* Action Link */}
-                <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80">
+                {/* Action Links */}
+                <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
+                  <Link
+                    href={(service as any).deepLink || '/gallery'}
+                    className="font-bold text-slate-700 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 flex items-center gap-1 transition-colors group-hover:translate-x-0.5"
+                  >
+                    <span>{(service as any).deepLink === '/logistics' ? (language === 'pt' ? 'Hub Logístico' : 'Logistics Hub') : (language === 'pt' ? 'Ver Trabalhos' : 'View Real Works')}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-rose-500" />
+                  </Link>
+
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400 hover:text-rose-500 group-hover:translate-x-1 transition-all"
+                    className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400 hover:text-rose-500"
                   >
                     <span>{t.services.requestSolution}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3 h-3" />
                   </a>
                 </div>
               </div>

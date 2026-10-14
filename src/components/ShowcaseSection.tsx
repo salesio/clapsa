@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { SHOWCASE_ITEMS, ShowcaseItem, ShowcaseCategory } from '@/data/showcase';
 import { useLanguage } from '@/context/LanguageContext';
 import { useContent } from '@/context/ContentContext';
@@ -194,10 +195,22 @@ export default function ShowcaseSection() {
                       <Layers className="w-3 h-3 text-slate-400" />
                       {item.categoryLabel}
                     </span>
-                    <span className="text-rose-600 dark:text-rose-400 font-bold group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
-                      {t.showcase.inspect}
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <Link
+                        href={item.deepLink || `/gallery?category=${item.category}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 font-medium flex items-center gap-0.5 transition-colors"
+                        title={language === 'pt' ? 'Ver trabalhos relacionados' : 'View related works'}
+                      >
+                        <span className="text-[10px] font-semibold">{language === 'pt' ? 'Ver Mais' : 'Explore'}</span>
+                        <ArrowUpRight className="w-3 h-3" />
+                      </Link>
+                      <span className="text-slate-300 dark:text-slate-700">•</span>
+                      <span className="text-rose-600 dark:text-rose-400 font-bold group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
+                        {t.showcase.inspect}
+                        <Maximize2 className="w-3 h-3" />
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -368,6 +381,19 @@ export default function ShowcaseSection() {
                   <MessageSquare className="w-4 h-4" />
                   <span>{t.showcase.inquireThisItem}</span>
                 </a>
+
+                <Link
+                  href={currentItem.deepLink || `/gallery?category=${currentItem.category}`}
+                  onClick={() => setSelectedItemIndex(null)}
+                  className="w-full py-2.5 px-4 rounded-xl bg-rose-50 dark:bg-rose-950/50 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800 text-xs font-bold text-center transition-all flex items-center justify-center gap-2"
+                >
+                  <span>
+                    {currentItem.deepLink === '/logistics' 
+                      ? (language === 'pt' ? 'Explorar Hub de Logística & Cargas' : 'Explore Cross-Border Logistics Hub') 
+                      : (language === 'pt' ? 'Ver Todos os Trabalhos Relacionados' : 'View All Related Category Works')}
+                  </span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
 
                 <a
                   href="#contact"

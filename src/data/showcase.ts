@@ -12,6 +12,7 @@ export interface ShowcaseItem {
   clientOrContext: string;
   highlights: string[];
   description: string;
+  deepLink?: string;
 }
 
 export const SHOWCASE_ITEMS: ShowcaseItem[] = [
@@ -151,7 +152,21 @@ export const SHOWCASE_ITEMS: ShowcaseItem[] = [
     aspectRatio: 'portrait',
     clientOrContext: 'Trans-SADC Highway & Civil Engineering',
     highlights: ['Class 2 High-Intensity Prismatic Vinyl', '1.4mm Heavy Chromadek Steel Plate', 'Hot-Dip Galvanized Foldable A-Frames', 'SABS 1519 Traffic Safety Standard'],
-    description: 'Engineering-grade retro-reflective detour chevron signs with heavy galvanized steel support frames for regional highway construction.'
+    description: 'Engineering-grade retro-reflective detour chevron signs with heavy galvanized steel support frames for regional highway construction.',
+    deepLink: '/gallery?category=signage&q=road'
+  },
+  {
+    id: 'pyb-commercial-vehicle-branding',
+    title: 'Commercial Fleet Vehicle Branding & Vinyl Wraps',
+    category: 'display',
+    categoryLabel: 'Displays & Signage',
+    badge: 'Fleet & Vehicle Wraps',
+    image: '/images/gallery/pyb-commercial-vehicle-vinyl-branding.webp',
+    aspectRatio: 'portrait',
+    clientOrContext: 'PYB Logistics & SADC Fleets',
+    highlights: ['Cast Automotive Vinyl Wrapping', 'UV Protective Gloss Overlaminate', 'Contour Cut Door & Tailgate Identification', '3-5 Year Outdoor Weather Durability'],
+    description: 'Turnkey fleet vehicle identification and delivery van branding engineered for high-visibility commercial transport fleets.',
+    deepLink: '/gallery?category=signage&q=fleet'
   },
   {
     id: 'sadc-maritime-freight-containers',
@@ -164,7 +179,8 @@ export const SHOWCASE_ITEMS: ShowcaseItem[] = [
     aspectRatio: 'portrait',
     clientOrContext: 'CLAPSA Sandton SADC Logistics Hub',
     highlights: ['40ft Maritime High-Cube Container Stuffing', 'Automated Turntable Pallet Stretch Wrapping', 'Cross-Border SADC Phytosanitary Clearances', 'Bonded Freight Transport to Mozambique & SADC'],
-    description: 'Complete cross-border freight handling and container stuffing for wholesale corporate garment and signage dispatches from Johannesburg.'
+    description: 'Complete cross-border freight handling and container stuffing for wholesale corporate garment and signage dispatches from Johannesburg.',
+    deepLink: '/logistics'
   },
 
   // 4. VIP Corporate Gifting, Packaging & Lanyards

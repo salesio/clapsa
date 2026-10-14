@@ -55,6 +55,8 @@ export interface TranslationSchema {
     taglineProc: string;
     selectLanguage: string;
     lookbook: string;
+    logistics: string;
+    shopOnline: string;
   };
   hero: {
     badge: string;
@@ -347,6 +349,85 @@ export interface TranslationSchema {
     bbbeeProcurement: string;
     backToTop: string;
   };
+  logisticsPage: {
+    badge: string;
+    titlePrefix: string;
+    titleHighlight: string;
+    subtitle: string;
+    shipWithUsBtn: string;
+    calculateFreightBtn: string;
+    features: readonly string[] | string[];
+    howItWorksBadge: string;
+    howItWorksTitle: string;
+    howItWorksSubtitle: string;
+    steps: readonly {
+      number: string;
+      title: string;
+      desc: string;
+      badge: string;
+    }[] | {
+      number: string;
+      title: string;
+      desc: string;
+      badge: string;
+    }[];
+    warehouseBadge: string;
+    warehouseTitle: string;
+    warehouseSubtitle: string;
+    warehouseName: string;
+    warehouseAddress: string;
+    warehouseCity: string;
+    warehousePostal: string;
+    warehouseCountry: string;
+    warehouseNotes: string;
+    copyAddressBtn: string;
+    addressCopied: string;
+    calculatorBadge: string;
+    calculatorTitle: string;
+    calculatorSubtitle: string;
+    form: {
+      packageName: string;
+      packageNamePlaceholder: string;
+      cargoType: string;
+      cargoOptions: readonly string[] | string[];
+      origin: string;
+      originOptions: readonly string[] | string[];
+      destination: string;
+      destinationOptions: readonly string[] | string[];
+      weight: string;
+      length: string;
+      width: string;
+      height: string;
+      packagesCount: string;
+      commercialValue: string;
+      clientName: string;
+      clientEmail: string;
+      clientPhone: string;
+      notes: string;
+      notesPlaceholder: string;
+      calculateBtn: string;
+      instantWhatsAppBtn: string;
+      instantEmailBtn: string;
+    };
+    results: {
+      summaryTitle: string;
+      actualWeight: string;
+      volumetricWeight: string;
+      chargeableWeight: string;
+      estimatedTransit: string;
+      estimatedRate: string;
+      rateDisclaimer: string;
+    };
+    faqBadge: string;
+    faqTitle: string;
+    faqs: readonly {
+      q: string;
+      a: string;
+    }[] | {
+      q: string;
+      a: string;
+    }[];
+  };
 }
 
 export const translations: Record<Language, TranslationSchema> = {
@@ -373,6 +454,8 @@ export const translations: Record<Language, TranslationSchema> = {
       taglineProc: 'Procurement',
       selectLanguage: 'Select Language',
       lookbook: 'Lookbook',
+      logistics: 'Logistics & Freight',
+      shopOnline: 'Shop Online',
     },
     hero: {
       badge: 'One Source Supply Solutions • South Africa & SADC',
@@ -1080,6 +1163,139 @@ export const translations: Record<Language, TranslationSchema> = {
       bbbeeProcurement: 'B-BBEE Ready Procurement',
       backToTop: 'Back to Top',
     },
+    logisticsPage: {
+      badge: 'Cross-Border Freight & Consolidation Hub',
+      titlePrefix: 'Shop in South Africa — We Deliver to',
+      titleHighlight: 'Mozambique & SADC',
+      subtitle: 'Send your goods directly to our Sandton/Johannesburg warehouse facility, or let our logistics fleet collect from your suppliers. We consolidate, inspect, clear customs, and freight securely to your doorstep or depot.',
+      shipWithUsBtn: 'Book Shipment / Get Quote',
+      calculateFreightBtn: 'Calculate Freight Estimate',
+      features: [
+        'Secure Johannesburg Central Receiving Warehouse',
+        'Multi-Supplier Package Consolidation & Pallet Wrapping',
+        'Full SADC Phytosanitary & Customs Clearance',
+        '24-72h Line-Haul Transit from JHB to Maputo/Matola'
+      ],
+      howItWorksBadge: 'Seamless Forwarding Protocol',
+      howItWorksTitle: 'How Our "Ship With Us" Service Works',
+      howItWorksSubtitle: 'A frictionless parcel and freight forwarding process designed for individuals, contractors, and corporate procurers across Mozambique and Southern Africa.',
+      steps: [
+        {
+          number: '01',
+          title: 'Shop from Any South African Supplier',
+          desc: 'Buy from wholesalers, machinery dealers, PPE manufacturers, or online stores anywhere in South Africa (Johannesburg, Cape Town, Durban, Bloemfontein).',
+          badge: 'You Buy or We Collect'
+        },
+        {
+          number: '02',
+          title: 'Deliver to Our Sandton/JHB Warehouse',
+          desc: 'Instruct your supplier to deliver to our secure Johannesburg receiving facility, or book CLAPSA to collect directly from their premises.',
+          badge: 'Central Receiving'
+        },
+        {
+          number: '03',
+          title: 'Consolidation, Inspection & SADC Customs',
+          desc: 'We verify item counts, inspect packaging, apply industrial turntable stretch wrap, and process formal cross-border SADC customs documentation.',
+          badge: 'Bonded Clearance'
+        },
+        {
+          number: '04',
+          title: 'Cross-Border Line-Haul & Final Handover',
+          desc: 'Our freight fleet dispatches directly to Mozambique (Maputo, Matola, Beira, Nampula, Tete) and regional SADC hubs for door-to-door delivery or depot pickup.',
+          badge: 'Safe Delivery'
+        }
+      ],
+      warehouseBadge: 'Official Receiving Address',
+      warehouseTitle: 'Our Johannesburg Logistics & Freight Facility',
+      warehouseSubtitle: 'Provide this address to your suppliers or couriers when ordering within South Africa.',
+      warehouseName: 'CLAPSA Logistics & Distribution Hub',
+      warehouseAddress: '128 11th Street, Parkmore, Sandton',
+      warehouseCity: 'Johannesburg, Gauteng',
+      warehousePostal: '2196',
+      warehouseCountry: 'South Africa',
+      warehouseNotes: 'Important: Always label packages with your Full Name, Company, and WhatsApp phone number (e.g. "[Your Name / Company] c/o CLAPSA Logistics").',
+      copyAddressBtn: 'Copy Warehouse Details',
+      addressCopied: 'Address Copied to Clipboard!',
+      calculatorBadge: 'Interactive Freight Estimator',
+      calculatorTitle: 'Estimate Your Freight & Book a Dispatch',
+      calculatorSubtitle: 'Enter your package dimensions, estimated weight, and destination to get an instant baseline estimate and fast-track WhatsApp dispatch.',
+      form: {
+        packageName: 'Package / Order Description',
+        packageNamePlaceholder: 'e.g. 5 Boxes of PPE Boots & Printed Corporate Uniforms',
+        cargoType: 'Cargo Category',
+        cargoOptions: [
+          'Corporate Apparel & Merchandising',
+          'Industrial PPE & Safety Footwear',
+          'Automotive Parts & Mechanical Spares',
+          'Electronics & Office Tech Equipment',
+          'Building Hardware & Signage Materials',
+          'General Wholesale Cargo'
+        ],
+        origin: 'Origin / Pickup Point in South Africa',
+        originOptions: [
+          'Deliver to CLAPSA Sandton/JHB Hub (Free Drop-off)',
+          'Collection: Johannesburg / Pretoria Metro',
+          'Collection: Cape Town Western Cape',
+          'Collection: Durban / KwaZulu-Natal',
+          'Collection: Bloemfontein Free State',
+          'Collection: Port Elizabeth / East London'
+        ],
+        destination: 'Destination in Mozambique / SADC',
+        destinationOptions: [
+          'Maputo / Matola (Express Line-Haul)',
+          'Beira (Central Mozambique)',
+          'Nampula (Northern Mozambique)',
+          'Tete (Mining Corridor)',
+          'Pemba / Nacala (Cabo Delgado)',
+          'Gaborone (Botswana)',
+          'Harare (Zimbabwe)',
+          'Lusaka (Zambia)'
+        ],
+        weight: 'Estimated Weight (kg)',
+        length: 'Length (cm)',
+        width: 'Width (cm)',
+        height: 'Height (cm)',
+        packagesCount: 'Number of Packages / Pallets',
+        commercialValue: 'Commercial Value (ZAR or MZN)',
+        clientName: 'Your Full Name / Company',
+        clientEmail: 'Corporate Email',
+        clientPhone: 'WhatsApp Phone Number',
+        notes: 'Special Handling / Supplier Collection Notes',
+        notesPlaceholder: 'Provide supplier invoice number, collection contact, or fragile handling instructions...',
+        calculateBtn: 'Calculate Freight Estimate',
+        instantWhatsAppBtn: 'Send Booking Directly to WhatsApp',
+        instantEmailBtn: 'Request Official Freight Quotation'
+      },
+      results: {
+        summaryTitle: 'Estimated Freight Assessment',
+        actualWeight: 'Actual Dead Weight',
+        volumetricWeight: 'Volumetric Dimension Weight',
+        chargeableWeight: 'Chargeable Freight Weight',
+        estimatedTransit: 'Estimated Transit Time',
+        estimatedRate: 'Estimated Freight Rate (Base)',
+        rateDisclaimer: '* Indicative baseline estimate. Final invoice reflects actual weighbridge measurement, volume ratio (1:5000), customs duties, and phytosanitary clearance if applicable.'
+      },
+      faqBadge: 'Frequently Asked Questions',
+      faqTitle: 'Cross-Border Shipping & Receiving FAQ',
+      faqs: [
+        {
+          q: 'Can CLAPSA collect from suppliers outside Johannesburg, like Cape Town or Durban?',
+          a: 'Yes. Through our inter-provincial carrier network, we can arrange collection from suppliers anywhere in South Africa (Cape Town, Durban, Bloemfontein, Port Elizabeth) and consolidate them into our central Johannesburg cross-border hub.'
+        },
+        {
+          q: 'How does customs clearance into Mozambique work?',
+          a: 'CLAPSA handles all export and transit documentation including SADC certificates of origin, commercial export invoices, and border customs clearances at Ressano Garcia / Lebombo.'
+        },
+        {
+          q: 'What is the transit time from Johannesburg to Maputo?',
+          a: 'Routine consolidated dispatches typically arrive within 24 to 72 hours following customs inspection and clearance.'
+        },
+        {
+          q: 'Can CLAPSA inspect and pallet-wrap my shipment?',
+          a: 'Yes. Our Sandton receiving facility includes automated turntable pallet stretch-wrapping and strict quality check-in verification so your goods travel safely weatherproof.'
+        }
+      ]
+    },
   },
 
   pt: {
@@ -1105,6 +1321,8 @@ export const translations: Record<Language, TranslationSchema> = {
       taglineProc: 'Aprovisionamento',
       selectLanguage: 'Selecionar Idioma',
       lookbook: 'Catálogo Visual',
+      logistics: 'Logística & Cargas',
+      shopOnline: 'Loja Online',
     },
     hero: {
       badge: 'Soluções Integradas de Aprovisionamento • África do Sul & SADC',
@@ -1812,6 +2030,139 @@ export const translations: Record<Language, TranslationSchema> = {
       bbbeeProcurement: 'Aprovisionamento Preparado para B-BBEE',
       backToTop: 'Voltar ao Topo',
     },
+    logisticsPage: {
+      badge: 'Hub de Cargas Transfronteiriças & Consolidação',
+      titlePrefix: 'Compre na África do Sul — Nós Entregamos em',
+      titleHighlight: 'Moçambique & SADC',
+      subtitle: 'Envie as suas compras diretamente para o nosso armazém em Sandton/Joanesburgo, ou solicite a recolha nos seus fornecedores. Nós consolidamos, inspecionamos, tratamos do desalfandegamento e entregamos com segurança à sua porta ou terminal.',
+      shipWithUsBtn: 'Reservar Envio / Pedir Cotação',
+      calculateFreightBtn: 'Calcular Estimativa de Frete',
+      features: [
+        'Armazém Seguro de Receção Central em Sandton/Joanesburgo',
+        'Consolidação de Múltiplos Fornecedores & Embalamento Paletizado',
+        'Desalfandegamento Aduaneiro Completo & Certificados SADC',
+        'Trânsito Rápido de 24-72h de Joanesburgo para Maputo/Matola'
+      ],
+      howItWorksBadge: 'Protocolo Simples de Envio',
+      howItWorksTitle: 'Como Funciona o Serviço "Ship With Us"',
+      howItWorksSubtitle: 'Um processo prático e seguro de encaminhamento de encomendas e cargas para particulares, empreiteiros e empresas em Moçambique e África Austral.',
+      steps: [
+        {
+          number: '01',
+          title: 'Compre em Qualquer Fornecedor na África do Sul',
+          desc: 'Adquira produtos em grossistas, fabricantes de EPIs, lojas de máquinas ou online em Joanesburgo, Cidade do Cabo, Durban ou Bloemfontein.',
+          badge: 'Compre ou Recolhemos'
+        },
+        {
+          number: '02',
+          title: 'Envie para o Nosso Armazém em Joanesburgo',
+          desc: 'Indique ao fornecedor a morada do nosso armazém em Sandton, ou solicite à CLAPSA a recolha direta nas instalações do vendedor.',
+          badge: 'Receção Central'
+        },
+        {
+          number: '03',
+          title: 'Consolidação, Verificação & Desalfandegamento',
+          desc: 'Conferimos as quantidades, inspecionamos a embalagem, aplicamos filme termo-retrátil e tratamos da documentação aduaneira de exportação SADC.',
+          badge: 'Desalfandegamento'
+        },
+        {
+          number: '04',
+          title: 'Transporte Transfronteiriço & Entrega Segura',
+          desc: 'A nossa frota transporta a carga diretamente para Moçambique (Maputo, Matola, Beira, Nampula, Tete) para entrega porta-a-porta ou levantamento.',
+          badge: 'Entrega Segura'
+        }
+      ],
+      warehouseBadge: 'Morada Oficial de Receção',
+      warehouseTitle: 'Instalações de Cargas & Logística em Joanesburgo',
+      warehouseSubtitle: 'Indique esta morada aos seus fornecedores ou transportadoras quando efetuar compras na África do Sul.',
+      warehouseName: 'CLAPSA Logistics & Distribution Hub',
+      warehouseAddress: '128 11th Street, Parkmore, Sandton',
+      warehouseCity: 'Johannesburg, Gauteng',
+      warehousePostal: '2196',
+      warehouseCountry: 'África do Sul (South Africa)',
+      warehouseNotes: 'Importante: Identifique sempre os volumes com o seu Nome Completo, Empresa e WhatsApp (ex.: "[O Seu Nome / Empresa] c/o CLAPSA Logistics").',
+      copyAddressBtn: 'Copiar Detalhes do Armazém',
+      addressCopied: 'Morada Copiada com Sucesso!',
+      calculatorBadge: 'Simulador de Frete Interativo',
+      calculatorTitle: 'Estime o Seu Frete & Faça a Reserva',
+      calculatorSubtitle: 'Introduza as dimensões da encomenda, peso estimado e destino para obter uma estimativa de base e enviar diretamente pelo WhatsApp.',
+      form: {
+        packageName: 'Descrição da Encomenda / Mercadoria',
+        packageNamePlaceholder: 'Ex.: 5 Caixas de Botas EPI & T-Shirts Corporativas',
+        cargoType: 'Categoria da Carga',
+        cargoOptions: [
+          'Vestuário Corporativo & Merchandising',
+          'EPIs Industriais & Calçado de Segurança',
+          'Peças Automóveis & Peças Sobressalentes',
+          'Equipamento Informático & Eletrónica',
+          'Materiais de Construção & Sinalização',
+          'Carga Geral & Encomendas Diversas'
+        ],
+        origin: 'Ponto de Partida / Recolha na África do Sul',
+        originOptions: [
+          'Entrega no Armazém CLAPSA Sandton/JHB (Grátis)',
+          'Recolha: Joanesburgo / Pretória Metro',
+          'Recolha: Cidade do Cabo (Western Cape)',
+          'Recolha: Durban (KwaZulu-Natal)',
+          'Recolha: Bloemfontein (Free State)',
+          'Recolha: Port Elizabeth / East London'
+        ],
+        destination: 'Destino em Moçambique / SADC',
+        destinationOptions: [
+          'Maputo / Matola (Linha Expresso)',
+          'Beira (Moçambique Central)',
+          'Nampula (Moçambique Norte)',
+          'Tete (Corredor Mineiro)',
+          'Pemba / Nacala (Cabo Delgado)',
+          'Gaborone (Botsuana)',
+          'Harare (Zimbabué)',
+          'Lusaka (Zâmbia)'
+        ],
+        weight: 'Peso Estimado (kg)',
+        length: 'Comprimento (cm)',
+        width: 'Largura (cm)',
+        height: 'Altura (cm)',
+        packagesCount: 'Número de Volumes / Paletes',
+        commercialValue: 'Valor Comercial (ZAR ou MZN)',
+        clientName: 'O Seu Nome / Empresa',
+        clientEmail: 'Email Corporativo',
+        clientPhone: 'Contacto WhatsApp',
+        notes: 'Notas de Recolha ou Instruções Especiais',
+        notesPlaceholder: 'Número da fatura do fornecedor, contacto para recolha ou instruções de manuseamento...',
+        calculateBtn: 'Calcular Estimativa de Frete',
+        instantWhatsAppBtn: 'Enviar Reserva Diretamente para o WhatsApp',
+        instantEmailBtn: 'Solicitar Cotação Formal por Email'
+      },
+      results: {
+        summaryTitle: 'Resumo da Estimativa de Frete',
+        actualWeight: 'Peso Real Físico',
+        volumetricWeight: 'Peso Volumétrico',
+        chargeableWeight: 'Peso Taxável Considerado',
+        estimatedTransit: 'Tempo Estimado de Trânsito',
+        estimatedRate: 'Valor Base Estimado de Frete',
+        rateDisclaimer: '* Estimativa indicativa de base. O valor final pode variar consoante a pesagem na báscula, rácio volumétrico (1:5000), direitos aduaneiros e taxas fitossanitárias aplicáveis.'
+      },
+      faqBadge: 'Perguntas Frequentes',
+      faqTitle: 'Dúvidas Sobre Envios & Receção de Cargas',
+      faqs: [
+        {
+          q: 'A CLAPSA pode recolher encomendas fora de Joanesburgo, como na Cidade do Cabo ou Durban?',
+          a: 'Sim. Dispomos de rotas interprovinciais que recolhem encomendas em qualquer ponto da África do Sul e as transportam para o nosso centro de consolidação em Sandton/Joanesburgo.'
+        },
+        {
+          q: 'Como funciona o desembaraço aduaneiro para Moçambique?',
+          a: 'A CLAPSA trata de toda a documentação aduaneira e de exportação, incluindo certificados de origem SADC e desalfandegamento na fronteira de Ressano Garcia.'
+        },
+        {
+          q: 'Qual é o prazo de entrega de Joanesburgo para Maputo?',
+          a: 'As viagens regulares de carga consolidada demoram habitualmente entre 24 a 72 horas após a conclusão da inspeção e do desembaraço aduaneiro.'
+        },
+        {
+          q: 'A CLAPSA verifica e protege a minha mercadoria?',
+          a: 'Sim. No nosso armazém inspecionamos os volumes, conferimos o estado exterior e embalamos com filme estirável reforçado contra intempéries.'
+        }
+      ]
+    },
   },
 
   af: {
@@ -1837,6 +2188,8 @@ export const translations: Record<Language, TranslationSchema> = {
       taglineProc: 'Voorsiening',
       selectLanguage: 'Kies Taal',
       lookbook: 'Stylgids',
+      logistics: 'Logistiek & Vrag',
+      shopOnline: 'Aanlyn Winkel',
     },
     hero: {
       badge: 'Enkelbron-Voorsieningsoplossings • Suid-Afrika & SAOG',
@@ -2543,6 +2896,139 @@ export const translations: Record<Language, TranslationSchema> = {
       sabsCompliance: 'SABS-Gesertifiseerde Nakoming',
       bbbeeProcurement: 'B-BBEE Voorsieningsgereed',
       backToTop: 'Terug na Bo',
+    },
+    logisticsPage: {
+      badge: 'Oorgrens Vrag- & Konsolidasiesentrum',
+      titlePrefix: 'Koop in Suid-Afrika — Ons Lewer af in',
+      titleHighlight: 'Mosambiek & SAOG',
+      subtitle: 'Stuur u goedere direk na ons Sandton/Johannesburg-pakhuis, of laat ons vragdiens dit by u verskaffers afhaal. Ons konsolideer, inspekteer, hanteer doeane en lewer veilig by u perseel of terminaal af.',
+      shipWithUsBtn: 'Bespreek Versending / Vra Kwotasie',
+      calculateFreightBtn: 'Bereken Vragkosteberaming',
+      features: [
+        'Veilige Sentrale Ontvangspakhuis in Sandton/Johannesburg',
+        'Konsolidasie van Veelvuldige Verskaffers & Palletverpakking',
+        'Volledige SAOG Fitotradisionele & Doeane-Uitklaring',
+        '24-72h Snelvragvervoer vanaf JHB na Maputo/Matola'
+      ],
+      howItWorksBadge: 'Vlot Aanstuurdienste',
+      howItWorksTitle: 'Hoe Ons "Ship With Us"-Diens Werk',
+      howItWorksSubtitle: '\'n Gerieflike en veilige pakkie- en vragaanpasproses vir ondernemings en individue in Mosambiek en Suidelike Afrika.',
+      steps: [
+        {
+          number: '01',
+          title: 'Koop by Enige Suid-Afrikaanse Verskaffer',
+          desc: 'Koop by groothandelaars, masjinerie-agente of aanlynwinkels regoor Suid-Afrika (Johannesburg, Kaapstad, Durban, Bloemfontein).',
+          badge: 'U Koop of Ons Haal Af'
+        },
+        {
+          number: '02',
+          title: 'Lewer af by Ons Sandton/JHB Pakhuis',
+          desc: 'Verskaf ons pakhuisadres aan u verskaffer, of reël dat CLAPSA die goedere direk by hul perseel gaan afhaal.',
+          badge: 'Sentrale Ontvangs'
+        },
+        {
+          number: '03',
+          title: 'Konsolidasie, Inspeksie & Doeane-Uitklaring',
+          desc: 'Ons kontroleer pakkie-aantalle, inspekteer verpakking, pas industriële krimpfilm toe en hanteer SAOG-doeanevorms.',
+          badge: 'Doeane-Uitklaring'
+        },
+        {
+          number: '04',
+          title: 'Oorgrens Snelvervoer & Veilige Aflewering',
+          desc: 'Ons vloot vervoer die goedere direk na Mosambiek (Maputo, Matola, Beira, Nampula, Tete) vir aflewering of optel.',
+          badge: 'Veilige Aflewering'
+        }
+      ],
+      warehouseBadge: 'Amptelike Ontvangsadres',
+      warehouseTitle: 'Ons Johannesburgse Logistiek- & Vragsentrum',
+      warehouseSubtitle: 'Verskaf hierdie adres aan u verskaffers of koeriers wanneer u in Suid-Afrika bestel.',
+      warehouseName: 'CLAPSA Logistics & Distribution Hub',
+      warehouseAddress: '128 11th Street, Parkmore, Sandton',
+      warehouseCity: 'Johannesburg, Gauteng',
+      warehousePostal: '2196',
+      warehouseCountry: 'Suid-Afrika',
+      warehouseNotes: 'Belangrik: Merk pakkies altyd met u Volle Naam, Maatskappy en WhatsApp-nommer (bv. "[U Naam / Maatskappy] c/o CLAPSA Logistics").',
+      copyAddressBtn: 'Kopieer Pakhuisbesonderhede',
+      addressCopied: 'Adres Gekopieer na Knipbord!',
+      calculatorBadge: 'Interaktiewe Vragramer',
+      calculatorTitle: 'Skat u Vragkoste & Bespreek',
+      calculatorSubtitle: 'Voer afmetings, beraamde gewig en bestemming in vir \'n vinnige grondslagberaming en kits WhatsApp-bespreking.',
+      form: {
+        packageName: 'Beskrywing van Pakkie / Goedere',
+        packageNamePlaceholder: 'Bv. 5 Bokse Veiligheidsstewels & Korporatiewe Hempies',
+        cargoType: 'Vragkategorie',
+        cargoOptions: [
+          'Korporatiewe Klerasie & Bemarking',
+          'Industriële WBT & Veiligheidsskoene',
+          'Motor- & Meganiese Onderdele',
+          'Elektronika & Kantoortoerusting',
+          'Bouware & Tekenmateriaal',
+          'Algemene Handelsgoedere'
+        ],
+        origin: 'Oorsprong / Optelpunt in Suid-Afrika',
+        originOptions: [
+          'Aflewering by CLAPSA Sandton/JHB Hub (Gratis)',
+          'Afhaal: Johannesburg / Pretoria Metro',
+          'Afhaal: Kaapstad (Wes-Kaap)',
+          'Afhaal: Durban (KwaZulu-Natal)',
+          'Afhaal: Bloemfontein (Vrystaat)',
+          'Afhaal: Port Elizabeth / Oos-Londen'
+        ],
+        destination: 'Bestemming in Mosambiek / SAOG',
+        destinationOptions: [
+          'Maputo / Matola (Snellnlyn)',
+          'Beira (Sentraal-Mosambiek)',
+          'Nampula (Noord-Mosambiek)',
+          'Tete (Mynkorridor)',
+          'Pemba / Nacala (Cabo Delgado)',
+          'Gaborone (Botswana)',
+          'Harare (Zimbabwe)',
+          'Lusaka (Zambië)'
+        ],
+        weight: 'Beraamde Gewig (kg)',
+        length: 'Lengte (cm)',
+        width: 'Breedte (cm)',
+        height: 'Hoogte (cm)',
+        packagesCount: 'Aantal Pakkies / Palette',
+        commercialValue: 'Handelswaarde (ZAR of MZN)',
+        clientName: 'U Volle Naam / Maatskappy',
+        clientEmail: 'Korporatiewe E-pos',
+        clientPhone: 'WhatsApp Telefoonnommer',
+        notes: 'Spesiale Hantering / Afhaalnotas',
+        notesPlaceholder: 'Verskaf verskafferfaktuurnommer, afhaalkontak of breekbare notas...',
+        calculateBtn: 'Bereken Vragberaming',
+        instantWhatsAppBtn: 'Stuur Bespreking Direk via WhatsApp',
+        instantEmailBtn: 'Vra Amptelike Kwotasie per E-pos'
+      },
+      results: {
+        summaryTitle: 'Beraamde Vraganalise',
+        actualWeight: 'Werklike Gewig',
+        volumetricWeight: 'Volumetriese Gewig',
+        chargeableWeight: 'Belasbare Vrag-Gewig',
+        estimatedTransit: 'Beraamde Transitotyd',
+        estimatedRate: 'Beraamde Grondslaggeld',
+        rateDisclaimer: '* Aanduidende beraming. Finale fooie word bepaal deur amptelike weegbrug, volume (1:5000), doeaneregte en fitosanitêre sertifikate.'
+      },
+      faqBadge: 'Gereelde Vrae',
+      faqTitle: 'Oorgrens Versending & Ontvangs Vrae',
+      faqs: [
+        {
+          q: 'Kan CLAPSA buite Johannesburg afhaal, soos Kaapstad of Durban?',
+          a: 'Ja. Deur ons inter-provinsiale netwerk kan ons goedere oral in Suid-Afrika afhaal en by ons sentrale pakhuis in Sandton/Johannesburg konsolideer.'
+        },
+        {
+          q: 'Hoe werk doeane-uitklaring na Mosambiek?',
+          a: 'CLAPSA hanteer alle uitvoer- en transito-dokumente, insluitend SAOG-oorsprongsertifikate en uitklaring by die Ressano Garcia-grens.'
+        },
+        {
+          q: 'Wat is die afleweringstyd vanaf Johannesburg na Maputo?',
+          a: 'Gereelde gekonsolideerde vragte kom gewoonlik binne 24 tot 72 uur ná doeane-inspeksie en uitklaring aan.'
+        },
+        {
+          q: 'Inspekteer en krimpfilm CLAPSA my goedere?',
+          a: 'Ja. Ons pakhuis beskik oor outomatiese pallet-krimpfilmtoerusting en gehalte-inspeksie om u goedere teen weerstoestande te beskerm.'
+        }
+      ]
     },
   },
 };

@@ -110,6 +110,9 @@ export default function Footer() {
                 <Link href="/services" className="hover:text-rose-400 transition-colors">{t.nav.capabilities}</Link>
               </li>
               <li>
+                <Link href="/logistics" className="hover:text-rose-400 transition-colors">{t.nav.logistics}</Link>
+              </li>
+              <li>
                 <Link href="/gallery" className="hover:text-rose-400 transition-colors">{t.nav.lookbook || 'Showcase Gallery'}</Link>
               </li>
               <li>
@@ -140,7 +143,18 @@ export default function Footer() {
                 <Link href="/services" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.display}</Link>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.gifting}</Link>
+                <Link href="/logistics" className="hover:text-rose-400 transition-colors">{t.nav.logistics}</Link>
+              </li>
+              <li>
+                <a 
+                  href="https://shop.clapsa.co.za" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1 font-semibold"
+                >
+                  <span>{t.nav.shopOnline} (shop.clapsa.co.za)</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </li>
             </ul>
           </div>

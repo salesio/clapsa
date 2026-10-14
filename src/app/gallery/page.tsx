@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { 
   GALLERY_ITEMS, 
   JOB_GROUPS, 
@@ -40,7 +41,7 @@ import {
 } from 'lucide-react';
 import JobSlideCard from '@/components/JobSlideCard';
 
-export default function GalleryPage() {
+function GalleryContent() {
   const { t, language } = useLanguage();
   const { data } = useContent();
   const company = data.company;
@@ -56,6 +57,52 @@ export default function GalleryPage() {
 
   // Modal / Lightbox State
   const [activeItemIndex, setActiveItemIndex] = useState<number | null>(null);
+
+  const searchParams = useSearchParams();
+
+  // Handle URL deep-linking parameters (e.g. /gallery?category=signage&q=fleet)
+  useEffect(() => {
+    const cat = searchParams.get('category');
+    const filter = searchParams.get('filter');
+    const q = searchParams.get('q') || searchParams.get('query');
+    const job = searchParams.get('job');
+    const mode = searchParams.get('view');
+
+    if (cat && ['campaigns', 'corporate', 'ppe', 'printing', 'signage', 'gifting', 'sportswear', 'display'].includes(cat)) {
+      setActiveCategory(cat as MediaCategory);
+      setSelectedJobId(null);
+    }
+    if (filter) {
+      if (['corporate', 'ppe', 'printing', 'signage', 'gifting', 'sportswear', 'display', 'campaigns'].includes(filter)) {
+        setActiveCategory(filter as MediaCategory);
+        setSelectedJobId(null);
+      } else if (filter === 'fleet' || filter === 'vehicle' || filter === 'vehicles') {
+        setActiveCategory('signage');
+        setSearchQuery('fleet');
+        setSelectedJobId(null);
+      } else if (filter === 'signs' || filter === 'road') {
+        setActiveCategory('signage');
+        setSearchQuery('road');
+        setSelectedJobId(null);
+      } else if (filter === 'gazebos' || filter === 'displays') {
+        setActiveCategory('display');
+        setSelectedJobId(null);
+      } else if (filter === 'uniforms') {
+        setActiveCategory('corporate');
+        setSelectedJobId(null);
+      }
+    }
+    if (q) {
+      setSearchQuery(q);
+    }
+    if (job) {
+      setSelectedJobId(job);
+      setViewMode('jobs');
+    }
+    if (mode === 'stream' || mode === 'jobs') {
+      setViewMode(mode);
+    }
+  }, [searchParams]);
 
   // Filtered media items
   const filteredItems = useMemo(() => {
@@ -272,7 +319,7 @@ export default function GalleryPage() {
                 { id: 'corporate', label: language === 'pt' ? 'Corporativo (Standard Bank, MERA)' : 'Corporate (Standard Bank, MERA)' },
                 { id: 'ppe', label: language === 'pt' ? 'EPI & Segurança (G4S, Gauteng)' : 'Industrial PPE & Security (G4S, Gauteng)' },
                 { id: 'printing', label: language === 'pt' ? 'Serigrafia & DTF (Albany)' : 'Screen Printing & DTF (Albany)' },
-                { id: 'signage', label: language === 'pt' ? 'Sinalização Rodoviária' : 'Road Signage & Safety' },
+                { id: 'signage', label: language === 'pt' ? 'Sinalização & Frotas (Viaturas, Desvios)' : 'Signage, Fleet & Vehicle Wraps' },
                 { id: 'gifting', label: language === 'pt' ? 'Brindes & Logística SADC (Tropigalia)' : 'Merchandise & Logistics (Tropigalia)' },
                 { id: 'display', label: language === 'pt' ? 'Activação & Gazebos (Movitel)' : 'Brand Activation (Movitel)' },
                 { id: 'campaigns', label: language === 'pt' ? 'Campanhas Eleitorais (Frelimo, CAD, Renamo)' : 'Electoral Campaigns (Frelimo, CAD, Renamo)' },
@@ -337,6 +384,104 @@ export default function GalleryPage() {
 
           </div>
 
+        </div>
+
+        {/* Cluster Quick Shortcuts */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
+          <span className="font-bold text-slate-400 dark:text-slate-500 text-[11px] uppercase tracking-wider shrink-0 flex items-center gap-1">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            {language === 'pt' ? 'Atalhos de Produção:' : 'Production Clusters:'}
+          </span>
+          <button
+            onClick={() => {
+              setActiveCategory('signage');
+              setSearchQuery('fleet');
+              setSelectedJobId(null);
+            }}
+            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all border ${
+              activeCategory === 'signage' && searchQuery.includes('fleet')
+                ? 'bg-rose-600 text-white border-rose-600 shadow-xs'
+                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-rose-400'
+            }`}
+          >
+            🚗 {language === 'pt' ? 'Branding de Viaturas & Frotas' : 'Vehicle & Fleet Wraps'}
+          </button>
+          <button
+            onClick={() => {
+              setActiveCategory('signage');
+              setSearchQuery('road');
+              setSelectedJobId(null);
+            }}
+            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all border ${
+              activeCategory === 'signage' && searchQuery.includes('road')
+                ? 'bg-rose-600 text-white border-rose-600 shadow-xs'
+                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-rose-400'
+            }`}
+          >
+            🛑 {language === 'pt' ? 'Sinalização Rodoviária & Desvios' : 'Road Signs & Detours'}
+          </button>
+          <button
+            onClick={() => {
+              setActiveCategory('display');
+              setSearchQuery('');
+              setSelectedJobId(null);
+            }}
+            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all border ${
+              activeCategory === 'display' && !searchQuery
+                ? 'bg-rose-600 text-white border-rose-600 shadow-xs'
+                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-rose-400'
+            }`}
+          >
+            ⛺ {language === 'pt' ? 'Gazebos & Bandeiras Promocionais' : 'Gazebos, Banners & Flags'}
+          </button>
+          <button
+            onClick={() => {
+              setActiveCategory('corporate');
+              setSearchQuery('');
+              setSelectedJobId(null);
+            }}
+            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all border ${
+              activeCategory === 'corporate' && !searchQuery
+                ? 'bg-rose-600 text-white border-rose-600 shadow-xs'
+                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-rose-400'
+            }`}
+          >
+            👔 {language === 'pt' ? 'Fardamento & T-Shirts Corporativas' : 'Corporate Uniforms & Polos'}
+          </button>
+          <button
+            onClick={() => {
+              setActiveCategory('ppe');
+              setSearchQuery('');
+              setSelectedJobId(null);
+            }}
+            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all border ${
+              activeCategory === 'ppe' && !searchQuery
+                ? 'bg-rose-600 text-white border-rose-600 shadow-xs'
+                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-rose-400'
+            }`}
+          >
+            🦺 {language === 'pt' ? 'EPIs & Fatos de Trabalho SABS' : 'Certified PPE & Workwear'}
+          </button>
+          <button
+            onClick={() => {
+              setActiveCategory('gifting');
+              setSearchQuery('');
+              setSelectedJobId(null);
+            }}
+            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all border ${
+              activeCategory === 'gifting' && !searchQuery
+                ? 'bg-rose-600 text-white border-rose-600 shadow-xs'
+                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-rose-400'
+            }`}
+          >
+            🎁 {language === 'pt' ? 'Brindes VIP & Embalagens' : 'VIP Gifting & Packaging'}
+          </button>
+          <Link
+            href="/logistics"
+            className="px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/30 hover:bg-amber-500/20 flex items-center gap-1"
+          >
+            📦 {language === 'pt' ? 'Logística & Frete Transfronteiriço ↗' : 'Cross-Border Logistics Hub ↗'}
+          </Link>
         </div>
 
         {/* Selected Job Banner Alert (if user clicked into a specific job) */}
@@ -642,5 +787,17 @@ export default function GalleryPage() {
       )}
 
     </div>
+  );
+}
+
+export default function GalleryPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-rose-600 border-t-transparent rounded-full animate-spin" />
+      </div>
+    }>
+      <GalleryContent />
+    </Suspense>
   );
 }
