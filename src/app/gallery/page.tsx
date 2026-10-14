@@ -198,59 +198,68 @@ function GalleryContent() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-200">
       
-      {/* Production Lookbook Visual Banner */}
-      <section className="relative pt-32 pb-16 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 text-white border-b border-slate-800 overflow-hidden">
-        {/* Ambient Glows */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-rose-900/30 via-slate-950/80 to-slate-950 pointer-events-none" />
-        <div className="absolute -top-24 right-0 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 -left-20 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Production Lookbook Visual Banner (1920x670px) */}
+      <section className="relative w-full max-w-[1920px] mx-auto min-h-[600px] lg:h-[670px] overflow-hidden flex flex-col justify-center bg-slate-950 text-white select-none border-b border-slate-800">
+        {/* Full-Bleed 1920x670 Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={getAssetPath('/images/gallery/construcoes-karina-teardrop-event-flags.webp')}
+            alt="CLAPSA Real Production Works Lookbook"
+            fill
+            className="object-cover object-center scale-100"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/50 lg:to-slate-950/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/70" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-rose-900/25 via-transparent to-transparent pointer-events-none" />
+        </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 w-full py-12">
           
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-600/30 border border-rose-500/50 text-rose-300 text-xs font-bold uppercase tracking-wider shadow-sm backdrop-blur-md">
             <Camera className="w-3.5 h-3.5 text-rose-400" />
             <span>{t.galleryPage.badge}</span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight drop-shadow-md">
             {t.galleryPage.titlePrefix}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-red-400 to-amber-400">
               {t.galleryPage.titleHighlight}
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-200 max-w-3xl mx-auto leading-relaxed drop-shadow-xs">
             {t.galleryPage.subtitle}
           </p>
 
           {/* Client Brands Verification Strip */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-2 text-xs font-semibold text-slate-300">
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">Standard Bank</span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">PYB Logistics</span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">Gauteng Govt D59</span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">G4S Ballistics</span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">Siemens Matla</span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">Movitel</span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">Renamo & Frelimo</span>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-2 text-xs font-semibold text-slate-200">
+            <span className="px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">Standard Bank</span>
+            <span className="px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">PYB Logistics</span>
+            <span className="px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">Gauteng Govt D59</span>
+            <span className="px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">G4S Ballistics</span>
+            <span className="px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">Siemens Matla</span>
+            <span className="px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">Movitel</span>
+            <span className="px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">Renamo & Frelimo</span>
           </div>
 
           {/* Live Production Stats Counter */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-4">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs text-center shadow-xs">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-3">
+            <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/15 backdrop-blur-md text-center shadow-md">
               <span className="block text-2xl sm:text-3xl font-extrabold text-rose-400">13</span>
               <span className="text-xs text-slate-300 font-medium">{language === 'pt' ? 'Clientes Empresariais & Partidos' : 'Enterprise & Civic Clients'}</span>
             </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs text-center shadow-xs">
+            <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/15 backdrop-blur-md text-center shadow-md">
               <span className="block text-2xl sm:text-3xl font-extrabold text-white">50+</span>
               <span className="text-xs text-slate-300 font-medium">{language === 'pt' ? 'Fotos Reais de Produção' : 'High-Res Production Photos'}</span>
             </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs text-center shadow-xs">
+            <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/15 backdrop-blur-md text-center shadow-md">
               <span className="block text-2xl sm:text-3xl font-extrabold text-amber-400">8</span>
               <span className="text-xs text-slate-300 font-medium">{language === 'pt' ? 'Vídeos da Fábrica em Movimento' : 'Factory Reels & Motion'}</span>
             </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs text-center shadow-xs">
+            <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/15 backdrop-blur-md text-center shadow-md">
               <span className="block text-2xl sm:text-3xl font-extrabold text-emerald-400">100%</span>
               <span className="text-xs text-slate-300 font-medium">{language === 'pt' ? 'Directo da Fábrica SABS' : 'Direct Factory & SABS'}</span>
             </div>

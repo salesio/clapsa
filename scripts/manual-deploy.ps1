@@ -32,9 +32,14 @@ New-Item -Path ".nojekyll" -ItemType File -Force | Out-Null
 
 # Commit and push
 git add -A
-git commit -m "Deploy: add Ship With Us logistics hub, category deep-linking, fleet branding, and shop.clapsa.co.za integration"
-git push origin gh-pages --force
+git commit -m "Deploy: 3-slide hero slideshow, page banners, and master trade catalogues"
+git push origin gh-pages
 
+Pop-Location
+
+# Fast forward local gh-pages branch as well
+Push-Location $repoRoot
+git fetch origin gh-pages:gh-pages
 Pop-Location
 
 # Cleanup

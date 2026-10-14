@@ -189,47 +189,56 @@ export default function CataloguesPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-200">
       
-      {/* Visual Page Banner Tailored for Catalogues */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 text-white border-b border-slate-800 overflow-hidden">
-        {/* Ambient Glows */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-rose-900/30 via-slate-950/80 to-slate-950 pointer-events-none" />
-        <div className="absolute -top-24 right-0 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 -left-20 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Visual Page Banner Tailored for Catalogues (1920x670px) */}
+      <section className="relative w-full max-w-[1920px] mx-auto min-h-[600px] lg:h-[670px] overflow-hidden flex flex-col justify-center bg-slate-950 text-white select-none border-b border-slate-800">
+        {/* Full-Bleed 1920x670 Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={getAssetPath('/images/showcase/clapsa-corporate-new-arrivals-banner.jpg')}
+            alt="CLAPSA Master Trade Catalogues & Wholesale Network"
+            fill
+            className="object-cover object-center scale-100"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/50 lg:to-slate-950/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/70" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-900/25 via-transparent to-transparent pointer-events-none" />
+        </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Banner Column */}
             <div className="lg:col-span-7 space-y-5 text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-600/30 border border-rose-500/50 text-rose-300 text-xs font-bold uppercase tracking-wider shadow-sm backdrop-blur-md">
                 <BookOpen className="w-3.5 h-3.5 text-rose-400" />
                 <span>{language === 'pt' ? 'Rede Oficial de Distribuição SADC' : 'Official SADC Wholesale Distribution'}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight drop-shadow-md">
                 {language === 'pt' ? 'Catálogos Comerciais &' : 'Master Trade Catalogues &'}{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-red-400 to-amber-400">
                   {language === 'pt' ? 'Especificações' : 'Wholesale Specs'}
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-200 max-w-2xl leading-relaxed drop-shadow-xs">
                 {language === 'pt'
                   ? 'Acesso direto a mais de 10.000 produtos das principais fábricas da África do Sul. Veja abaixo as prévias dos catálogos oficiais atualizados para 2025/2026.'
                   : 'Direct tier-1 access to over 10,000+ factory-direct products from Southern Africa’s premier manufacturers. Explore live preview covers and detailed specifications below.'}
               </p>
 
               {/* Banner Feature Pills */}
-              <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-semibold text-slate-300">
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+              <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-semibold text-slate-200">
+                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">
                   <ShieldCheck className="w-4 h-4 text-rose-400" />
                   {language === 'pt' ? 'Preços de Fábrica SA' : 'Direct SA Wholesale Pricing'}
                 </span>
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">
                   <Truck className="w-4 h-4 text-emerald-400" />
                   {language === 'pt' ? 'Certificado de Origem SADC' : 'SADC Certificate of Origin'}
                 </span>
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">
                   <Layers className="w-4 h-4 text-amber-400" />
                   {language === 'pt' ? 'Bordados & Serigrafia Próprios' : 'In-House Branding Plant'}
                 </span>
@@ -238,12 +247,12 @@ export default function CataloguesPage() {
 
             {/* Right Banner Column: Visual Stack of Catalogue Covers */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl bg-gradient-to-br from-slate-900/90 to-slate-950/90 border border-slate-800 p-6 shadow-2xl backdrop-blur-md">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              <div className="relative rounded-2xl bg-slate-900/85 border border-white/15 p-6 shadow-2xl backdrop-blur-md">
+                <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
                     {language === 'pt' ? 'Coleções Principais' : 'Featured Master Covers'}
                   </span>
-                  <span className="text-[11px] font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-md border border-rose-500/20">
+                  <span className="text-[11px] font-bold text-rose-400 bg-rose-500/20 px-2 py-0.5 rounded-md border border-rose-500/30">
                     8 Catalogues
                   </span>
                 </div>
@@ -251,14 +260,14 @@ export default function CataloguesPage() {
                 {/* Overlapping Preview Mini-Grid */}
                 <div className="grid grid-cols-4 gap-2.5">
                   {tradeCatalogues.slice(0, 4).map((item) => (
-                    <div key={item.id} className="relative aspect-[3/4] rounded-lg overflow-hidden bg-slate-800 border border-white/10 group">
+                    <div key={item.id} className="relative aspect-[3/4] rounded-lg overflow-hidden bg-slate-950 border border-white/15 group">
                       <Image
                         src={getAssetPath(item.image)}
                         alt={item.title}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-300"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent" />
                       <span className="absolute bottom-1 left-1 right-1 text-[9px] font-bold text-white text-center truncate">
                         {item.id.toUpperCase()}
                       </span>
@@ -266,7 +275,7 @@ export default function CataloguesPage() {
                   ))}
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-300">
+                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
                   <span>{language === 'pt' ? 'Tem um item específico?' : 'Need an unlisted code?'}</span>
                   <a
                     href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Hi CLAPSA, I have a specific product code from an SA catalogue that I need quoted.`)}`}

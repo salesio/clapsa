@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useContent } from '@/context/ContentContext';
@@ -89,8 +89,8 @@ interface SlideData {
     pt: string;
     af: string;
   };
-  mainImage: string;
-  subImage: string;
+  backgroundImage: string;
+  specimenImage: string;
   stats: {
     val1: string;
     label1: { en: string; pt: string; af: string };
@@ -186,8 +186,8 @@ const HERO_SLIDES: SlideData[] = [
       pt: 'Vinil fundido com laminação UV anti-risco + bordado Tajima de 12 agulhas.',
       af: 'UV-beskermde viniel-omslae en hoë-digtheid rekenaarborduurwerk.',
     },
-    mainImage: '/images/gallery/pyb-commercial-vehicle-vinyl-branding.webp',
-    subImage: '/images/gallery/executive-pique-golf-shirts-embroidery.webp',
+    backgroundImage: '/images/gallery/pyb-commercial-vehicle-vinyl-branding.webp',
+    specimenImage: '/images/gallery/executive-pique-golf-shirts-embroidery.webp',
     stats: {
       val1: '1,500+',
       label1: { en: 'Deployments', pt: 'Entregas', af: 'Ontplooiings' },
@@ -281,8 +281,8 @@ const HERO_SLIDES: SlideData[] = [
       pt: 'Tecido D59 100% algodão com tratamento retardante + chapa galvanizada com vinil micro-prismático refletor.',
       af: 'D59 100% katoen chemiese behandeling en gegalvaniseerde staal padtekens.',
     },
-    mainImage: '/images/gallery/gauteng-province-flame-retardant-conti-suits.webp',
-    subImage: '/images/gallery/desvio-reflective-chevron-road-signs.webp',
+    backgroundImage: '/images/gallery/gauteng-province-flame-retardant-conti-suits.webp',
+    specimenImage: '/images/gallery/desvio-reflective-chevron-road-signs.webp',
     stats: {
       val1: 'SABS 434',
       label1: { en: 'Compliance', pt: 'Certificação', af: 'Sertifisering' },
@@ -376,8 +376,8 @@ const HERO_SLIDES: SlideData[] = [
       pt: 'Canais regulares de carga consolidada ligando Sandton a Maputo, Matola, Beira, Nampula e capitais SADC.',
       af: 'Gereelde vragverbindings tussen Johannesburg, Maputo, Beira en SADC-bestemmings.',
     },
-    mainImage: '/images/gallery/shipping-container-clapsa-export-freight.webp',
-    subImage: '/videos/gallery/posters/automated-pallet-stretch-wrapping-dispatch.webp',
+    backgroundImage: '/images/gallery/shipping-container-clapsa-export-freight.webp',
+    specimenImage: '/videos/gallery/posters/automated-pallet-stretch-wrapping-dispatch.webp',
     stats: {
       val1: '24 - 72h',
       label1: { en: 'SADC Transit', pt: 'Trânsito SADC', af: 'SADC Vragtyd' },
@@ -433,106 +433,74 @@ export default function Hero() {
       id="home" 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative min-h-[85vh] pt-6 sm:pt-10 pb-20 bg-slate-50 dark:bg-slate-950 overflow-hidden flex flex-col justify-center transition-colors duration-200"
+      className="relative w-full max-w-[1920px] mx-auto min-h-[620px] lg:h-[670px] overflow-hidden flex flex-col justify-between bg-slate-950 text-white select-none transition-colors duration-200"
     >
-      {/* Background Graphic Accents */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-rose-100/60 dark:from-rose-950/20 via-transparent to-transparent pointer-events-none" />
-      <div className="absolute top-1/4 -right-40 w-96 h-96 bg-rose-500/10 dark:bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 -left-40 w-96 h-96 bg-slate-200/50 dark:bg-slate-800/20 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        
-        {/* Slideshow Top Navigation Switcher Tabs */}
-        <div className="mb-6 sm:mb-8 flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/80 dark:border-slate-800/80 pb-3">
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            {HERO_SLIDES.map((slide, idx) => {
-              const isActive = idx === currentSlideIndex;
-              return (
-                <button
-                  key={slide.id}
-                  onClick={() => goToSlide(idx)}
-                  className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-2 ${
-                    isActive 
-                      ? 'bg-white dark:bg-slate-900 text-rose-600 dark:text-rose-400 shadow-md border border-slate-200 dark:border-slate-800' 
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/50 dark:hover:bg-slate-900/40'
-                  }`}
-                >
-                  <span className={`w-2 h-2 rounded-full transition-all ${isActive ? 'bg-rose-600 scale-125' : 'bg-slate-300 dark:bg-slate-700'}`} />
-                  <span>{slide.tabLabel[langKey]}</span>
-                  {isActive && (
-                    <span 
-                      key={progressKey}
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-rose-600 rounded-full animate-[progress_6.5s_linear]" 
-                    />
-                  )}
-                </button>
-              );
-            })}
+      {/* 1920x670 Full-Bleed Background Image Slides with Crossfade */}
+      <div className="absolute inset-0 z-0">
+        {HERO_SLIDES.map((slide, idx) => (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              idx === currentSlideIndex ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+            }`}
+          >
+            <Image
+              src={getAssetPath(slide.backgroundImage)}
+              alt={slide.headlineHighlight[langKey]}
+              fill
+              className="object-cover object-center scale-100 transition-transform duration-1000"
+              priority={idx === 0}
+            />
+            {/* Multi-Stop Cinematic Contrast Gradients */}
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/40 lg:to-slate-950/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-slate-950/60" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-rose-900/20 via-transparent to-transparent pointer-events-none" />
           </div>
+        ))}
+      </div>
 
-          {/* Quick Prev / Next Arrows */}
-          <div className="hidden sm:flex items-center gap-2">
-            <button
-              onClick={handlePrev}
-              aria-label="Previous Slide"
-              className="w-8 h-8 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-rose-500 text-slate-700 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 flex items-center justify-center transition-all shadow-xs"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <span className="text-xs font-semibold text-slate-400">
-              0{currentSlideIndex + 1} / 0{HERO_SLIDES.length}
-            </span>
-            <button
-              onClick={handleNext}
-              aria-label="Next Slide"
-              className="w-8 h-8 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-rose-500 text-slate-700 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 flex items-center justify-center transition-all shadow-xs"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-
-        {/* 2-Column Animated Slide Content */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      {/* Main Container Content */}
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 sm:pt-12 pb-6 my-auto">
+        <div className="grid lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left Column: Headline, Description & CTAs */}
-          <div className="lg:col-span-7 text-left space-y-6">
+          {/* Left Column: Bold Typography & CTAs */}
+          <div className="lg:col-span-7 text-left space-y-5">
             
             {/* Slide Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100/90 dark:bg-rose-950/70 border border-rose-300 dark:border-rose-800/60 text-rose-700 dark:text-rose-300 text-xs font-bold tracking-wide shadow-xs animate-fadeIn">
-              <Sparkles className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-600/30 border border-rose-500/50 text-rose-300 text-xs font-bold tracking-wide shadow-sm backdrop-blur-md">
+              <Sparkles className="w-3.5 h-3.5 text-rose-400 animate-pulse" />
               <span>{currentSlide.badge[langKey]}</span>
             </div>
 
             {/* Slide Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15] min-h-[100px] sm:min-h-[110px] transition-all">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.12] drop-shadow-md">
               {currentSlide.headlinePrefix[langKey]}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-red-500 to-rose-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-red-400 to-amber-400">
                 {currentSlide.headlineHighlight[langKey]}
               </span>{' '}
               {currentSlide.headlineSuffix[langKey]}
             </h1>
 
             {/* Slide Subtitle */}
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed min-h-[64px]">
+            <p className="text-sm sm:text-base text-slate-200 max-w-2xl font-normal leading-relaxed drop-shadow-xs">
               {currentSlide.subtitle[langKey]}
             </p>
 
             {/* 4 Value Checkpoints */}
-            <div className="grid sm:grid-cols-2 gap-2.5 pt-1 text-sm font-medium text-slate-700 dark:text-slate-300">
+            <div className="grid sm:grid-cols-2 gap-2 pt-1 text-xs sm:text-sm font-medium text-slate-200">
               {currentSlide.checkpoints[langKey].map((cp, idx) => (
                 <div key={idx} className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-rose-600 dark:text-rose-500 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-rose-400 shrink-0" />
                   <span className="line-clamp-1">{cp}</span>
                 </div>
               ))}
             </div>
 
             {/* Slide Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-3">
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link
                 href={currentSlide.primaryCta.href}
-                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-700 hover:from-rose-500 hover:to-red-600 text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-rose-900/20 hover:shadow-rose-900/40 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-rose-950/60 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
               >
                 <span>{currentSlide.primaryCta.label[langKey]}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -540,24 +508,24 @@ export default function Hero() {
 
               <Link
                 href={currentSlide.secondaryCta.href}
-                className="px-5 py-3.5 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-xs uppercase tracking-wider border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs flex items-center gap-2"
+                className="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider border border-white/20 backdrop-blur-md transition-all shadow-xs flex items-center gap-2"
               >
                 <span>{currentSlide.secondaryCta.label[langKey]}</span>
               </Link>
 
               <a
                 href={`tel:${company.phoneDirect}`}
-                className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition-colors py-2 px-2"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white transition-colors py-2 px-2"
               >
-                <PhoneCall className="w-3.5 h-3.5 text-rose-600 dark:text-rose-500" />
+                <PhoneCall className="w-3.5 h-3.5 text-rose-400" />
                 <span>{company.phoneDisplay}</span>
               </a>
             </div>
           </div>
 
-          {/* Right Column: Visual Showcase Card */}
+          {/* Right Column: Floating Specimen Showcase Card */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 shadow-xl dark:shadow-2xl shadow-slate-200/50 dark:shadow-black/80 group select-none">
+            <div className="relative rounded-2xl bg-slate-900/80 border border-white/15 p-4 shadow-2xl backdrop-blur-md group select-none">
               
               {/* Highlight Badge */}
               <div className="absolute -top-3 -right-2 bg-gradient-to-r from-rose-600 to-red-600 text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-lg border border-rose-400/30 flex items-center gap-1.5 z-30">
@@ -565,43 +533,25 @@ export default function Hero() {
                 <span>{currentSlide.featuredTag[langKey]}</span>
               </div>
 
-              {/* Main Showcase Image Frame */}
-              <div className="relative h-72 sm:h-84 md:h-92 w-full rounded-xl overflow-hidden bg-slate-950">
+              {/* Specimen Inspection Frame */}
+              <div className="relative h-56 sm:h-64 md:h-72 w-full rounded-xl overflow-hidden bg-slate-950">
                 <Image
-                  src={getAssetPath(currentSlide.mainImage)}
+                  src={getAssetPath(currentSlide.specimenImage)}
                   alt={currentSlide.featuredTitle[langKey]}
                   fill
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  priority
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
                 
-                {/* Secondary Inset Thumbnail Preview */}
-                <div className="absolute top-3 left-3 z-20 flex items-center gap-2 p-1.5 rounded-xl bg-slate-950/80 backdrop-blur-md border border-white/15 max-w-[200px]">
-                  <div className="relative w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-white/10">
-                    <Image
-                      src={getAssetPath(currentSlide.subImage)}
-                      alt="Complementary Specimen"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="text-left pr-1">
-                    <span className="block text-[9px] font-bold text-rose-400 uppercase tracking-wider">
-                      {langKey === 'pt' ? 'Detalhe Real' : langKey === 'af' ? 'Regte Besonderheid' : 'Live Specimen'}
-                    </span>
-                    <span className="block text-[10px] text-white font-medium line-clamp-1">
-                      {langKey === 'pt' ? 'Em Produção' : langKey === 'af' ? 'In Vervaardiging' : 'Production Spec'}
-                    </span>
-                  </div>
-                </div>
-
                 {/* Bottom Overlay Title & Deep-Link */}
                 <div className="absolute bottom-3 left-3 right-3 text-left">
+                  <span className="block text-[10px] font-bold text-rose-400 uppercase tracking-wider">
+                    {langKey === 'pt' ? 'Inspeção de Produção' : langKey === 'af' ? 'Produksie-Besonderheid' : 'Live Specimen Inspection'}
+                  </span>
                   <h3 className="text-sm sm:text-base font-bold text-white leading-snug drop-shadow-md">
                     {currentSlide.featuredTitle[langKey]}
                   </h3>
-                  <p className="text-xs text-slate-200 mt-1 line-clamp-2">
+                  <p className="text-xs text-slate-300 mt-0.5 line-clamp-1">
                     {currentSlide.featuredDesc[langKey]}
                   </p>
                   <div className="mt-2 flex items-center justify-between">
@@ -609,52 +559,36 @@ export default function Hero() {
                       href={currentSlide.deepLink}
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold text-rose-400 hover:text-rose-300 transition-colors uppercase tracking-wider"
                     >
-                      <span>{langKey === 'pt' ? 'Explorar Galeria Completa' : langKey === 'af' ? 'Sien Volledige Galery' : 'Explore Lookbook Archive'}</span>
+                      <span>{langKey === 'pt' ? 'Explorar no Lookbook' : langKey === 'af' ? 'Sien in Lookbook' : 'Inspect in Lookbook'}</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                 </div>
-
-                {/* Mobile Arrows */}
-                <button
-                  onClick={handlePrev}
-                  className="sm:hidden absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-slate-950/75 text-white flex items-center justify-center backdrop-blur-md"
-                  aria-label="Previous Slide"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="sm:hidden absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-slate-950/75 text-white flex items-center justify-center backdrop-blur-md"
-                  aria-label="Next Slide"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
               </div>
 
-              {/* Dynamic 3-Column Metrics Underneath */}
-              <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800/80 grid grid-cols-3 gap-2 text-center">
+              {/* 3-Column Metrics Underneath */}
+              <div className="mt-3 pt-2.5 border-t border-white/10 grid grid-cols-3 gap-2 text-center">
                 <div>
-                  <span className="block text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
+                  <span className="block text-sm sm:text-base font-extrabold text-white">
                     {currentSlide.stats.val1}
                   </span>
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                  <span className="text-[10px] text-slate-400 uppercase tracking-wider">
                     {currentSlide.stats.label1[langKey]}
                   </span>
                 </div>
-                <div className="border-x border-slate-200 dark:border-slate-800">
-                  <span className="block text-sm sm:text-base font-extrabold text-rose-600 dark:text-rose-500">
+                <div className="border-x border-white/10">
+                  <span className="block text-sm sm:text-base font-extrabold text-rose-400">
                     {currentSlide.stats.val2}
                   </span>
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                  <span className="text-[10px] text-slate-400 uppercase tracking-wider">
                     {currentSlide.stats.label2[langKey]}
                   </span>
                 </div>
                 <div>
-                  <span className="block text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
+                  <span className="block text-sm sm:text-base font-extrabold text-white">
                     {currentSlide.stats.val3}
                   </span>
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                  <span className="text-[10px] text-slate-400 uppercase tracking-wider">
                     {currentSlide.stats.label3[langKey]}
                   </span>
                 </div>
@@ -664,7 +598,61 @@ export default function Hero() {
           </div>
 
         </div>
+      </div>
 
+      {/* Slideshow Bottom Navigation Switcher (1920x670 Anchor Controls) */}
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-4">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-3">
+          
+          {/* 3 Slide Tabs with Active Progress Line */}
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+            {HERO_SLIDES.map((slide, idx) => {
+              const isActive = idx === currentSlideIndex;
+              return (
+                <button
+                  key={slide.id}
+                  onClick={() => goToSlide(idx)}
+                  className={`relative px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-2 ${
+                    isActive 
+                      ? 'bg-white/15 text-white border border-white/20 shadow-lg' 
+                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  <span className={`w-2 h-2 rounded-full transition-all ${isActive ? 'bg-rose-500 scale-125' : 'bg-slate-600'}`} />
+                  <span>{slide.tabLabel[langKey]}</span>
+                  {isActive && (
+                    <span 
+                      key={progressKey}
+                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-rose-500 rounded-full animate-[progress_6.5s_linear]" 
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Prev / Next Buttons */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handlePrev}
+              aria-label="Previous Slide"
+              className="w-8 h-8 rounded-lg bg-white/10 hover:bg-rose-600 text-white border border-white/15 flex items-center justify-center transition-all shadow-xs"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <span className="text-xs font-semibold text-slate-300 px-1">
+              0{currentSlideIndex + 1} / 0{HERO_SLIDES.length}
+            </span>
+            <button
+              onClick={handleNext}
+              aria-label="Next Slide"
+              className="w-8 h-8 rounded-lg bg-white/10 hover:bg-rose-600 text-white border border-white/15 flex items-center justify-center transition-all shadow-xs"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+
+        </div>
       </div>
     </section>
   );

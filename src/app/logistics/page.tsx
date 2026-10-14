@@ -194,30 +194,39 @@ Please issue an official quotation with customs clearance instructions.`;
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 transition-colors pb-20">
       
-      {/* 1. SADC LOGISTICS VISUAL BANNER */}
-      <section className="relative overflow-hidden pt-32 pb-20 border-b border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 text-white">
-        {/* Ambient Glows */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-900/30 via-slate-950/80 to-slate-950 pointer-events-none" />
-        <div className="absolute -top-24 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 -left-20 w-80 h-80 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+      {/* 1. SADC LOGISTICS VISUAL BANNER (1920x670px) */}
+      <section className="relative w-full max-w-[1920px] mx-auto min-h-[600px] lg:h-[670px] overflow-hidden flex flex-col justify-center bg-slate-950 text-white select-none border-b border-slate-800">
+        {/* Full-Bleed 1920x670 Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={getAssetPath('/images/gallery/shipping-container-clapsa-export-freight.webp')}
+            alt="CLAPSA Bonded Shipping Containers & Cross-Border Logistics"
+            fill
+            className="object-cover object-center scale-100"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/50 lg:to-slate-950/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/70" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-900/25 via-transparent to-transparent pointer-events-none" />
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8 text-center">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 space-y-8 text-center">
           
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider shadow-sm backdrop-blur-md">
             <Truck className="w-3.5 h-3.5 text-amber-400" />
             <span>{lp.badge}</span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight drop-shadow-md">
             {lp.titlePrefix}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-400 to-red-400">
               {lp.titleHighlight}
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-200 max-w-3xl mx-auto leading-relaxed drop-shadow-xs">
             {lp.subtitle}
           </p>
 
@@ -225,7 +234,7 @@ Please issue an official quotation with customs clearance instructions.`;
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <a
               href="#calculator"
-              className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rose-600 via-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-rose-600/25 transition-all flex items-center gap-2"
+              className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rose-600 via-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-rose-950/60 hover:shadow-rose-600/30 transition-all flex items-center gap-2"
             >
               <Calculator className="w-4 h-4" />
               <span>{lp.calculateFreightBtn}</span>
@@ -233,7 +242,7 @@ Please issue an official quotation with customs clearance instructions.`;
 
             <a
               href="#warehouse"
-              className="px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/15 font-bold text-xs uppercase tracking-wider backdrop-blur-xs transition-all flex items-center gap-2"
+              className="px-6 py-3.5 rounded-2xl bg-slate-900/80 hover:bg-slate-800 text-white border border-white/20 font-bold text-xs uppercase tracking-wider backdrop-blur-md transition-all flex items-center gap-2 shadow-xs"
             >
               <Building2 className="w-4 h-4 text-amber-400" />
               <span>{lp.warehouseBadge}</span>
@@ -241,11 +250,11 @@ Please issue an official quotation with customs clearance instructions.`;
           </div>
 
           {/* 4 Feature Badges */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto pt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto pt-4">
             {lp.features.map((feat, idx) => (
               <div 
                 key={idx}
-                className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs shadow-xs flex items-center gap-3 text-left"
+                className="p-4 rounded-2xl bg-slate-900/80 border border-white/15 backdrop-blur-md shadow-md flex items-center gap-3 text-left"
               >
                 <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-4 h-4" />

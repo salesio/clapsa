@@ -140,49 +140,58 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-200">
       
-      {/* Sandton HQ & Pan-African Supply Visual Banner */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 text-white border-b border-slate-800 overflow-hidden">
-        {/* Ambient Glows */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-rose-900/30 via-slate-950/80 to-slate-950 pointer-events-none" />
-        <div className="absolute -top-24 right-0 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 -left-20 w-80 h-80 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Sandton HQ & Pan-African Supply Visual Banner (1920x670px) */}
+      <section className="relative w-full max-w-[1920px] mx-auto min-h-[600px] lg:h-[670px] overflow-hidden flex flex-col justify-center bg-slate-950 text-white select-none border-b border-slate-800">
+        {/* Full-Bleed 1920x670 Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={getAssetPath('/videos/gallery/posters/clapsa-headquarters-sandton-facility-walkthrough.webp')}
+            alt="CLAPSA Sandton Headquarters & Executive Showroom"
+            fill
+            className="object-cover object-center scale-100"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/40 lg:to-slate-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-slate-950/60" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-rose-900/20 via-transparent to-transparent pointer-events-none" />
+        </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             
             {/* Left Banner Column */}
             <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-600/30 border border-rose-500/50 text-rose-300 text-xs font-bold uppercase tracking-wider shadow-sm backdrop-blur-md">
                 <Building2 className="w-3.5 h-3.5 text-rose-400" />
                 <span>{t.about.badge}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight drop-shadow-md">
                 {t.about.titlePrefix}{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-red-400 to-amber-400">
                   {t.about.titleHighlight}
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-200 max-w-2xl leading-relaxed drop-shadow-xs">
                 {t.about.p1}
               </p>
 
               {/* Trust Badges */}
               <div className="flex flex-wrap items-center gap-2.5 pt-2 text-xs font-semibold">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-emerald-400">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 text-emerald-400 backdrop-blur-md">
                   <ShieldCheck className="w-4 h-4" />
                   SABS Approved Supply
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-blue-400">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 text-blue-400 backdrop-blur-md">
                   <Award className="w-4 h-4" />
                   ISO 9001:2015 Standards
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-amber-400">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 text-amber-400 backdrop-blur-md">
                   <FileText className="w-4 h-4" />
                   B-BBEE Level 1 Contributor
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-purple-400">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 text-purple-400 backdrop-blur-md">
                   <Globe2 className="w-4 h-4" />
                   SADC Cross-Border Hub
                 </span>
@@ -192,14 +201,14 @@ export default function AboutPage() {
               <div className="pt-2 flex flex-wrap items-center gap-3">
                 <a
                   href="#facility-tours"
-                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-rose-950/40 transition-all flex items-center gap-2"
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white text-xs font-bold uppercase tracking-wider shadow-xl shadow-rose-950/60 transition-all flex items-center gap-2"
                 >
                   <span>Explore Sandton Facility</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <Link
                   href="/contact"
-                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/15 text-xs font-bold uppercase tracking-wider backdrop-blur-xs transition-all flex items-center gap-2"
+                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all flex items-center gap-2"
                 >
                   <span>Contact Directors</span>
                   <Globe2 className="w-4 h-4" />
@@ -209,18 +218,18 @@ export default function AboutPage() {
 
             {/* Right Banner Column: Facility Walkthrough Preview Card */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl bg-gradient-to-br from-slate-900/90 to-slate-950/90 border border-slate-800 p-4 shadow-2xl backdrop-blur-md overflow-hidden group">
-                <div className="relative h-64 sm:h-72 w-full rounded-xl overflow-hidden bg-slate-950">
+              <div className="relative rounded-2xl bg-slate-900/85 border border-white/15 p-4 shadow-2xl backdrop-blur-md overflow-hidden group">
+                <div className="relative h-60 sm:h-68 w-full rounded-xl overflow-hidden bg-slate-950">
                   <Image
                     src={getAssetPath('/videos/gallery/posters/clapsa-headquarters-sandton-facility-walkthrough.webp')}
                     alt="CLAPSA Sandton Headquarters Facility"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
                   
                   {/* Status Indicator */}
-                  <div className="absolute top-3 left-3 flex items-center gap-2 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                  <div className="absolute top-3 left-3 flex items-center gap-2 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-200">Sandton HQ Showroom</span>
                   </div>
@@ -241,7 +250,7 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="mt-3 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
                   <span>Johannesburg • Maputo Gateway</span>
                   <a href="#facility-tours" className="text-rose-400 font-bold hover:text-rose-300">
                     4 Video Walkthroughs ↓
