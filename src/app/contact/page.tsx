@@ -70,101 +70,65 @@ export default function ContactPage() {
             className="object-cover object-center scale-100"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/40 lg:to-slate-950/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-slate-950/60" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-emerald-900/20 via-transparent to-transparent pointer-events-none" />
+          {/* Subtle Gradient Overlays for High Background Image Clarity */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/35 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/25 pointer-events-none" />
         </div>
 
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-16">
+          <div className="max-w-2xl lg:max-w-3xl p-6 sm:p-8 md:p-10 rounded-3xl bg-slate-950/75 backdrop-blur-md border border-white/15 shadow-2xl text-left space-y-6">
             
-            {/* Left Banner Column */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-600/30 border border-rose-500/50 text-rose-300 text-xs font-bold uppercase tracking-wider shadow-sm backdrop-blur-md">
-                <MessageSquare className="w-3.5 h-3.5 text-rose-400" />
-                <span>{t.contact.badge}</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight drop-shadow-md">
-                {t.contact.titlePrefix}{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-red-400 to-amber-400">
-                  {t.contact.titleHighlight}
-                </span>
-              </h1>
-
-              <p className="text-base sm:text-lg text-slate-200 max-w-2xl leading-relaxed drop-shadow-xs">
-                {t.contact.subtitle}
-              </p>
-
-              {/* Response Commitments */}
-              <div className="flex flex-wrap items-center gap-2.5 pt-2 text-xs font-semibold">
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 text-rose-300 backdrop-blur-md">
-                  <Clock className="w-4 h-4 text-rose-400" />
-                  Fast 2-Hour Corporate RFQ Response
-                </span>
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 text-emerald-300 backdrop-blur-md">
-                  <Truck className="w-4 h-4 text-emerald-400" />
-                  SADC Express Cross-Border Dispatch
-                </span>
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 text-blue-300 backdrop-blur-md">
-                  <ShieldCheck className="w-4 h-4 text-blue-400" />
-                  SABS Certified Direct Supply
-                </span>
-              </div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-600/30 border border-rose-500/50 text-rose-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+              <MessageSquare className="w-3.5 h-3.5 text-rose-400" />
+              <span>{t.contact.badge}</span>
             </div>
 
-            {/* Right Banner Column: Direct Hotline Card */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl bg-slate-900/85 border border-white/15 p-6 shadow-2xl backdrop-blur-md space-y-4">
-                
-                {/* Status Indicator */}
-                <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-200">
-                      Procurement Desk Online
-                    </span>
-                  </div>
-                  <span className="text-[11px] text-emerald-400 font-semibold bg-emerald-500/20 px-2 py-0.5 rounded-md border border-emerald-500/30">
-                    Avg Response &lt; 15m
-                  </span>
-                </div>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight drop-shadow-md">
+              {t.contact.titlePrefix}{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-red-400 to-amber-400">
+                {t.contact.titleHighlight}
+              </span>
+            </h1>
 
-                <div className="space-y-3 pt-1">
-                  <div>
-                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                      Sandton Central Headquarters & Depot
-                    </span>
-                    <a href={`tel:${company.phoneDirect}`} className="text-lg font-bold text-white hover:text-rose-400 transition-colors flex items-center gap-2 mt-0.5">
-                      <Phone className="w-4 h-4 text-rose-400" />
-                      <span>{company.phoneDisplay}</span>
-                    </a>
-                  </div>
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed drop-shadow-xs">
+              {t.contact.subtitle}
+            </p>
 
-                  <div>
-                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                      Direct WhatsApp Procurement Desk
-                    </span>
-                    <a
-                      href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent('Hi CLAPSA, I have an urgent procurement / logistics inquiry.')}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-1 w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-950/60"
-                    >
-                      <MessageSquare className="w-4 h-4" />
-                      <span>Chat on WhatsApp Now</span>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
-                  <span>Johannesburg • Sandton • Maputo</span>
-                  <span className="text-slate-300 font-medium">Mon - Fri: 08:00 - 17:00</span>
-                </div>
-
-              </div>
+            {/* Response Commitments */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-1 text-xs font-semibold">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 text-rose-300 backdrop-blur-md">
+                <Clock className="w-4 h-4 text-rose-400" />
+                Fast 2-Hour Corporate RFQ Response
+              </span>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 text-emerald-300 backdrop-blur-md">
+                <Truck className="w-4 h-4 text-emerald-400" />
+                SADC Express Cross-Border Dispatch
+              </span>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 text-blue-300 backdrop-blur-md">
+                <ShieldCheck className="w-4 h-4 text-blue-400" />
+                SABS Certified Direct Supply
+              </span>
             </div>
 
+            {/* Quick Contact Actions */}
+            <div className="pt-2 flex flex-wrap items-center gap-3">
+              <a
+                href={`tel:${company.phoneDirect}`}
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white text-xs font-bold uppercase tracking-wider shadow-xl shadow-rose-950/60 transition-all flex items-center gap-2"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call {company.phoneDisplay}</span>
+              </a>
+              <a
+                href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent('Hi CLAPSA, I have an urgent procurement / logistics inquiry.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-emerald-950/60 transition-all flex items-center gap-2"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>WhatsApp Procurement Desk</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

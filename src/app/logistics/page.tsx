@@ -205,67 +205,69 @@ Please issue an official quotation with customs clearance instructions.`;
             className="object-cover object-center scale-100"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/50 lg:to-slate-950/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/70" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-900/25 via-transparent to-transparent pointer-events-none" />
+          {/* Subtle Gradient Overlays for High Background Image Clarity */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/35 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/25 pointer-events-none" />
         </div>
 
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 space-y-8 text-center">
-          
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider shadow-sm backdrop-blur-md">
-            <Truck className="w-3.5 h-3.5 text-amber-400" />
-            <span>{lp.badge}</span>
-          </div>
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-16">
+          <div className="max-w-4xl mx-auto p-6 sm:p-8 md:p-10 rounded-3xl bg-slate-950/75 backdrop-blur-md border border-white/15 shadow-2xl text-center space-y-6">
+            
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+              <Truck className="w-3.5 h-3.5 text-amber-400" />
+              <span>{lp.badge}</span>
+            </div>
 
-          {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight drop-shadow-md">
-            {lp.titlePrefix}{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-400 to-red-400">
-              {lp.titleHighlight}
-            </span>
-          </h1>
+            {/* Headline */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-3xl mx-auto leading-tight drop-shadow-md">
+              {lp.titlePrefix}{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-400 to-red-400">
+                {lp.titleHighlight}
+              </span>
+            </h1>
 
-          <p className="text-base sm:text-lg text-slate-200 max-w-3xl mx-auto leading-relaxed drop-shadow-xs">
-            {lp.subtitle}
-          </p>
+            <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-xs">
+              {lp.subtitle}
+            </p>
 
-          {/* Quick CTAs */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <a
-              href="#calculator"
-              className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rose-600 via-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-rose-950/60 hover:shadow-rose-600/30 transition-all flex items-center gap-2"
-            >
-              <Calculator className="w-4 h-4" />
-              <span>{lp.calculateFreightBtn}</span>
-            </a>
-
-            <a
-              href="#warehouse"
-              className="px-6 py-3.5 rounded-2xl bg-slate-900/80 hover:bg-slate-800 text-white border border-white/20 font-bold text-xs uppercase tracking-wider backdrop-blur-md transition-all flex items-center gap-2 shadow-xs"
-            >
-              <Building2 className="w-4 h-4 text-amber-400" />
-              <span>{lp.warehouseBadge}</span>
-            </a>
-          </div>
-
-          {/* 4 Feature Badges */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto pt-4">
-            {lp.features.map((feat, idx) => (
-              <div 
-                key={idx}
-                className="p-4 rounded-2xl bg-slate-900/80 border border-white/15 backdrop-blur-md shadow-md flex items-center gap-3 text-left"
+            {/* Quick CTAs */}
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-1">
+              <a
+                href="#calculator"
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 via-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-rose-950/60 transition-all flex items-center gap-2"
               >
-                <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-semibold text-slate-200 leading-snug">
-                  {feat}
-                </span>
-              </div>
-            ))}
-          </div>
+                <Calculator className="w-4 h-4" />
+                <span>{lp.calculateFreightBtn}</span>
+              </a>
 
+              <a
+                href="#warehouse"
+                className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-xs uppercase tracking-wider backdrop-blur-md transition-all flex items-center gap-2 shadow-xs"
+              >
+                <Building2 className="w-4 h-4 text-amber-400" />
+                <span>{lp.warehouseBadge}</span>
+              </a>
+            </div>
+
+            {/* 4 Feature Badges */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto pt-2">
+              {lp.features.map((feat, idx) => (
+                <div 
+                  key={idx}
+                  className="p-3.5 rounded-2xl bg-slate-900/80 border border-white/15 backdrop-blur-md shadow-md flex items-center gap-3 text-left"
+                >
+                  <div className="w-7 h-7 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </div>
+                  <span className="text-xs font-semibold text-slate-200 leading-snug">
+                    {feat}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+          </div>
         </div>
       </section>
 

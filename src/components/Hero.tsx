@@ -451,152 +451,72 @@ export default function Hero() {
               className="object-cover object-center scale-100 transition-transform duration-1000"
               priority={idx === 0}
             />
-            {/* Multi-Stop Cinematic Contrast Gradients */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/40 lg:to-slate-950/20" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-slate-950/60" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-rose-900/20 via-transparent to-transparent pointer-events-none" />
+            {/* Subtle Gradient Overlays for High Background Image Clarity */}
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/35 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/25 pointer-events-none" />
           </div>
         ))}
       </div>
 
       {/* Main Container Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 sm:pt-12 pb-6 my-auto">
-        <div className="grid lg:grid-cols-12 gap-8 items-center">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-10 sm:pt-14 pb-6 my-auto">
+        <div className="max-w-2xl lg:max-w-3xl p-6 sm:p-8 md:p-10 rounded-3xl bg-slate-950/75 backdrop-blur-md border border-white/15 shadow-2xl text-left space-y-5">
           
-          {/* Left Column: Bold Typography & CTAs */}
-          <div className="lg:col-span-7 text-left space-y-5">
-            
-            {/* Slide Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-600/30 border border-rose-500/50 text-rose-300 text-xs font-bold tracking-wide shadow-sm backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-rose-400 animate-pulse" />
-              <span>{currentSlide.badge[langKey]}</span>
-            </div>
-
-            {/* Slide Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.12] drop-shadow-md">
-              {currentSlide.headlinePrefix[langKey]}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-red-400 to-amber-400">
-                {currentSlide.headlineHighlight[langKey]}
-              </span>{' '}
-              {currentSlide.headlineSuffix[langKey]}
-            </h1>
-
-            {/* Slide Subtitle */}
-            <p className="text-sm sm:text-base text-slate-200 max-w-2xl font-normal leading-relaxed drop-shadow-xs">
-              {currentSlide.subtitle[langKey]}
-            </p>
-
-            {/* 4 Value Checkpoints */}
-            <div className="grid sm:grid-cols-2 gap-2 pt-1 text-xs sm:text-sm font-medium text-slate-200">
-              {currentSlide.checkpoints[langKey].map((cp, idx) => (
-                <div key={idx} className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-rose-400 shrink-0" />
-                  <span className="line-clamp-1">{cp}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Slide Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <Link
-                href={currentSlide.primaryCta.href}
-                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-rose-950/60 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
-              >
-                <span>{currentSlide.primaryCta.label[langKey]}</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-
-              <Link
-                href={currentSlide.secondaryCta.href}
-                className="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider border border-white/20 backdrop-blur-md transition-all shadow-xs flex items-center gap-2"
-              >
-                <span>{currentSlide.secondaryCta.label[langKey]}</span>
-              </Link>
-
-              <a
-                href={`tel:${company.phoneDirect}`}
-                className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white transition-colors py-2 px-2"
-              >
-                <PhoneCall className="w-3.5 h-3.5 text-rose-400" />
-                <span>{company.phoneDisplay}</span>
-              </a>
-            </div>
+          {/* Slide Eyebrow Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-600/30 border border-rose-500/50 text-rose-300 text-xs font-bold tracking-wide shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-rose-400 animate-pulse" />
+            <span>{currentSlide.badge[langKey]}</span>
           </div>
 
-          {/* Right Column: Floating Specimen Showcase Card */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl bg-slate-900/80 border border-white/15 p-4 shadow-2xl backdrop-blur-md group select-none">
-              
-              {/* Highlight Badge */}
-              <div className="absolute -top-3 -right-2 bg-gradient-to-r from-rose-600 to-red-600 text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-lg border border-rose-400/30 flex items-center gap-1.5 z-30">
-                <Award className="w-3.5 h-3.5" />
-                <span>{currentSlide.featuredTag[langKey]}</span>
-              </div>
+          {/* Slide Headline */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.14] drop-shadow-md">
+            {currentSlide.headlinePrefix[langKey]}{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-red-400 to-amber-400">
+              {currentSlide.headlineHighlight[langKey]}
+            </span>{' '}
+            {currentSlide.headlineSuffix[langKey]}
+          </h1>
 
-              {/* Specimen Inspection Frame */}
-              <div className="relative h-56 sm:h-64 md:h-72 w-full rounded-xl overflow-hidden bg-slate-950">
-                <Image
-                  src={getAssetPath(currentSlide.specimenImage)}
-                  alt={currentSlide.featuredTitle[langKey]}
-                  fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-                
-                {/* Bottom Overlay Title & Deep-Link */}
-                <div className="absolute bottom-3 left-3 right-3 text-left">
-                  <span className="block text-[10px] font-bold text-rose-400 uppercase tracking-wider">
-                    {langKey === 'pt' ? 'Inspeção de Produção' : langKey === 'af' ? 'Produksie-Besonderheid' : 'Live Specimen Inspection'}
-                  </span>
-                  <h3 className="text-sm sm:text-base font-bold text-white leading-snug drop-shadow-md">
-                    {currentSlide.featuredTitle[langKey]}
-                  </h3>
-                  <p className="text-xs text-slate-300 mt-0.5 line-clamp-1">
-                    {currentSlide.featuredDesc[langKey]}
-                  </p>
-                  <div className="mt-2 flex items-center justify-between">
-                    <Link
-                      href={currentSlide.deepLink}
-                      className="inline-flex items-center gap-1.5 text-[11px] font-bold text-rose-400 hover:text-rose-300 transition-colors uppercase tracking-wider"
-                    >
-                      <span>{langKey === 'pt' ? 'Explorar no Lookbook' : langKey === 'af' ? 'Sien in Lookbook' : 'Inspect in Lookbook'}</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
+          {/* Slide Subtitle */}
+          <p className="text-sm sm:text-base text-slate-200 font-normal leading-relaxed drop-shadow-xs">
+            {currentSlide.subtitle[langKey]}
+          </p>
 
-              {/* 3-Column Metrics Underneath */}
-              <div className="mt-3 pt-2.5 border-t border-white/10 grid grid-cols-3 gap-2 text-center">
-                <div>
-                  <span className="block text-sm sm:text-base font-extrabold text-white">
-                    {currentSlide.stats.val1}
-                  </span>
-                  <span className="text-[10px] text-slate-400 uppercase tracking-wider">
-                    {currentSlide.stats.label1[langKey]}
-                  </span>
-                </div>
-                <div className="border-x border-white/10">
-                  <span className="block text-sm sm:text-base font-extrabold text-rose-400">
-                    {currentSlide.stats.val2}
-                  </span>
-                  <span className="text-[10px] text-slate-400 uppercase tracking-wider">
-                    {currentSlide.stats.label2[langKey]}
-                  </span>
-                </div>
-                <div>
-                  <span className="block text-sm sm:text-base font-extrabold text-white">
-                    {currentSlide.stats.val3}
-                  </span>
-                  <span className="text-[10px] text-slate-400 uppercase tracking-wider">
-                    {currentSlide.stats.label3[langKey]}
-                  </span>
-                </div>
+          {/* 4 Value Checkpoints */}
+          <div className="grid sm:grid-cols-2 gap-2 pt-1 text-xs sm:text-sm font-medium text-slate-200">
+            {currentSlide.checkpoints[langKey].map((cp, idx) => (
+              <div key={idx} className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-rose-400 shrink-0" />
+                <span className="line-clamp-1">{cp}</span>
               </div>
-
-            </div>
+            ))}
           </div>
 
+          {/* Slide Action Buttons */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <Link
+              href={currentSlide.primaryCta.href}
+              className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-rose-950/60 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
+            >
+              <span>{currentSlide.primaryCta.label[langKey]}</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href={currentSlide.secondaryCta.href}
+              className="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider border border-white/20 backdrop-blur-md transition-all shadow-xs flex items-center gap-2"
+            >
+              <span>{currentSlide.secondaryCta.label[langKey]}</span>
+            </Link>
+
+            <a
+              href={`tel:${company.phoneDirect}`}
+              className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white transition-colors py-2 px-2"
+            >
+              <PhoneCall className="w-3.5 h-3.5 text-rose-400" />
+              <span>{company.phoneDisplay}</span>
+            </a>
+          </div>
         </div>
       </div>
 

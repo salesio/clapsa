@@ -200,96 +200,67 @@ export default function CataloguesPage() {
             className="object-cover object-center scale-100"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/50 lg:to-slate-950/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/70" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-900/25 via-transparent to-transparent pointer-events-none" />
+          {/* Subtle Gradient Overlays for High Background Image Clarity */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/35 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/25 pointer-events-none" />
         </div>
         
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-16">
+          <div className="max-w-2xl lg:max-w-3xl p-6 sm:p-8 md:p-10 rounded-3xl bg-slate-950/75 backdrop-blur-md border border-white/15 shadow-2xl text-left space-y-6">
             
-            {/* Left Banner Column */}
-            <div className="lg:col-span-7 space-y-5 text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-600/30 border border-rose-500/50 text-rose-300 text-xs font-bold uppercase tracking-wider shadow-sm backdrop-blur-md">
-                <BookOpen className="w-3.5 h-3.5 text-rose-400" />
-                <span>{language === 'pt' ? 'Rede Oficial de Distribuição SADC' : 'Official SADC Wholesale Distribution'}</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight drop-shadow-md">
-                {language === 'pt' ? 'Catálogos Comerciais &' : 'Master Trade Catalogues &'}{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-red-400 to-amber-400">
-                  {language === 'pt' ? 'Especificações' : 'Wholesale Specs'}
-                </span>
-              </h1>
-
-              <p className="text-base sm:text-lg text-slate-200 max-w-2xl leading-relaxed drop-shadow-xs">
-                {language === 'pt'
-                  ? 'Acesso direto a mais de 10.000 produtos das principais fábricas da África do Sul. Veja abaixo as prévias dos catálogos oficiais atualizados para 2025/2026.'
-                  : 'Direct tier-1 access to over 10,000+ factory-direct products from Southern Africa’s premier manufacturers. Explore live preview covers and detailed specifications below.'}
-              </p>
-
-              {/* Banner Feature Pills */}
-              <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-semibold text-slate-200">
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">
-                  <ShieldCheck className="w-4 h-4 text-rose-400" />
-                  {language === 'pt' ? 'Preços de Fábrica SA' : 'Direct SA Wholesale Pricing'}
-                </span>
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">
-                  <Truck className="w-4 h-4 text-emerald-400" />
-                  {language === 'pt' ? 'Certificado de Origem SADC' : 'SADC Certificate of Origin'}
-                </span>
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">
-                  <Layers className="w-4 h-4 text-amber-400" />
-                  {language === 'pt' ? 'Bordados & Serigrafia Próprios' : 'In-House Branding Plant'}
-                </span>
-              </div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-600/30 border border-rose-500/50 text-rose-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+              <BookOpen className="w-3.5 h-3.5 text-rose-400" />
+              <span>{language === 'pt' ? 'Rede Oficial de Distribuição SADC' : 'Official SADC Wholesale Distribution'}</span>
             </div>
 
-            {/* Right Banner Column: Visual Stack of Catalogue Covers */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl bg-slate-900/85 border border-white/15 p-6 shadow-2xl backdrop-blur-md">
-                <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                    {language === 'pt' ? 'Coleções Principais' : 'Featured Master Covers'}
-                  </span>
-                  <span className="text-[11px] font-bold text-rose-400 bg-rose-500/20 px-2 py-0.5 rounded-md border border-rose-500/30">
-                    8 Catalogues
-                  </span>
-                </div>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight drop-shadow-md">
+              {language === 'pt' ? 'Catálogos Comerciais &' : 'Master Trade Catalogues &'}{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-red-400 to-amber-400">
+                {language === 'pt' ? 'Especificações' : 'Wholesale Specs'}
+              </span>
+            </h1>
 
-                {/* Overlapping Preview Mini-Grid */}
-                <div className="grid grid-cols-4 gap-2.5">
-                  {tradeCatalogues.slice(0, 4).map((item) => (
-                    <div key={item.id} className="relative aspect-[3/4] rounded-lg overflow-hidden bg-slate-950 border border-white/15 group">
-                      <Image
-                        src={getAssetPath(item.image)}
-                        alt={item.title}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent" />
-                      <span className="absolute bottom-1 left-1 right-1 text-[9px] font-bold text-white text-center truncate">
-                        {item.id.toUpperCase()}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed drop-shadow-xs">
+              {language === 'pt'
+                ? 'Acesso direto a mais de 10.000 produtos das principais fábricas da África do Sul. Veja abaixo as prévias dos catálogos oficiais atualizados para 2025/2026.'
+                : 'Direct tier-1 access to over 10,000+ factory-direct products from Southern Africa’s premier manufacturers. Explore live preview covers and detailed specifications below.'}
+            </p>
 
-                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
-                  <span>{language === 'pt' ? 'Tem um item específico?' : 'Need an unlisted code?'}</span>
-                  <a
-                    href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Hi CLAPSA, I have a specific product code from an SA catalogue that I need quoted.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-rose-400 font-bold hover:text-rose-300 flex items-center gap-1"
-                  >
-                    <span>{language === 'pt' ? 'Perguntar no WhatsApp' : 'Direct RFQ Inquiry'}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
+            {/* Banner Feature Pills */}
+            <div className="flex flex-wrap items-center gap-3 pt-1 text-xs font-semibold text-slate-200">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">
+                <ShieldCheck className="w-4 h-4 text-rose-400" />
+                {language === 'pt' ? 'Preços de Fábrica SA' : 'Direct SA Wholesale Pricing'}
+              </span>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">
+                <Truck className="w-4 h-4 text-emerald-400" />
+                {language === 'pt' ? 'Certificado de Origem SADC' : 'SADC Certificate of Origin'}
+              </span>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-white/15 backdrop-blur-md">
+                <Layers className="w-4 h-4 text-amber-400" />
+                {language === 'pt' ? 'Bordados & Serigrafia Próprios' : 'In-House Branding Plant'}
+              </span>
             </div>
 
+            {/* Quick CTAs */}
+            <div className="pt-2 flex flex-wrap items-center gap-3">
+              <a
+                href="#trade-catalogues"
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white text-xs font-bold uppercase tracking-wider shadow-xl shadow-rose-950/60 transition-all flex items-center gap-2"
+              >
+                <span>{language === 'pt' ? 'Explorar 8 Catálogos Oficiais' : 'Browse 8 Master Catalogues'}</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Hi CLAPSA, I have a catalogue code I want to quote.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all flex items-center gap-2"
+              >
+                <span>{language === 'pt' ? 'Cotar Código Direto' : 'Direct Code RFQ'}</span>
+                <ChevronRight className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
