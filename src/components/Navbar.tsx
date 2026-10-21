@@ -72,7 +72,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
       {/* Top Utility Bar */}
       <div className="bg-slate-950/95 text-slate-300 text-[11px] py-1.5 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80 hidden md:block backdrop-blur-md">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="max-w-[1440px] mx-auto flex justify-between items-center">
           
           {/* Left: Trust & Region Guarantee */}
           <div className="flex items-center gap-3">
@@ -119,16 +119,17 @@ export default function Navbar() {
 
       {/* Main Navigation Bar */}
       <nav 
+        style={{ fontFamily: "var(--font-plus-jakarta), var(--font-poppins), 'Plus Jakarta Sans', 'Poppins', sans-serif" }}
         className={`transition-all duration-300 ${
           isScrolled 
             ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl shadow-md py-2.5 border-b border-slate-200/90 dark:border-slate-800' 
             : 'bg-white/95 dark:bg-slate-950/90 backdrop-blur-md py-3.5 border-b border-slate-200/80 dark:border-slate-800/80 shadow-2xs'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-4">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex lg:grid lg:grid-cols-[1fr_auto_1fr] justify-between items-center gap-3">
           
           {/* Left: Brand Logo & Tagline */}
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
+          <Link href="/" className="flex items-center gap-3 group shrink-0 lg:justify-self-start">
             <div className="relative w-32 h-10 sm:w-36 sm:h-11 flex items-center">
               <Image
                 src={getAssetPath('/images/logo.png')}
@@ -138,7 +139,7 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <div className="hidden xl:flex flex-col pl-3 border-l border-slate-200 dark:border-slate-800 text-left">
+            <div className="hidden 2xl:flex flex-col pl-3 border-l border-slate-200 dark:border-slate-800 text-left">
               <span className="text-[11px] uppercase font-extrabold tracking-wider text-rose-600 dark:text-rose-500 leading-tight">
                 {t.nav.taglineProc}
               </span>
@@ -148,8 +149,8 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Center: Desktop Navigation Links Pill Dock */}
-          <div className="hidden lg:flex items-center gap-1 bg-slate-100/70 dark:bg-slate-900/60 p-1 rounded-2xl border border-slate-200/70 dark:border-slate-800/80 shadow-2xs">
+          {/* Center: Desktop Navigation Links Pill Dock (Centered & Uppercase) */}
+          <div className="hidden lg:flex items-center justify-center gap-1 bg-slate-100/70 dark:bg-slate-900/60 p-1 rounded-2xl border border-slate-200/70 dark:border-slate-800/80 shadow-2xs lg:justify-self-center mx-auto">
             {navLinks.map((link) => {
               const active = isActiveRoute(link.href);
               if (link.external) {
@@ -159,7 +160,7 @@ export default function Navbar() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 xl:px-3.5 py-1.5 rounded-xl text-xs xl:text-[13px] font-semibold transition-all duration-150 whitespace-nowrap text-slate-700 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-white/60 dark:hover:bg-slate-800/60 inline-flex items-center gap-1"
+                    className="px-2.5 xl:px-3.5 py-1.5 rounded-xl text-[11px] xl:text-xs font-bold uppercase tracking-wider transition-all duration-150 whitespace-nowrap text-slate-700 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-white/60 dark:hover:bg-slate-800/60 inline-flex items-center gap-1"
                   >
                     <span>{link.label}</span>
                     <ArrowUpRight className="w-3 h-3 opacity-70" />
@@ -170,10 +171,10 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`px-3 xl:px-3.5 py-1.5 rounded-xl text-xs xl:text-[13px] font-semibold transition-all duration-150 whitespace-nowrap ${
+                  className={`px-2.5 xl:px-3.5 py-1.5 rounded-xl text-[11px] xl:text-xs uppercase tracking-wider transition-all duration-150 whitespace-nowrap ${
                     active
-                      ? 'bg-white dark:bg-slate-800 text-rose-600 dark:text-rose-400 shadow-xs font-bold'
-                      : 'text-slate-700 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-white/60 dark:hover:bg-slate-800/60'
+                      ? 'bg-white dark:bg-slate-800 text-rose-600 dark:text-rose-400 shadow-xs font-extrabold'
+                      : 'font-bold text-slate-700 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-white/60 dark:hover:bg-slate-800/60'
                   }`}
                 >
                   {link.label}
@@ -183,7 +184,7 @@ export default function Navbar() {
           </div>
 
           {/* Right: Actions Cluster (Language + Theme + Quote Basket + CTA) */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <div className="flex items-center justify-end gap-1.5 sm:gap-2 shrink-0 lg:justify-self-end">
             
             {/* Language Selector */}
             <LanguageSelector variant="navbar" />
@@ -209,7 +210,7 @@ export default function Navbar() {
               title="View Quote Request Basket"
             >
               <ShoppingBag className="w-4 h-4 text-rose-600 dark:text-rose-500 group-hover:scale-110 transition-transform" />
-              <span className="hidden sm:inline text-xs font-bold text-slate-800 dark:text-slate-200">
+              <span className="hidden 2xl:inline text-xs font-bold text-slate-800 dark:text-slate-200">
                 {t.nav.quote}
               </span>
               {totalItemsCount > 0 && (
@@ -224,7 +225,7 @@ export default function Navbar() {
               href="https://shop.clapsa.co.za"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 h-9 px-3 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/30 hover:border-amber-500/50 font-bold text-xs transition-all shadow-2xs whitespace-nowrap group"
+              className="hidden xl:inline-flex items-center gap-1 h-9 px-2.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/30 hover:border-amber-500/50 font-bold text-[11px] uppercase tracking-wider transition-all shadow-2xs whitespace-nowrap group"
               title="Browse our live online e-commerce shop"
             >
               <span>{t.nav.shopOnline}</span>
@@ -234,7 +235,7 @@ export default function Navbar() {
             {/* Primary Request a Quote CTA */}
             <Link
               href="/contact"
-              className="h-9 px-3.5 sm:px-4 rounded-xl bg-gradient-to-r from-rose-600 via-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-xs uppercase tracking-wider shadow-xs hover:shadow-md hover:shadow-rose-600/25 transition-all flex items-center gap-1.5 whitespace-nowrap active:scale-[0.98]"
+              className="h-9 px-3 sm:px-3.5 rounded-xl bg-gradient-to-r from-rose-600 via-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-[11px] xl:text-xs uppercase tracking-wider shadow-xs hover:shadow-md hover:shadow-rose-600/25 transition-all flex items-center gap-1 whitespace-nowrap active:scale-[0.98]"
             >
               <span>{t.nav.requestQuote}</span>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -272,7 +273,7 @@ export default function Navbar() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-between py-2.5 px-3.5 text-sm font-bold rounded-xl transition-colors text-slate-800 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-slate-100 dark:hover:bg-slate-900"
+                      className="flex items-center justify-between py-2.5 px-3.5 text-xs uppercase tracking-wider font-bold rounded-xl transition-colors text-slate-800 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-slate-100 dark:hover:bg-slate-900"
                     >
                       <span>{link.label}</span>
                       <ArrowUpRight className="w-4 h-4 opacity-70" />
@@ -284,7 +285,7 @@ export default function Navbar() {
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`block py-2.5 px-3.5 text-sm font-bold rounded-xl transition-colors ${
+                    className={`block py-2.5 px-3.5 text-xs uppercase tracking-wider font-bold rounded-xl transition-colors ${
                       active
                         ? 'bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400'
                         : 'text-slate-800 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-slate-100 dark:hover:bg-slate-900'
