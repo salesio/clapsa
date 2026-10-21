@@ -23,8 +23,8 @@ const SITE_URL = 'https://salesio.github.io/clapsa';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'CLAPSA Procurement | One Source Supply Solutions & Portfolio Showcase',
-  description: 'Premier South African procurement partner for corporate uniforms, high-density embroidery, certified SABS industrial PPE, branded gazebos/displays, and VIP corporate gifting across SADC.',
+  title: 'CLAPSA Procurement | One Source Supply, Brand Activations & PPE Solutions',
+  description: 'Premier South African & SADC procurement partner for custom branded gazebos, event activation kits, corporate uniforms, high-density embroidery, certified SABS industrial PPE, and VIP corporate gifting.',
   keywords: [
     'CLAPSA Procurement',
     'Corporate Uniforms South Africa',
@@ -40,16 +40,17 @@ export const metadata: Metadata = {
     icon: '/clapsa/images/logo-badge.png',
   },
   openGraph: {
-    title: 'CLAPSA Procurement | One Source Supply Solutions',
-    description: 'Corporate apparel, certified industrial PPE, outdoor displays, and VIP corporate gifts for leading enterprises in South Africa and SADC.',
+    title: 'CLAPSA Procurement | Brand Activations, Corporate Uniforms & SABS PPE',
+    description: 'Turnkey promotional gazebos & event displays, precision-branded corporate workwear, certified SABS industrial PPE, and VIP corporate gifting across South Africa & SADC.',
     url: SITE_URL,
     siteName: 'CLAPSA Procurement',
     images: [
       {
-        url: `${SITE_URL}/images/media/Unknown1.jpg`,
-        width: 1200,
-        height: 630,
-        alt: 'CLAPSA Procurement — Corporate Supply Solutions',
+        url: `${SITE_URL}/images/slides/Slides_clapsa.jpg`,
+        width: 1920,
+        height: 670,
+        type: 'image/jpeg',
+        alt: 'CLAPSA Procurement — Custom Gazebos, Brand Activations, Corporate Uniforms & Industrial PPE',
       },
     ],
     type: 'website',
@@ -57,9 +58,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CLAPSA Procurement | One Source Supply Solutions',
-    description: 'Corporate apparel, certified industrial PPE, outdoor displays, and VIP corporate gifts for leading enterprises in South Africa and SADC.',
-    images: [`${SITE_URL}/images/media/Unknown1.jpg`],
+    title: 'CLAPSA Procurement | Brand Activations, Corporate Uniforms & SABS PPE',
+    description: 'Turnkey promotional gazebos & event displays, precision-branded corporate workwear, certified SABS industrial PPE, and VIP corporate gifting across South Africa & SADC.',
+    images: [`${SITE_URL}/images/slides/Slides_clapsa.jpg`],
   },
 };
 
