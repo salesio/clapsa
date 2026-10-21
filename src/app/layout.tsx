@@ -73,7 +73,7 @@ export default function RootLayout({
       lang="en"
       className={`${plusJakartaSans.variable} ${poppins.variable} scroll-smooth antialiased`}
     >
-      <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans min-h-screen flex flex-col selection:bg-rose-500 selection:text-white transition-colors duration-200">
+      <body className={`${plusJakartaSans.className} bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans min-h-screen flex flex-col selection:bg-rose-500 selection:text-white transition-colors duration-200`}>
         <ThemeProvider>
           <LanguageProvider>
             <ContentProvider>

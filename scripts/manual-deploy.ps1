@@ -7,6 +7,8 @@ $tempDir = Join-Path $env:TEMP "clapsa-clean-deploy"
 if (Test-Path $tempDir) { Remove-Item $tempDir -Recurse -Force }
 
 $repoRoot = (Resolve-Path "$PSScriptRoot\..").Path
+$latestMsg = git -C $repoRoot log -1 --pretty=%s
+if (-not $latestMsg) { $latestMsg = "Update static export" }
 
 # Clone gh-pages from local repo
 Push-Location $env:TEMP
@@ -32,7 +34,7 @@ New-Item -Path ".nojekyll" -ItemType File -Force | Out-Null
 
 # Commit and push
 git add -A
-git commit -m "Deploy: 3-slide hero slideshow, page banners, and master trade catalogues"
+git commit -m "Deploy to gh-pages: $latestMsg"
 git push origin gh-pages
 
 Pop-Location

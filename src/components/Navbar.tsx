@@ -72,7 +72,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
       {/* Top Utility Bar */}
       <div className="bg-slate-950/95 text-slate-300 text-[11px] py-1.5 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80 hidden md:block backdrop-blur-md">
-        <div className="max-w-[1440px] mx-auto flex justify-between items-center">
+        <div className="max-w-[1680px] mx-auto flex justify-between items-center">
           
           {/* Left: Trust & Region Guarantee */}
           <div className="flex items-center gap-3">
@@ -126,7 +126,7 @@ export default function Navbar() {
             : 'bg-white/95 dark:bg-slate-950/90 backdrop-blur-md py-3.5 border-b border-slate-200/80 dark:border-slate-800/80 shadow-2xs'
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex lg:grid lg:grid-cols-[1fr_auto_1fr] justify-between items-center gap-3">
+        <div className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 flex lg:grid lg:grid-cols-[1fr_auto_1fr] justify-between items-center gap-3">
           
           {/* Left: Brand Logo & Tagline */}
           <Link href="/" className="flex items-center gap-3 group shrink-0 lg:justify-self-start">
