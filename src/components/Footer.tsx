@@ -110,7 +110,10 @@ export default function Footer() {
                 <Link href="/services" className="hover:text-rose-400 transition-colors">{t.nav.capabilities}</Link>
               </li>
               <li>
-                <Link href="/logistics" className="hover:text-rose-400 transition-colors">{t.nav.logistics}</Link>
+                <a href="https://salesio.github.io/saprolo/index.html" target="_blank" rel="noopener noreferrer" className="hover:text-rose-400 transition-colors inline-flex items-center gap-1">
+                  <span>{t.nav.logistics}</span>
+                  <ExternalLink className="w-3 h-3 opacity-70" />
+                </a>
               </li>
               <li>
                 <Link href="/gallery" className="hover:text-rose-400 transition-colors">{t.nav.lookbook || 'Showcase Gallery'}</Link>
@@ -143,7 +146,10 @@ export default function Footer() {
                 <Link href="/services" className="hover:text-rose-400 transition-colors">{t.portfolio.tabs.display}</Link>
               </li>
               <li>
-                <Link href="/logistics" className="hover:text-rose-400 transition-colors">{t.nav.logistics}</Link>
+                <a href="https://salesio.github.io/saprolo/index.html" target="_blank" rel="noopener noreferrer" className="hover:text-rose-400 transition-colors inline-flex items-center gap-1">
+                  <span>{t.nav.logistics}</span>
+                  <ExternalLink className="w-3 h-3 opacity-70" />
+                </a>
               </li>
               <li>
                 <a 

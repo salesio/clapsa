@@ -384,11 +384,13 @@ export default function ShowcaseSection() {
 
                 <Link
                   href={currentItem.deepLink || `/gallery?category=${currentItem.category}`}
+                  target={(currentItem.deepLink || '').startsWith('http') ? '_blank' : undefined}
+                  rel={(currentItem.deepLink || '').startsWith('http') ? 'noopener noreferrer' : undefined}
                   onClick={() => setSelectedItemIndex(null)}
                   className="w-full py-2.5 px-4 rounded-xl bg-rose-50 dark:bg-rose-950/50 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800 text-xs font-bold text-center transition-all flex items-center justify-center gap-2"
                 >
                   <span>
-                    {currentItem.deepLink === '/logistics' 
+                    {(currentItem.deepLink || '').includes('saprolo') 
                       ? (language === 'pt' ? 'Explorar Hub de Logística & Cargas' : 'Explore Cross-Border Logistics Hub') 
                       : (language === 'pt' ? 'Ver Todos os Trabalhos Relacionados' : 'View All Related Category Works')}
                   </span>

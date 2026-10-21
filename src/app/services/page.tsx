@@ -235,7 +235,7 @@ export default function ServicesPage() {
       ],
       leadTime: '24 - 72 Hours',
       moq: '1 Parcel',
-      lookbookLink: '/logistics'
+      lookbookLink: 'https://salesio.github.io/saprolo/index.html'
     }
   ];
 
@@ -427,9 +427,11 @@ export default function ServicesPage() {
                 <div className="p-6 sm:p-8 pt-0 flex flex-wrap items-center gap-2.5">
                   <Link
                     href={cap.lookbookLink}
+                    target={cap.lookbookLink.startsWith('http') ? '_blank' : undefined}
+                    rel={cap.lookbookLink.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="py-2.5 px-3.5 rounded-xl bg-rose-50 dark:bg-rose-950/60 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800 text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5"
                   >
-                    <span>{cap.lookbookLink === '/logistics' ? 'Logistics Hub' : 'View Real Works'}</span>
+                    <span>{cap.lookbookLink.includes('saprolo') ? 'Logistics Hub' : 'View Real Works'}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
 

@@ -446,7 +446,7 @@ const HERO_SLIDES: SlideData[] = [
         pt: 'Hub de Logística / Envie Connosco',
         af: 'Verskeep Met Ons / Logistieke Hub',
       },
-      href: '/logistics',
+      href: 'https://salesio.github.io/saprolo/index.html',
     },
     secondaryCta: {
       label: {
@@ -481,7 +481,7 @@ const HERO_SLIDES: SlideData[] = [
       val3: '10,000+',
       label3: { en: 'Catalogue SKUs', pt: 'Produtos', af: 'Katalogus-Items' },
     },
-    deepLink: '/logistics'
+    deepLink: 'https://salesio.github.io/saprolo/index.html'
   }
 ];
 

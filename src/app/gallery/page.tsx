@@ -501,12 +501,14 @@ function GalleryContent() {
           >
             🎁 {language === 'pt' ? 'Brindes VIP & Embalagens' : 'VIP Gifting & Packaging'}
           </button>
-          <Link
-            href="/logistics"
+          <a
+            href="https://salesio.github.io/saprolo/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/30 hover:bg-amber-500/20 flex items-center gap-1"
           >
             📦 {language === 'pt' ? 'Logística & Frete Transfronteiriço ↗' : 'Cross-Border Logistics Hub ↗'}
-          </Link>
+          </a>
         </div>
 
         {/* Selected Job Banner Alert (if user clicked into a specific job) */}

@@ -104,9 +104,11 @@ export default function ServicesSection() {
                 <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
                   <Link
                     href={(service as any).deepLink || '/gallery'}
+                    target={((service as any).deepLink || '').startsWith('http') ? '_blank' : undefined}
+                    rel={((service as any).deepLink || '').startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="font-bold text-slate-700 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 flex items-center gap-1 transition-colors group-hover:translate-x-0.5"
                   >
-                    <span>{(service as any).deepLink === '/logistics' ? (language === 'pt' ? 'Hub Logístico' : 'Logistics Hub') : (language === 'pt' ? 'Ver Trabalhos' : 'View Real Works')}</span>
+                    <span>{((service as any).deepLink || '').includes('saprolo') ? (language === 'pt' ? 'Hub Logístico' : 'Logistics Hub') : (language === 'pt' ? 'Ver Trabalhos' : 'View Real Works')}</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-rose-500" />
                   </Link>
 

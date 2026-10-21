@@ -106,7 +106,7 @@ export const SERVICES = [
       'Warehousing and staged delivery schedules',
       'Dedicated account manager for corporate contracts'
     ],
-    deepLink: '/logistics'
+    deepLink: 'https://salesio.github.io/saprolo/index.html'
   }
 ];
 

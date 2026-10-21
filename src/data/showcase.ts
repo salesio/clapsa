@@ -180,7 +180,7 @@ export const SHOWCASE_ITEMS: ShowcaseItem[] = [
     clientOrContext: 'CLAPSA Sandton SADC Logistics Hub',
     highlights: ['40ft Maritime High-Cube Container Stuffing', 'Automated Turntable Pallet Stretch Wrapping', 'Cross-Border SADC Phytosanitary Clearances', 'Bonded Freight Transport to Mozambique & SADC'],
     description: 'Complete cross-border freight handling and container stuffing for wholesale corporate garment and signage dispatches from Johannesburg.',
-    deepLink: '/logistics'
+    deepLink: 'https://salesio.github.io/saprolo/index.html'
   },
 
   // 4. VIP Corporate Gifting, Packaging & Lanyards

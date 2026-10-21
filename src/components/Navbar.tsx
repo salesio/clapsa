@@ -51,16 +51,17 @@ export default function Navbar() {
   }, [pathname]);
 
   const navLinks = [
-    { label: t.nav.home, href: '/' },
-    { label: t.nav.aboutUs, href: '/about' },
-    { label: t.nav.capabilities, href: '/services' },
-    { label: t.nav.logistics, href: '/logistics' },
-    { label: t.nav.lookbook || 'Showcase Gallery', href: '/gallery' },
-    { label: t.nav.catalogues, href: '/catalogues' },
-    { label: t.nav.contact, href: '/contact' },
+    { label: t.nav.home, href: '/', external: false },
+    { label: t.nav.aboutUs, href: '/about', external: false },
+    { label: t.nav.capabilities, href: '/services', external: false },
+    { label: t.nav.logistics, href: 'https://salesio.github.io/saprolo/index.html', external: true },
+    { label: t.nav.lookbook || 'Showcase Gallery', href: '/gallery', external: false },
+    { label: t.nav.catalogues, href: '/catalogues', external: false },
+    { label: t.nav.contact, href: '/contact', external: false },
   ];
 
   const isActiveRoute = (href: string) => {
+    if (href.startsWith('http')) return false;
     if (href === '/') {
       return pathname === '/' || pathname === '';
     }
@@ -151,6 +152,20 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-1 bg-slate-100/70 dark:bg-slate-900/60 p-1 rounded-2xl border border-slate-200/70 dark:border-slate-800/80 shadow-2xs">
             {navLinks.map((link) => {
               const active = isActiveRoute(link.href);
+              if (link.external) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 xl:px-3.5 py-1.5 rounded-xl text-xs xl:text-[13px] font-semibold transition-all duration-150 whitespace-nowrap text-slate-700 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-white/60 dark:hover:bg-slate-800/60 inline-flex items-center gap-1"
+                  >
+                    <span>{link.label}</span>
+                    <ArrowUpRight className="w-3 h-3 opacity-70" />
+                  </a>
+                );
+              }
               return (
                 <Link
                   key={link.label}
@@ -249,6 +264,21 @@ export default function Navbar() {
             <div className="space-y-1">
               {navLinks.map((link) => {
                 const active = isActiveRoute(link.href);
+                if (link.external) {
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between py-2.5 px-3.5 text-sm font-bold rounded-xl transition-colors text-slate-800 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-slate-100 dark:hover:bg-slate-900"
+                    >
+                      <span>{link.label}</span>
+                      <ArrowUpRight className="w-4 h-4 opacity-70" />
+                    </a>
+                  );
+                }
                 return (
                   <Link
                     key={link.label}
