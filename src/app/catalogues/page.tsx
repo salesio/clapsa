@@ -194,15 +194,15 @@ export default function CataloguesPage() {
         {/* Full-Bleed 1920x670 Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src={getAssetPath('/images/showcase/clapsa-corporate-new-arrivals-banner.jpg')}
+            src={getAssetPath('/images/slides/Slides_clapsa_03.png')}
             alt="CLAPSA Master Trade Catalogues & Wholesale Network"
             fill
             className="object-cover object-center scale-100"
             priority
           />
           {/* Subtle Gradient Overlays for High Background Image Clarity */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/35 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/25 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/45 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-950/15 pointer-events-none" />
         </div>
         
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-16">

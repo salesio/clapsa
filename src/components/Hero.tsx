@@ -104,64 +104,64 @@ interface SlideData {
 
 const HERO_SLIDES: SlideData[] = [
   {
-    id: 'corporate-fleet',
+    id: 'event-activations-displays',
     tabLabel: {
-      en: '01. Corporate & Fleet',
-      pt: '01. Corporativo & Frotas',
-      af: '01. Korporatief & Vloot',
+      en: '01. Displays & Activations',
+      pt: '01. Eventos & Expositores',
+      af: '01. Uitstallings & Aktiverings',
     },
     badge: {
-      en: 'Corporate Identity & Commercial Fleet Branding',
-      pt: 'Identidade Corporativa & Branding de Frotas',
-      af: 'Korporatiewe Identiteit & Handelsmerk-Vloot',
+      en: 'Gazebos, Roll-Up Banners, Promo Counters & Event Gear',
+      pt: 'Gazebos, Roll-Ups, Balcões Promocionais & Eventos',
+      af: 'Gazebos, Banierstaanders & Handelsmerk-Uitstallings',
     },
     headlinePrefix: {
-      en: 'Corporate Apparel, Precision Embroidery &',
-      pt: 'Uniformes Corporativos, Bordados Tajima &',
-      af: 'Korporatiewe Klere, Presisie Borduurwerk &',
+      en: 'Complete Outdoor Gazebos, Roll-Ups &',
+      pt: 'Gazebos Personalizados, Roll-Ups &',
+      af: 'Volledige Buitelug Gazebos, Baniere &',
     },
     headlineHighlight: {
-      en: 'Commercial Fleet Wraps',
-      pt: 'Branding de Viaturas',
-      af: 'Kommersiële Vloot-Omslae',
+      en: 'Brand Activation Kits',
+      pt: 'Kits de Ativação de Marca',
+      af: 'Handelsmerk-Aktiveringstelle',
     },
     headlineSuffix: {
-      en: 'That Build Unmatched Market Authority.',
-      pt: 'Com Presença e Durabilidade SADC.',
-      af: 'Wat Markgesag Bou.',
+      en: 'Engineered for Maximum Impact.',
+      pt: 'Para Eventos de Alto Impacto.',
+      af: 'Gebou vir Maksimum Impak.',
     },
     subtitle: {
-      en: 'Turnkey uniform programs for leaders like Standard Bank, automated micro-stitch crest embroidery, and weather-tested commercial vehicle wraps engineered for maximum visibility across South Africa & Mozambique.',
-      pt: 'Programas de fardamento executivo para líderes como o Standard Bank, bordados micro-stitch de alta densidade e envelopamento duradouro de frotas comerciais em toda a África do Sul e Moçambique.',
-      af: 'Omvattende klereprogramme vir leiers soos Standard Bank, outomatiese mikro-steek borduurwerk en duursame vloot-grafika vir Suid-Afrika en Mosambiek.',
+      en: 'Turnkey promotional setups including waterproof sublimated gazebos, roll-up banners, pop-up A-frames, promo counters, branded tablecloths, caps, and event apparel.',
+      pt: 'Soluções completas para ativações de marca: tendas gazebo sublimadas, roll-ups, pop-ups horizontais, balcões promocionais, toalhas de mesa, bonés e t-shirts.',
+      af: 'Omvattende promosie-uitstallings insluitend waterdigte gazebos, rolbaniere, opslaan-rame, toonbanke, pette en geleentheidsklere.',
     },
     checkpoints: {
       en: [
-        'Standard Bank Executive Crest Pique Golfers',
-        'Full Commercial Fleet & Vehicle Vinyl Branding',
-        'Automated Computerized Micro-Stitch Embroidery',
-        'Turnkey Cross-Border Distribution to Mozambique'
+        'Waterproof Sublimated Event Gazebos & Tents',
+        'Roll-Up Banners, Teardrop Flags & Pop-Up A-Frames',
+        'Branded Promotional Counters & Fitted Tablecloths',
+        'Matching Event Caps, T-Shirts & Campaign Kits'
       ],
       pt: [
-        'Polos Piquet Executivos Standard Bank',
-        'Branding Integral de Frotas & Viaturas Comerciais',
-        'Bordados Computorizados de Alta Densidade',
-        'Distribuição Direta para Moçambique e Região'
+        'Tendas Gazebo Sublimadas Impermeáveis à Medida',
+        'Banners Roll-Up, Bandeiras Gota & Pop-Up A-Frame',
+        'Balcões de Degustação & Toalhas de Mesa Personalizadas',
+        'Bonés, T-Shirts e Fardamento Completo para Eventos'
       ],
       af: [
-        'Standard Bank Uitvoerende Gholfhemde',
-        'Volledige Kommersiële Vloot Viniel-Omslae',
-        'Outomatiese Tajima Presisie Borduurwerk',
-        'Oorgrensvrag na Mosambiek en SADC'
+        'Waterdigte Sublimasie Geleentheids-Gazebos',
+        'Rolbaniere, Traanvlae & Opslaan A-Rame',
+        'Handelsmerk Promosietoonbanke & Tafeldoeke',
+        'Bypassende Pette, T-Hemde & Veldtogstelle'
       ]
     },
     primaryCta: {
       label: {
-        en: 'Explore Fleet & Corporate Lookbook',
-        pt: 'Ver Trabalhos de Frotas & Bordados',
-        af: 'Verken Vloot & Korporatiewe Werk',
+        en: 'Explore Displays & Lookbook',
+        pt: 'Ver Expositores no Lookbook',
+        af: 'Verken Uitstallings & Werk',
       },
-      href: '/gallery?category=signage&q=fleet',
+      href: '/gallery?category=display',
     },
     secondaryCta: {
       label: {
@@ -172,177 +172,272 @@ const HERO_SLIDES: SlideData[] = [
       href: '/catalogues',
     },
     featuredTag: {
-      en: 'Enterprise Fleet & Identity',
-      pt: 'Identidade & Frotas',
-      af: 'Vloot & Identiteit',
+      en: 'Outdoor & Event Branding',
+      pt: 'Eventos & Publicidade Exterior',
+      af: 'Buitelug & Geleenthede',
     },
     featuredTitle: {
-      en: 'PYB Logistics Commercial Fleet Wraps & Standard Bank Golfers',
-      pt: 'Envelopamento de Frotas PYB & Polos Executivos Standard Bank',
-      af: 'PYB Logistiek Vloot-Omslae & Standard Bank Gholfhemde',
+      en: 'Relaxo, Owara & Bahamas Full Brand Activation Suite',
+      pt: 'Kit Completo de Ativação Relaxo, Owara & Bahamas',
+      af: 'Relaxo, Owara & Bahamas Handelsmerk-Uitstalling',
     },
     featuredDesc: {
-      en: 'Heavy-gauge cast vinyl with UV over-laminate + 12-color computerized micro-stitch embroidery.',
-      pt: 'Vinil fundido com laminação UV anti-risco + bordado Tajima de 12 agulhas.',
-      af: 'UV-beskermde viniel-omslae en hoë-digtheid rekenaarborduurwerk.',
+      en: 'Full-color UV-resistant dye sublimation on heavy-duty canvas gazebos, banners, and event counters.',
+      pt: 'Sublimação de alta definição resistente a UV em tendas, banners, balcões e têxteis promocionais.',
+      af: 'UV-bestande kleurstofsublimasie op swaardiens gazebos, baniere en toonbanke.',
     },
-    backgroundImage: '/images/gallery/pyb-commercial-vehicle-vinyl-branding.webp',
-    specimenImage: '/images/gallery/executive-pique-golf-shirts-embroidery.webp',
+    backgroundImage: '/images/slides/Slides_clapsa.png',
+    specimenImage: '/images/gallery/elaxo-sublimated-gazebo-and-tablecloth.webp',
     stats: {
       val1: '1,500+',
-      label1: { en: 'Deployments', pt: 'Entregas', af: 'Ontplooiings' },
-      val2: '12-Needle',
-      label2: { en: 'Micro-Stitch', pt: 'Bordado HD', af: 'Mikro-Steek' },
+      label1: { en: 'Event Kits', pt: 'Kits de Evento', af: 'Uitstallings' },
+      val2: '100% UV',
+      label2: { en: 'Weatherproof', pt: 'Resistente UV', af: 'Weerbestand' },
       val3: 'SADC',
-      label3: { en: 'Transit', pt: 'Trânsito', af: 'Vragvervoer' },
+      label3: { en: 'Delivery', pt: 'Entrega SADC', af: 'Aflewering' },
     },
-    deepLink: '/gallery?category=signage&q=fleet'
+    deepLink: '/gallery?category=display'
   },
   {
-    id: 'safety-road-signs',
+    id: 'corporate-fleet',
     tabLabel: {
-      en: '02. Safety & Road Signs',
-      pt: '02. Segurança & Sinais',
-      af: '02. Veiligheid & Padtekens',
+      en: '02. Fleet & Vehicle Wraps',
+      pt: '02. Branding de Viaturas',
+      af: '02. Vloot & Voertuig-Omslae',
     },
     badge: {
-      en: 'SABS 434 Certified PPE & Heavy Civil Infrastructure',
-      pt: 'EPI Certificado SABS 434 & Sinalização Rodoviária',
-      af: 'SABS 434 Veiligheid & Siviele Padtekens',
+      en: 'Commercial Fleet Vinyl Wrapping & Corporate Identity',
+      pt: 'Envelopamento de Frotas Comerciais & Identidade Visual',
+      af: 'Kommersiële Vloot Viniel-Omslae & Identiteit',
     },
     headlinePrefix: {
-      en: 'SABS-Certified Flame Conti Suits, Armor &',
-      pt: 'Fatos-Macaco SABS Retardantes de Chama, Coletes &',
-      af: 'SABS-Vlamvertragende Oorpakke, Pantser &',
+      en: 'High-Durability Cast Vinyl &',
+      pt: 'Vinil Automóvel de Alta Durabilidade &',
+      af: 'Hoë-Duursaamheid Voertuigviniel &',
     },
     headlineHighlight: {
-      en: 'Civil Detour Road Signs',
-      pt: 'Sinalização Rodoviária',
-      af: 'Siviele Padtekens',
+      en: 'Commercial Fleet Branding',
+      pt: 'Branding de Viaturas e Frotas',
+      af: 'Kommersiële Vloot-Handelsmerk',
     },
     headlineSuffix: {
-      en: 'Built for High-Risk Environments.',
-      pt: 'Engenharia para Ambientes Críticos.',
-      af: 'Gebou vir Hoë-Risiko Omgewings.',
+      en: 'That Turns Every Mile Into Reach.',
+      pt: 'Que Destaca a Sua Empresa nas Estradas.',
+      af: 'Wat Elke Kilometer Laat Tel.',
     },
     subtitle: {
-      en: 'Gauteng Provincial Government D59 flame-and-acid retardant conti suits, G4S modular ballistic tactical carriers, and engineer-grade retroreflective road construction and detour signboards.',
-      pt: 'Fatos-macaco D59 retardantes de chamas e ácidos para o Governo Provincial de Gauteng, coletes táticos balísticos modulares G4S e painéis refletores de obras e desvios rodoviários.',
-      af: 'Gauteng Provinsiale Regering D59 vlam- en suurvertragende oorpakke, G4S taktiese ballistiese draers en hoë-intensiteit weerkaatsende padtekens.',
+      en: 'Precision contour-cut vehicle graphics, full bakkie and commercial car wraps, and UV-laminated fleet decals engineered for long-term resilience across South Africa and Mozambique.',
+      pt: 'Envelopamento parcial e integral de carrinhas, viaturas comerciais e frotas corporativas com vinil fundido e laminação proteção UV para a África do Sul e Moçambique.',
+      af: 'Presisie-gesnyde voertuiggrafika, bakkie- en vloot-omslae met UV-laminering vir Suid-Afrika en Mosambiek.',
     },
     checkpoints: {
       en: [
-        'SABS 434 & 1519 Certified Flame Retardant Workwear',
-        'Heavy-Duty Desvio / Detour High-Intensity Reflective Signs',
-        'G4S Security Level IV Tactical Ballistic Carrier Outfitting',
-        'Industrial Steel-Toe Safety Footwear & Head Protection'
+        'Full & Partial Commercial Bakkie & Sedan Vinyl Wraps',
+        'High-Gloss UV Over-Laminate Against Harsh Sun',
+        'Precision Contour-Cut Decals & Contact Lettering',
+        'Turnkey Fleet Branding in Johannesburg & Maputo'
       ],
       pt: [
-        'Fatos-Macaco SABS 434 & 1519 Retardantes de Chama e Ácido',
-        'Painéis Rodoviários de Desvio & Chevrons Alta Reflectividade',
-        'Coletes Balísticos Modulares Nível IV para Segurança G4S',
-        'Calçado de Segurança Biqueira de Aço & Capacetes SABS'
+        'Envelopamento Total e Parcial de Carrinhas e Viaturas',
+        'Laminação Protetora UV Contra Sol Intenso e Chuva',
+        'Recorte Eletrónico de Precisão e Logótipos Corporativos',
+        'Aplicação Profissional para Frotas em SA e Moçambique'
       ],
       af: [
-        'SABS 434 & 1519 Gesertifiseerde Werkklere',
-        'Swaar Desvio / Herleiding Hoë-Weerkaatsing Padtekens',
-        'G4S Taktiese Ballistiese Draers en Sekuriteitsklere',
-        'SABS Veiligheidsskoene en Konstruksiehelms'
+        'Volledige & Gedeeltelike Bakkie en Vloot Viniel-Omslae',
+        'Hoë-Glans UV-Beskermende Laminering',
+        'Presisie-Gesnyde Plakkers & Korporatiewe Skrif',
+        'Professionele Vloot-Installasie in SA & Mosambiek'
       ]
     },
     primaryCta: {
       label: {
-        en: 'Inspect Safety Gear & Road Signs',
-        pt: 'Ver Sinais de Estrada & EPIs',
-        af: 'Ondersoek Padtekens & Veiligheid',
+        en: 'Explore Fleet Branding Lookbook',
+        pt: 'Ver Trabalhos de Viaturas & Frotas',
+        af: 'Verken Vloot-Handelsmerk Werk',
+      },
+      href: '/gallery?category=signage&q=fleet',
+    },
+    secondaryCta: {
+      label: {
+        en: 'Request Fleet Quote',
+        pt: 'Pedir Cotação de Frota',
+        af: 'Vra Vloot-Kwotasie',
+      },
+      href: '/contact',
+    },
+    featuredTag: {
+      en: 'Enterprise Fleet Graphics',
+      pt: 'Branding de Frotas',
+      af: 'Vloot-Grafika',
+    },
+    featuredTitle: {
+      en: 'TTN Security Bakkie & PYB Commercial Fleet Wraps',
+      pt: 'Viaturas Comerciais TTN Security & PYB Branding',
+      af: 'TTN Sekuriteit Bakkie & PYB Kommersiële Vloot',
+    },
+    featuredDesc: {
+      en: 'Heavy-gauge cast automotive vinyl with UV laminate for long-lasting fleet visibility.',
+      pt: 'Vinil automóvel fundido de alta aderência com proteção UV anti-desbotamento.',
+      af: 'Swaardiens gegote motorviniel met UV-laminering vir langdurige sigbaarheid.',
+    },
+    backgroundImage: '/images/slides/Slides_clapsa_02.png',
+    specimenImage: '/images/gallery/pyb-commercial-vehicle-vinyl-branding.webp',
+    stats: {
+      val1: '5+ Years',
+      label1: { en: 'UV Durability', pt: 'Durabilidade UV', af: 'UV-Duursaamheid' },
+      val2: 'Cast Vinyl',
+      label2: { en: 'Automotive Grade', pt: 'Grau Automóvel', af: 'Motor-Graad' },
+      val3: 'SADC',
+      label3: { en: 'Fleet Support', pt: 'Apoio a Frotas', af: 'Vloot-Diens' },
+    },
+    deepLink: '/gallery?category=signage&q=fleet'
+  },
+  {
+    id: 'signage-drinkware-campaigns',
+    tabLabel: {
+      en: '03. Road Signs & Campaigns',
+      pt: '03. Sinalização & Campanhas',
+      af: '03. Padtekens & Veldtogte',
+    },
+    badge: {
+      en: 'Reflective Road Signs, Drinkware & Campaign Merchandise',
+      pt: 'Sinalização Rodoviária, Brindes & Material de Campanha',
+      af: 'Weerkaatsende Padtekens, Drinkware & Veldtogte',
+    },
+    headlinePrefix: {
+      en: 'Civil Detour Road Signs, Custom Drinkware &',
+      pt: 'Sinais de Estrada Refletores, Garrafas &',
+      af: 'Siviele Padtekens, Drinkware &',
+    },
+    headlineHighlight: {
+      en: 'Mass Campaign Apparel',
+      pt: 'Têxteis de Grande Volume',
+      af: 'Massa Veldtogklere',
+    },
+    headlineSuffix: {
+      en: 'Delivered On Schedule.',
+      pt: 'Produzidos com Rigor Industrial.',
+      af: 'Stiptelik Afgelewer.',
+    },
+    subtitle: {
+      en: 'From SABS retroreflective chevron detour signboards for civil engineering to custom screen-printed sports bottles, drawstring backpacks, and high-volume campaign t-shirts.',
+      pt: 'Desde placas rodoviárias refletoras de desvio para obras públicas até garrafas desportivas personalizadas, sacos mochila e milhares de camisolas para campanhas e eventos.',
+      af: 'Van SABS weerkaatsende padtekens vir siviele werke tot gedrukte waterbottels,rugsakke en hoë-volume veldtog T-hemde.',
+    },
+    checkpoints: {
+      en: [
+        'High-Intensity Retroreflective Desvio / Chevron Road Signs',
+        'Custom Printed Sports Bottles, Mugs & Corporate Drinkware',
+        'Sublimated & Screen-Printed Drawstring Bags & T-Shirts',
+        'High-Speed Bulk Production for National Campaigns'
+      ],
+      pt: [
+        'Sinais de Desvio e Chevrons Refletores de Alta Intensidade',
+        'Garrafas Desportivas, Canecas e Brindes Personalizados',
+        'Sacos Mochila e Camisolas Estampadas em Grande Escala',
+        'Produção Rápida para Campanhas e Eventos Nacionais'
+      ],
+      af: [
+        'Hoë-Intensiteit Weerkaatsende Desvio / Chevron Padtekens',
+        'Gedrukte Sportbottels, Bekers & Korporatiewe Geskenke',
+        'Sublimasie & Skermgedrukte Rugsakke en T-Hemde',
+        'Hoë-Spoed Grootmaat Produksie vir Nasionale Veldtogte'
+      ]
+    },
+    primaryCta: {
+      label: {
+        en: 'Inspect Road Signs & Merch',
+        pt: 'Ver Sinais & Brindes no Lookbook',
+        af: 'Sien Padtekens & Produkte',
       },
       href: '/gallery?category=signage&q=road',
     },
     secondaryCta: {
       label: {
-        en: 'View Safety Capabilities',
-        pt: 'Capacidades de Segurança',
-        af: 'Sien Veiligheidsvermoëns',
+        en: 'View All Capabilities',
+        pt: 'Ver Todas as Capacidades',
+        af: 'Sien Alle Vermoëns',
       },
       href: '/services',
     },
     featuredTag: {
-      en: 'SABS 434 & Civil Infrastructure',
-      pt: 'SABS 434 & Infraestrutura',
-      af: 'SABS 434 & Infrastruktuur',
+      en: 'Signage & Mass Merchandising',
+      pt: 'Sinalização & Grandes Tiragens',
+      af: 'Padtekens & Grootmaat Drukwerk',
     },
     featuredTitle: {
-      en: 'Gauteng Government D59 Conti Suits & Civil Detour Signs',
-      pt: 'Fatos D59 Governo de Gauteng & Painéis de Desvio Rodoviário',
-      af: 'Gauteng Regering D59 Oorpakke & Siviele Herleidingstekens',
+      en: 'Desvio Chevron Road Signs, MLS Bottles & Campaign Kits',
+      pt: 'Placas de Desvio, Garrafas MLS & Kits de Campanha',
+      af: 'Desvio Padtekens, MLS Bottels & Veldtogstelle',
     },
     featuredDesc: {
-      en: 'Heavy-duty 100% cotton D59 with chemical treatment + galvanised steel road signs with micro-prismatic sheeting.',
-      pt: 'Tecido D59 100% algodão com tratamento retardante + chapa galvanizada com vinil micro-prismático refletor.',
-      af: 'D59 100% katoen chemiese behandeling en gegalvaniseerde staal padtekens.',
+      en: 'Galvanised steel road signage with prismatic reflective sheeting + precision screen printing.',
+      pt: 'Chapa galvanizada com película refletora prismática + serigrafia industrial de alta velocidade.',
+      af: 'Gegalvaniseerde staal padtekens met prismatiese weerkaatsing + presisie skermdruk.',
     },
-    backgroundImage: '/images/gallery/gauteng-province-flame-retardant-conti-suits.webp',
+    backgroundImage: '/images/slides/Slides_clapsa_03.png',
     specimenImage: '/images/gallery/desvio-reflective-chevron-road-signs.webp',
     stats: {
-      val1: 'SABS 434',
-      label1: { en: 'Compliance', pt: 'Certificação', af: 'Sertifisering' },
-      val2: '25,000+',
-      label2: { en: 'Suits Supplied', pt: 'Fatos Fornecidos', af: 'Pakke Verskaf' },
-      val3: 'Zero Defect',
-      label3: { en: 'QA Standard', pt: 'Qualidade Zero Defeito', af: 'Gehaltestandaard' },
+      val1: 'SABS 1519',
+      label1: { en: 'Road Spec', pt: 'Norma Rodoviária', af: 'Padstandaard' },
+      val2: '50,000+',
+      label2: { en: 'Units / Run', pt: 'Unidades / Lote', af: 'Eenhede' },
+      val3: 'Fast-Track',
+      label3: { en: 'Cross-Border', pt: 'Envio Expresso', af: 'Spoedvrag' },
     },
     deepLink: '/gallery?category=signage&q=road'
   },
   {
-    id: 'logistics-freight',
+    id: 'corporate-gifting-print-safety',
     tabLabel: {
-      en: '03. Cross-Border Freight',
-      pt: '03. Carga Transfronteiriça',
-      af: '03. Oorgrens Vragvervoer',
+      en: '04. Gifting, Print & Safety',
+      pt: '04. Brindes, Impressão & EPI',
+      af: '04. Geskenke, Druk & Veiligheid',
     },
     badge: {
-      en: 'Sandton Receiving Hub • Cross-Border Line-Haul',
-      pt: 'Hub de Sandton • Linha Direta para Moçambique',
-      af: 'Sandton Hub • Vrag na Mosambiek',
+      en: 'One-Source Corporate Gifting, Apparel Print & Traffic Safety',
+      pt: 'Fornecedor Único: Brindes, Serigrafia, Bandeiras & Segurança',
+      af: 'Een-Bron Korporatiewe Geskenke, Drukwerk & Veiligheid',
     },
     headlinePrefix: {
-      en: 'Ship With CLAPSA:',
-      pt: 'Envie com a CLAPSA:',
-      af: 'Verskeep Met CLAPSA:',
+      en: 'Executive Gift Bags, Branded Pens, Apparel &',
+      pt: 'Sacos Kraft, Canetas, T-Shirts, Bandeiras &',
+      af: 'Geskenksakke, Penne, Klere &',
     },
     headlineHighlight: {
-      en: 'Buy in South Africa, Delivered in Mozambique',
-      pt: 'Compre na África do Sul, Receba em Moçambique',
-      af: 'Koop in SA, Afgelewer in Mosambiek',
+      en: 'Road Safety Equipment',
+      pt: 'Equipamento de Segurança',
+      af: 'Padveiligheidstoerusting',
     },
     headlineSuffix: {
-      en: 'With SADC Customs Clearance.',
-      pt: 'Com Despacho Aduaneiro SADC.',
-      af: 'Met SADC Doeane-Uitklaring.',
+      en: 'From Our Sandton Hub to SADC.',
+      pt: 'Directamente da Fábrica para a SADC.',
+      af: 'Direk vanaf Ons Sandton-Hub.',
     },
     subtitle: {
-      en: 'Order equipment and inventory from any South African supplier and deliver directly to our Sandton warehouse. We inspect, consolidate, pallet-wrap, clear SADC customs, and haul directly to Maputo, Beira & beyond.',
-      pt: 'Compre produtos em qualquer fornecedor sul-africano e use o nosso entreposto de Sandton como endereço de entrega. Consolidamos, embalamos em paletes, tratamos do desalfandegamento SADC e transportamos para Moçambique.',
-      af: 'Bestel voorraad by enige Suid-Afrikaanse verskaffer en lewer af by ons Sandton-depot. Ons konsolideer, krimp-verpak, hanteer SADC doeane en vervoer direk na Mosambiek.',
+      en: 'Complete in-house production and wholesale supply: custom QR kraft gift bags, engraved executive pens, wide-format teardrop banners, screen-printed team shirts, and palletized road traffic cones.',
+      pt: 'Produção própria e fornecimento grossista: sacos de presente personalizados, canetas executivas, bandeiras gota e roll-ups, camisolas estampadas e cones de estrada refletivos em paletes.',
+      af: 'Volledige vervaardiging en groothandel: gedrukte geskenksakke, penne, traanvlae, skermgedrukte hemde en weerkaatsende padkeëls.',
     },
     checkpoints: {
       en: [
-        'Central Sandton / Johannesburg Receiving Address',
-        'Automated Turntable Stretch-Wrapping & Weatherproofing',
-        'SADC Certificate of Origin & Full Customs Clearance',
-        '24 to 72-Hour Express Consolidated Road Freight'
+        'Luxury Kraft Gift Bags & High-Volume Branded Pens',
+        'In-House Wide-Format Roll-Up & Teardrop Flag Plant',
+        'Multi-Color Carousel Screen Printing on Cotton T-Shirts',
+        'Palletized Road Traffic Cones & SADC Freight Consolidation'
       ],
       pt: [
-        'Endereço de Recepção Central em Sandton / Joanesburgo',
-        'Embalamento Automático de Paletes com Filme Estirável',
-        'Certificado de Origem SADC & Despacho Alfandegário Completo',
-        'Transporte Rodoviário Consolidado Expresso em 24 a 72 Horas'
+        'Sacos Kraft de Luxo & Canetas Promocionais Personalizadas',
+        'Gráfica de Grande Formato para Roll-Ups e Bandeiras Gota',
+        'Serigrafia Automática Multi-Cor em T-Shirts e Polos',
+        'Cones de Estrada Refletores & Consolidação de Carga SADC'
       ],
       af: [
-        'Sentrale Sandton / Johannesburg Ontvangsdepot',
-        'Outomatiese Pallet Krimp-Verpakking & Weerbestandheid',
-        'SADC Oorsprong-Sertifikaat & Volledige Doeane-Hantering',
-        '24 tot 72-uur Spoedvrag na Mosambiek en SADC'
+        'Luukse Kraft Geskenksakke & Handelsmerk Penne',
+        'Grootformaat Drukkery vir Rolbaniere & Traanvlae',
+        'Outomatiese Meerkleur Skermdruk op Katoen T-Hemde',
+        'Weerkaatsende Padkeëls & SADC Vragkonsolidasie'
       ]
     },
     primaryCta: {
@@ -355,36 +450,36 @@ const HERO_SLIDES: SlideData[] = [
     },
     secondaryCta: {
       label: {
-        en: 'Interactive Freight Calculator',
-        pt: 'Calculadora de Frete Online',
-        af: 'Aanlyn Vrag-Sakrekenaar',
+        en: 'Explore Full Lookbook',
+        pt: 'Ver Portfólio Completo',
+        af: 'Verken Volledige Werk',
       },
-      href: '/logistics#calculator',
+      href: '/gallery',
     },
     featuredTag: {
-      en: 'Bonded Logistics & Freight',
-      pt: 'Logística & Carga Alfandegada',
-      af: 'Vrag & Doeane-Hantering',
+      en: 'Turnkey Factory & Freight',
+      pt: 'Fábrica & Logística Integrada',
+      af: 'Fabriek & Vragdiens',
     },
     featuredTitle: {
-      en: '40ft Bonded Shipping Containers & Pan-African Express Haulage',
-      pt: 'Contentores de 40 Pés & Carga Rodoviária Pan-Africana',
-      af: '40vt Skeepshouers & Pan-Afrika Vragvervoer',
+      en: 'Mantra Packaging, Tropigalia Pens, Karina Flags & Road Cones',
+      pt: 'Sacos Mantra, Canetas Tropigalia, Bandeiras Karina & Cones',
+      af: 'Mantra Sakke, Tropigalia Penne, Karina Vlae & Padkeëls',
     },
     featuredDesc: {
-      en: 'Direct consolidated freight channels connecting Johannesburg HQ to Maputo, Matola, Beira, Nampula, and SADC.',
-      pt: 'Canais regulares de carga consolidada ligando Sandton a Maputo, Matola, Beira, Nampula e capitais SADC.',
-      af: 'Gereelde vragverbindings tussen Johannesburg, Maputo, Beira en SADC-bestemmings.',
+      en: 'Manufactured and consolidated at our Sandton facility for fast 24–72h cross-border delivery.',
+      pt: 'Produzido e consolidado em Sandton com despacho expresso em 24–72h para Moçambique.',
+      af: 'Vervaardig en gekonsolideer in Sandton vir 24–72u oorgrens-aflewering.',
     },
-    backgroundImage: '/images/gallery/shipping-container-clapsa-export-freight.webp',
-    specimenImage: '/videos/gallery/posters/automated-pallet-stretch-wrapping-dispatch.webp',
+    backgroundImage: '/images/slides/Slides_clapsa_04.png',
+    specimenImage: '/images/gallery/mantra-kraft-luxury-gift-bags.webp',
     stats: {
       val1: '24 - 72h',
       label1: { en: 'SADC Transit', pt: 'Trânsito SADC', af: 'SADC Vragtyd' },
       val2: 'Sandton HQ',
-      label2: { en: 'Receiving Hub', pt: 'Armazém Central', af: 'Ontvangsdepot' },
-      val3: '100%',
-      label3: { en: 'Bonded Freight', pt: 'Carga Alfandegada', af: 'Doeane-Geregistreer' },
+      label2: { en: 'Production Hub', pt: 'Centro Produtivo', af: 'Produksie-Hub' },
+      val3: '10,000+',
+      label3: { en: 'Catalogue SKUs', pt: 'Produtos', af: 'Katalogus-Items' },
     },
     deepLink: '/logistics'
   }
@@ -452,8 +547,8 @@ export default function Hero() {
               priority={idx === 0}
             />
             {/* Subtle Gradient Overlays for High Background Image Clarity */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/35 to-transparent pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/25 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/45 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-950/15 pointer-events-none" />
           </div>
         ))}
       </div>
